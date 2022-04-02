@@ -6,7 +6,7 @@ public class VariableNotDeclaredException extends Exception {
 	}
 	
 	public VariableNotDeclaredException(String var) {
-		super("Variable " + var + " not declared");
+		super(String.format("Variable '%s' not declared", var));
 	}
 	
 }

@@ -10,14 +10,8 @@ import java.util.HashMap;
  */
 
 public class Function {
-
-	public enum FunctionType{
-		NORM, ABS
-	};
 	
 	static HashMap<String, Double> variables = new HashMap<String, Double>();
-	
-	public FunctionType type;
 	
 	private double number;
 	private boolean isNumber;
@@ -29,39 +23,42 @@ public class Function {
 	private Function b;
 	private String operation;
 	
-	public Function(double number, String operation, FunctionType type) {		
+	public Function(double number) {
 		this.number = number;
 		this.isNumber = true;
-		this.operation = operation;
-		this.type = type;
 	}
 	
-	public Function(String variable, String operation, FunctionType type) {
+	public Function(String variable) {
 		this.variable = variable;
 		isVariable = true;
-		this.operation = operation;
-		this.type = type;
 	}
 	
-	public Function(Function a, Function b, String operation, FunctionType type) {
+	public Function(Function a, String operation) {
+		this.a = a;
+		this.operation = operation;
+	}
+	
+	public Function(Function a, Function b, String operation) {
 		this.a = a;
 		this.b = b;
 		this.operation = operation;
-		this.type = type;
+	}
+	
+	public static void setVariable(String name, double value) {
+		variables.put(name, value);
 	}
 	
 	public double compute() throws VariableNotDeclaredException {
 		
 		if (isNumber) {
 			return number;
-		}
-				
+		}		
 		else if (isVariable) {
 			if (variables.get(variable) != null) {
 				return variables.get(variable);
 			}
 			else {
-				throw new VariableNotDeclaredException();
+				throw new VariableNotDeclaredException(variable);
 			}
 		}
 		
@@ -71,15 +68,26 @@ public class Function {
 		case "+":
 			solution = this.a.compute() + this.b.compute();
 		case "-":
-			solution = this.a.compute() + this.b.compute();
+			solution = this.a.compute() - this.b.compute();
 		case "*":
 			solution = this.a.compute() * this.b.compute();
 		case "/":
-			solution = this.a.compute() * this.b.compute();
+			solution = this.a.compute() / this.b.compute();
+		case "sin":
+			solution = Math.sin(a.compute());
+		case "cos":
+			solution = Math.cos(a.compute());
+		case "tan":
+			solution = Math.tan(a.compute());
+		case "asin":
+			solution = Math.asin(a.compute());
+		case "acos":
+			solution = Math.acos(a.compute());
+		case "atan":
+			solution = Math.atan(a.compute());
+		case "abs":
+			solution = Math.abs(a.compute());
 		}
-		
-		if (type == FunctionType.ABS)
-			solution = Math.abs(solution);
 		
 		return solution;
 		
