@@ -11,18 +11,25 @@ public class Main {
 		
 		
 		Function num1 = new Function(5);
-		Function num2 = new Function("y");
+    try{System.out.println(num1.compute());}catch(VariableDefinitionException e){};
+    // System.exit(1);
+
+
+		Function num2 = new Function("x");
+    try{System.out.println(num2.compute());}catch(VariableDefinitionException e){System.out.println(e);};
+    // System.exit(-1);
+
+		Function.setVariable("x", 7);
+
+		Function actual = new Function(num1, num2, "*");
+
+    try {
+      System.out.println(actual.compute());
+    } catch(VariableDefinitionException e) {
+      System.out.println(e);
+    }
 		
-		Function.setVariable("y", 2);
-		
-		Function actual = new Function(num1, num2, "/");
-		
-		try {
-			System.out.println(actual.compute());
-		} catch (VariableDefinitionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    System.out.println(Calculus.computeDefiniteIntegral(actual, 0, 10));
 		
 	}
 	
