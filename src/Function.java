@@ -1,7 +1,6 @@
 import java.util.HashMap;
 
 
-
 /*
  * The Function class defines all individual function operations, like +,-,*,/ and more.
  * All functions are a combination of operations applied to two individual terms of an equation, so
@@ -48,15 +47,23 @@ public class Function {
 		this.operation = operation;
 	}
 	
-	public static void setVariable(String name, double value) {
-		variables.put(name, value);
+  public static void setVariable(String var, double value) {
+    variables.put(var, value);
+  }
+
+	public static void setVariable(HashMap<String, Double>...vars) {
+    for (int x = 0; x < vars.length; x++) {
+      for (String var : vars[x].keySet()) {
+        setVariable(var, vars[x].get(var));
+      }
+    }
 	}
 	
 	public double compute() throws VariableDefinitionException {
 		
 		if (isNumber) {
 			return number;
-		}		
+		}
 		else if (isVariable) {
 			if (variables.get(variable) != null) {
 				return variables.get(variable);
@@ -71,30 +78,43 @@ public class Function {
 		switch(operation) {
 		case "+":
 			solution = this.a.compute() + this.b.compute();
+      break;
 		case "-":
 			solution = this.a.compute() - this.b.compute();
+      break;
 		case "*":
 			solution = this.a.compute() * this.b.compute();
+      break;
 		case "/":
 			solution = this.a.compute() / this.b.compute();
+      break;
 		case "^":
 			solution = Math.pow(a.compute(), b.compute());
+      break;
 		case "log":
 			solution = Math.log(a.compute()) / Math.log(b.compute());
+      break;
 		case "sin":
 			solution = Math.sin(a.compute());
+      break;
 		case "cos":
 			solution = Math.cos(a.compute());
+      break;
 		case "tan":
 			solution = Math.tan(a.compute());
+      break;
 		case "asin":
 			solution = Math.asin(a.compute());
+      break;
 		case "acos":
 			solution = Math.acos(a.compute());
+      break;
 		case "atan":
 			solution = Math.atan(a.compute());
+      break;
 		case "abs":
 			solution = Math.abs(a.compute());
+      break;
 		}
 		
 		return solution;
@@ -102,30 +122,8 @@ public class Function {
 	}
 	
 	public double compute(HashMap<String, Double>...functionVars) throws VariableDefinitionException {
-		
-		for (int x = 0; x < functionVars.length; x++) {
-			boolean variableAllowed = false;
-			for (String givenVar : functionVars[x].keySet()) {
-				for (String usedVar : this.variables.keySet()) {
-					if (usedVar.equals(givenVar)) {
-						variableAllowed = true;
-						break;
-					}
-				}
-			}
-			
-			if (!variableAllowed)
-				throw new VariableDefinitionException();
-		}
-		
-		for (int x = 0; x < functionVars.length; x++) {
-			for (String givenVar : functionVars[x].keySet()) {
-				variables.put(givenVar, functionVars[x].get(givenVar));
-			}
-		}
-		
-		return compute();
-		
-	}
+    setVariable(functionVars);
+    return compute();
+  }
 	
 }
