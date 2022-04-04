@@ -19,7 +19,7 @@ public class Main {
 		
 		try {
 			System.out.println(actual.compute());
-		} catch (VariableNotDeclaredException e) {
+		} catch (VariableDefinitionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
