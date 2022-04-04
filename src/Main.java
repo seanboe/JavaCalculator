@@ -1,14 +1,65 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
-public class Main {
 
+public class Main extends JPanel implements ActionListener {
+    protected JTextField textField;
+    protected JTextArea textArea;
+    private final static String newline = "\n";
+
+    public Main() {
+        super(new GridBagLayout());
+
+        textField = new JTextField(80);
+        textField.addActionListener(this);
+
+        textArea = new JTextArea(5, 80);
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+
+        //Add Components to this panel.
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridwidth = GridBagConstraints.REMAINDER;
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        add(textField, c);
+
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1.0;
+        c.weighty = 1.0;
+        add(scrollPane, c);
+    }
+
+    public void actionPerformed(ActionEvent evt) {
+        String text = textField.getText();
+        textArea.append(text + newline);
+        textField.selectAll();
+
+        //Make sure the new text is visible, even if there
+        //was a selection in the text area.
+        textArea.setCaretPosition(textArea.getDocument().getLength());
+    }
+
+    /**
+     * Create the GUI and show it.  For thread safety,
+     * this method should be invoked from the
+     * event dispatch thread.
+     */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("HelloWorldSwing");
+        JFrame frame = new JFrame("TextDemo");
+
+        
+
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Add the ubiquitous "Hello World" label.
-        JLabel label = new JLabel("Hello World");
-        frame.getContentPane().add(label);
+        //Add contents to the window.
+        frame.add(new Main());
+        frame.setSize(550, 250);
 
         //Display the window.
         frame.pack();
@@ -16,7 +67,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
+        //Schedule a job for the event dispatch thread:
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -25,4 +76,10 @@ public class Main {
         });
     }
 
+    @Override
+    public void paint(Graphics g) {
+       Graphics2D graphic2d = (Graphics2D) g;
+       graphic2d.setColor(Color.BLUE);
+       graphic2d.fillRect(100, 50, 60, 80);
+    }
 }
