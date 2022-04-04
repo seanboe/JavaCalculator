@@ -1,7 +1,6 @@
 import java.util.HashMap;
 
 
-
 /*
  * The Function class defines all individual function operations, like +,-,*,/ and more.
  * All functions are a combination of operations applied to two individual terms of an equation, so
