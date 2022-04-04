@@ -12,6 +12,9 @@ import java.util.HashMap;
 public class Function {
 	
 	static HashMap<String, Double> variables = new HashMap<String, Double>();
+
+	final static String[] singleOperators = {"sin", "cos", "tan", "arcsin", "arccos", "arctan", "abs"};
+	final static String[] dualOperators = {"+", "-", "*", "/", "^", "log"};
 	
 	private double number;
 	private boolean isNumber;
@@ -48,7 +51,7 @@ public class Function {
 		variables.put(name, value);
 	}
 	
-	public double compute() throws VariableNotDeclaredException {
+	public double compute() throws VariableDefinitionException {
 		
 		if (isNumber) {
 			return number;
@@ -58,7 +61,7 @@ public class Function {
 				return variables.get(variable);
 			}
 			else {
-				throw new VariableNotDeclaredException(variable);
+				throw new VariableDefinitionException();
 			}
 		}
 		
@@ -73,6 +76,10 @@ public class Function {
 			solution = this.a.compute() * this.b.compute();
 		case "/":
 			solution = this.a.compute() / this.b.compute();
+		case "^":
+			solution = Math.pow(a.compute(), b.compute());
+		case "log":
+			solution = Math.log(a.compute()) / Math.log(b.compute());
 		case "sin":
 			solution = Math.sin(a.compute());
 		case "cos":
@@ -90,6 +97,33 @@ public class Function {
 		}
 		
 		return solution;
+		
+	}
+	
+	public double compute(HashMap<String, Double>...functionVars) throws VariableDefinitionException {
+		
+		for (int x = 0; x < functionVars.length; x++) {
+			boolean variableAllowed = false;
+			for (String givenVar : functionVars[x].keySet()) {
+				for (String usedVar : this.variables.keySet()) {
+					if (usedVar.equals(givenVar)) {
+						variableAllowed = true;
+						break;
+					}
+				}
+			}
+			
+			if (!variableAllowed)
+				throw new VariableDefinitionException();
+		}
+		
+		for (int x = 0; x < functionVars.length; x++) {
+			for (String givenVar : functionVars[x].keySet()) {
+				variables.put(givenVar, functionVars[x].get(givenVar));
+			}
+		}
+		
+		return compute();
 		
 	}
 	
