@@ -14,7 +14,7 @@ public class Calculus {
 			sum += (function.compute(i) * increment); 
 		}
 		
-		return sum; 
+		return sum;  
 		
 	}
 
