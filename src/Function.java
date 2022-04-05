@@ -51,7 +51,8 @@ public class Function {
     variables.put(var, value);
   }
 
-	public static void setVariable(HashMap<String, Double>...vars) {
+  @SafeVarargs
+	public final static void setVariable(HashMap<String, Double>...vars) {
     for (int x = 0; x < vars.length; x++) {
       for (String var : vars[x].keySet()) {
         setVariable(var, vars[x].get(var));
@@ -120,8 +121,9 @@ public class Function {
 		return solution;
 		
 	}
-	
-	public double compute(HashMap<String, Double>...functionVars) throws VariableDefinitionException {
+
+  @SafeVarargs
+	public final double compute(HashMap<String, Double>...functionVars) throws VariableDefinitionException {
     setVariable(functionVars);
     return compute();
   }
