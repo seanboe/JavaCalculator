@@ -28,4 +28,20 @@ public class Calculus {
 
 	}
 	
+	public static double computeDerivativeAtAPoint(Function function, double inputValue) {
+		
+		try {
+			HashMap<String, Double> temp1 = new HashMap<String, Double>(); 
+			temp1.put("x", inputValue); 
+			HashMap<String, Double> temp2 = new HashMap<String, Double>(); 
+			temp2.put("x", inputValue + 0.000000000000001); 
+			return (function.compute(temp2) - function.compute(temp1)) / (0.000000000000001); 
+		} catch (VariableDefinitionException e) {
+			System.out.println(e); 
+		}
+		
+		return 0.0; 
+		
+	}
+	
 }
