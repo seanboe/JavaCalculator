@@ -4,8 +4,6 @@ public class Calculus {
 	
 	public static double computeDefiniteIntegral(Function function, double lowBound, double highBound) {
 		
-		// MIDPOINT RIEMANN SUM 
-		
 		double sum = 0.0;
 		
 		//double increment = (inputZHigh - inputZLow)/(Math.pow(10, 7)); 
