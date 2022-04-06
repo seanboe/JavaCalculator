@@ -15,7 +15,7 @@ public class Function {
 
 	final static String[] singleOperators = {"sin", "cos", "tan", "arcsin", "arccos", "arctan", "abs"};
 	final static String[] dualOperators = {"+", "-", "*", "/", "^", "log"};
-	
+
 	private double number;
 	private boolean isNumber;
 	
