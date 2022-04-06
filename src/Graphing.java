@@ -2,7 +2,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JFrame;
@@ -37,41 +36,29 @@ public class Graphing extends JPanel {
 		
 		g.setColor(Color.black); 
 		g.fillRect(0, 0, FRAME_WIDTH, FRAME_HEIGHT); 
-		
-		g.setColor(Color.white);
-		
-		
-    // Iterate over all X values on the screen; the left side of the screen is 
-    // the negative half of the width of the screen with respect to the origin. 
-    // Assuming that the user pans, then there is an offset; a pan to the left side
-    // of the screen means that the pan is more negative
 
-		 
-			g.setColor(Color.black); 
-	 		g.fillRect(0, 0, FRAME_WIDTH, FRAME_HEIGHT); 
+    g.setColor(Color.white);
 
-	 		g.setColor(Color.white);
+    double xTracker = ORIGIN_X;
+    double yTracker = ORIGIN_Y; 
 
-	 		double xTracker = FRAME_WIDTH / 2;
-	 		double yTracker = FRAME_HEIGHT / 2; 
-
-	 		// POINT SHOULD BE CIRCLE AND HAVE DIAMETER OF 2 
-	 		// GRAPH IS TO THE RIGHT OF THE Y-AXIS (AS OF NOW) 
-	 		// STILL A WIP 
-	 		while (xTracker < FRAME_WIDTH) {
-	 			HashMap<String, Double> temp = new HashMap<String, Double>(); 
-	 			double val = (xTracker - (FRAME_WIDTH / 2)); 
-	 			temp.put("x", val); 
-	 			double yLoc = 0;
-				//try {
-					yLoc = (FRAME_HEIGHT / 2) - ((int)(functionExample(xTracker)));
+    // POINT SHOULD BE CIRCLE AND HAVE DIAMETER OF 2 
+    // GRAPH IS TO THE RIGHT OF THE Y-AXIS (AS OF NOW) 
+    // STILL A WIP 
+    while (xTracker < FRAME_WIDTH) {
+      HashMap<String, Double> temp = new HashMap<String, Double>(); 
+      temp.put("x", xTracker); 
+      double yLoc = 0;
+      //try {
+        yLoc = (FRAME_HEIGHT / 2) - ((int)(functionExample(xTracker)));
 //				} catch (VariableDefinitionException e) {
 //					// TODO Auto-generated catch block
 //					e.printStackTrace();
 //				} 
-	 			g.fillOval((int) Math.round(xTracker), (int) Math.round(yLoc), 2, 2); 
-	 			xTracker++; 
-	 		}
+      g.fillOval((int) Math.round(xTracker), (int) Math.round(yLoc), 2, 2); 
+      xTracker++; 
+      
+    }
 		
 	}
 
@@ -81,7 +68,6 @@ public class Graphing extends JPanel {
 
 	public static void main(String[] args) {
 
-	
     Graphing graph = new Graphing(); 
 
 	}
