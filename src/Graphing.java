@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 
 public class Graphing extends JPanel {
 	
-	private final int FRAME_WIDTH = 1500;
-	private final int FRAME_HEIGHT = 800; 
+	private final int FRAME_WIDTH = 300;
+	private final int FRAME_HEIGHT = 300; 
 
   private final int ORIGIN_X = FRAME_WIDTH / 2;
   private final int ORIGIN_Y = FRAME_HEIGHT / 2;
@@ -39,31 +39,40 @@ public class Graphing extends JPanel {
 
     g.setColor(Color.white);
 
-    double xTracker = ORIGIN_X;
-    double yTracker = ORIGIN_Y; 
+    double pointX = ORIGIN_X;
+    double pointY = ORIGIN_Y; 
 
     // POINT SHOULD BE CIRCLE AND HAVE DIAMETER OF 2 
     // GRAPH IS TO THE RIGHT OF THE Y-AXIS (AS OF NOW) 
     // STILL A WIP 
-    while (xTracker < FRAME_WIDTH) {
-      HashMap<String, Double> temp = new HashMap<String, Double>(); 
-      temp.put("x", xTracker); 
-      double yLoc = 0;
-      //try {
-        yLoc = (FRAME_HEIGHT / 2) - ((int)(functionExample(xTracker)));
-//				} catch (VariableDefinitionException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} 
-      g.fillOval((int) Math.round(xTracker), (int) Math.round(yLoc), 2, 2); 
-      xTracker++; 
-      
+    while (pointX < FRAME_WIDTH) {
+      HashMap<String, Double> point = new HashMap<String, Double>(); 
+      point.put("x", pointX - FRAME_WIDTH / 2); 
+
+      double computation = 0.0;
+
+      // try {
+
+        computation = functionExample(point);
+        System.out.println(computation);
+
+
+      // } catch (VariableDefinitionException e) {
+      //   e.printStackTrace();
+      // } 
+
+      pointY = FRAME_HEIGHT / 2 - computation;
+
+      g.fillOval((int)Math.round(pointX), (int)Math.round(pointY), 2, 2); 
+      pointX++; 
+
     }
 		
 	}
 
-  public double functionExample(double x) {
-    return Math.pow(x, 2);
+  public double functionExample(HashMap<String, Double> point) {
+    // return Math.pow(point.get("x"), 2);
+    return Math.log(point.get("x"));
   }
 
 	public static void main(String[] args) {
