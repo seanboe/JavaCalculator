@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 
 public class Graphing extends JPanel {
 	
-	private final int FRAME_WIDTH = 300;
-	private final int FRAME_HEIGHT = 300; 
+	private final int FRAME_WIDTH = 700;
+	private final int FRAME_HEIGHT = 700; 
 
   private final int ORIGIN_X = FRAME_WIDTH / 2;
   private final int ORIGIN_Y = FRAME_HEIGHT / 2;
@@ -73,6 +73,7 @@ public class Graphing extends JPanel {
   public double functionExample(HashMap<String, Double> point) {
     // return Math.pow(point.get("x"), 2);
     return Math.log(point.get("x"));
+    //return Math.pow(point.get("x"), 3); 
   }
 
 	public static void main(String[] args) {
