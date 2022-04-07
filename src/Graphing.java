@@ -45,7 +45,7 @@ public class Graphing extends JPanel {
     double pointY = ORIGIN_Y; 
 
     // POINT SHOULD BE CIRCLE AND HAVE DIAMETER OF 2 
-    // GRAPH IS TO THE RIGHT OF THE Y-AXIS (AS OF NOW) 
+
     while (pointX < frameWidth) {
       HashMap<String, Double> point = new HashMap<String, Double>(); 
       point.put("x", pointX - frameWidth / 2); 
