@@ -38,7 +38,9 @@ public class Graphing extends JPanel {
 		g.fillRect(0, 0, frameWidth, frameHeight); 
 
     g.setColor(Color.white);
-
+    
+///////////////////////////////////////////////////////////////////////////////////////////////////
+    // GRAPHING 
     double pointX = 0;
     double pointY = ORIGIN_Y; 
 
@@ -59,6 +61,8 @@ public class Graphing extends JPanel {
       pointX++; 
 
     }
+    
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
     
 		
