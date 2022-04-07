@@ -125,6 +125,18 @@ public class Function {
 		
 	}
 
+  // defaults to setting the variable x to the value
+  public double compute(double val) {
+    setVariable("x", val);
+    double solution = 0.0;
+    try {
+      solution = compute();
+    } catch (VariableDefinitionException e)  {
+      System.out.println(e);
+    }
+    return solution;
+  }
+
   @SafeVarargs
 	public final double compute(HashMap<String, Double>...functionVars) throws VariableDefinitionException {
 

@@ -1,35 +1,59 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.crypto.spec.GCMParameterSpec;
+
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		
-		HashMap<String, Function> functions = new HashMap<String, Function>();
+		// HashMap<String, Function> functions = new HashMap<String, Function>();
 		
 		
-		Function num1 = new Function(5);
-    try{System.out.println(num1.compute());}catch(VariableDefinitionException e){};
-    // System.exit(1);
+		// Function num1 = new Function(5);
+    // try{System.out.println(num1.compute());}catch(VariableDefinitionException e){};
+    // // System.exit(1);
 
 
-		Function num2 = new Function("x");
-    try{System.out.println(num2.compute());}catch(VariableDefinitionException e){System.out.println(e);};
-    // System.exit(-1);
+		// Function num2 = new Function("x");
+    // try{System.out.println(num2.compute());}catch(VariableDefinitionException e){System.out.println(e);};
+    // // System.exit(-1);
 
-		Function.setVariable("x", 7);
+		// Function.setVariable("x", 7);
 
-		Function actual = new Function(num1, num2, "*");
+		// Function actual = new Function(num1, num2, "*");
+
+    // try {
+    //   System.out.println(actual.compute());
+    // } catch(VariableDefinitionException e) {
+    //   System.out.println(e);
+    // }
+		
+    // System.out.println(Calculus.computeDefiniteIntegral(actual, 0, 10));
+
+//////////
+
+    // Function num1 = new Function("x");
+    // Function num2 = new Function(2);
+    // Function func = new Function(num1, num2, "^");
+
+    Function a = new Function("x");
+    Function b = new Function(3);
+    Function c = new Function(a, b, "^");
+    Function d = new Function(10);
+    Function e = new Function(c, d, "-");
+    Function f = new Function(3);
+    Function g = new Function(e, f, "^");
+
 
     try {
-      System.out.println(actual.compute());
-    } catch(VariableDefinitionException e) {
-      System.out.println(e);
+      System.out.println(Algebra.computeZeros(g, -10, 10));
+    } catch (InvalidInputsException h) {
+      // TODO Auto-generated catch block
+      h.printStackTrace();
     }
-		
-    System.out.println(Calculus.computeDefiniteIntegral(actual, 0, 10));
 		
 	}
 	
