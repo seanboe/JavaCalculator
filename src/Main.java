@@ -7,29 +7,25 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		
-		HashMap<String, Function> functions = new HashMap<String, Function>();
+		// HashMap<String, Function> functions = new HashMap<String, Function>();
 		
 		
 		Function num1 = new Function(5);
-    try{System.out.println(num1.compute());}catch(VariableDefinitionException e){};
-    // System.exit(1);
 
 
 		Function num2 = new Function("x");
-    try{System.out.println(num2.compute());}catch(VariableDefinitionException e){System.out.println(e);};
-    // System.exit(-1);
 
-		Function.setVariable("x", 7);
+		Function function = new Function(num1, num2, "*");
 
-		Function actual = new Function(num1, num2, "*");
+    System.out.println(Calculus.computeSum(function, 0, 10));
 
     try {
-      System.out.println(actual.compute());
+      System.out.println(function.compute());
     } catch(VariableDefinitionException e) {
       System.out.println(e);
     }
 		
-    System.out.println(Calculus.computeDefiniteIntegral(actual, 0, 10));
+    System.out.println(Calculus.computeDefiniteIntegral(function, 0, 10));
 		
 	}
 	
