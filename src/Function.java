@@ -1,5 +1,5 @@
 import java.util.HashMap;
-
+import java.util.ArrayList;
 
 /*
  * The Function class defines all individual function operations, like +,-,*,/ and more.
@@ -11,10 +11,13 @@ import java.util.HashMap;
 
 public class Function {
 	
+  // Static stuff (global)
 	static HashMap<String, Double> variables = new HashMap<String, Double>();
-
 	final static String[] singleOperators = {"sin", "cos", "tan", "arcsin", "arccos", "arctan", "abs"};
 	final static String[] dualOperators = {"+", "-", "*", "/", "^", "log"};
+	
+  // This hashmap stores previous x values and their respective y values
+  HashMap<String, HashMap<Double, Double>> varPastValues = new HashMap<String, HashMap<Double, Double>>();
 
 	private double number;
 	private boolean isNumber;
@@ -61,7 +64,7 @@ public class Function {
 	}
 	
 	public double compute() throws VariableDefinitionException {
-		
+
 		if (isNumber) {
 			return number;
 		}
@@ -124,8 +127,46 @@ public class Function {
 
   @SafeVarargs
 	public final double compute(HashMap<String, Double>...functionVars) throws VariableDefinitionException {
+
+    for (int x = 0; x < functionVars.length; x++) {
+
+      // This loop only runs once since there is only one thing in the hashmap at
+      // each index. This loop is only to derefence the first value.
+      for (String givenVar : functionVars[x].keySet()) {
+        double givenXPoint = functionVars[x].get(givenVar);
+
+        for (String knownVar : varPastValues.keySet()) {
+          if (!knownVar.equals(givenVar))
+            continue;
+
+          for (Double knownX : varPastValues.get(knownVar).keySet()) {
+            if (knownX == givenXPoint) {
+              // This number has been computed before!
+              return varPastValues.get(knownVar).get(knownX);
+            }
+          }
+        }
+
+      }
+    }
+
+    // If we're here, then the point has never been computed before!
+
     setVariable(functionVars);
-    return compute();
+    double solution = compute();
+
+    // Store the solutions in the past variable values hashMap
+    for (int x = 0; x < functionVars.length; x++) {
+      for (String givenVar : functionVars[x].keySet()) {
+
+        HashMap<Double, Double> newPoint = new HashMap<Double, Double>();
+        newPoint.put(functionVars[x].get(givenVar), solution);
+
+        varPastValues.put(givenVar, newPoint);
+      }
+    }
+
+    return solution;
   }
 	
 }

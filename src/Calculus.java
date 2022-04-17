@@ -8,7 +8,7 @@ public class Calculus {
 		
 		double increment = 1.0 / (Math.pow(10, 3)); 
 		
-		for (double i = (lowBound + (increment/2)); i < highBound; i+= increment) {
+		for (double i = (lowBound + (increment/2)); i < highBound; i += increment) {
 			
 			HashMap<String, Double> temp = new HashMap<String, Double>();
 			temp.put("x", i); 
@@ -65,12 +65,60 @@ public class Calculus {
 
   }
 
-  // public static double computeDefiniteLimit(Function function, double point) {
+  public static double computeDefiniteLimit(Function function, double point) {
 
-  // }
+    HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
+    myPoint.put("x", point); 
+    double output = 0.0; 
 
-  // public static double computeInfititeLimit(Function function, double point) {
+    try {
+      if (Double.isNaN(function.compute(myPoint))) {
+        // NEED TO ADD LOGIC 
+      } else {
+        output = function.compute(myPoint); 
+      }
+    } catch (VariableDefinitionException e) {
+      System.out.println(e); 
+    }
 
-  // }
+    return output; 
+
+  }
+
+  public static double computePositiveInfinityLimit(Function function) { // end behavior
+
+    double estimator = 1.0 * (Math.pow(10, 5)); 
+    HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
+    myPoint.put("x", estimator); 
+    double output = 0.0; 
+
+    try {
+      output = function.compute(myPoint); 
+      output = Math.round(output * 100.0) / 100.0; 
+    } catch (VariableDefinitionException e) {
+      System.out.println(e); 
+    }
+
+    return output; 
+
+  }
+
+  public static double computeNegativeInfinityLimit(Function function) { // end behavior
+
+    double estimator = -1.0 * (Math.pow(10, 5)); 
+    HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
+    myPoint.put("x", estimator); 
+    double output = 0.0; 
+
+    try {
+      output = function.compute(myPoint); 
+      output = Math.round(output * 100.0) / 100.0; 
+    } catch (VariableDefinitionException e) {
+      System.out.println(e); 
+    }
+
+    return output; 
+
+  }
 	
 }
