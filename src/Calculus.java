@@ -65,7 +65,7 @@ public class Calculus {
 
   }
 
-  public static double computeDefiniteLimit(Function function, double point) {
+  public static double computeFiniteLimit(Function function, double point) {
 
     HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
     myPoint.put("x", point); 
@@ -85,40 +85,21 @@ public class Calculus {
 
   }
 
-  public static double computePositiveInfinityLimit(Function function) { // end behavior
+  public static double computeInfiniteLimit(Function function, boolean positiveInfinity) throws VariableDefinitionException{
 
-    double estimator = 1.0 * (Math.pow(10, 5)); 
-    HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
-    myPoint.put("x", estimator); 
-    double output = 0.0; 
+    double increment = Math.pow(10, 3) * (positiveInfinity ? 1.0 : -1.0);
+    double x = increment;
 
-    try {
-      output = function.compute(myPoint); 
-      output = Math.round(output * 100.0) / 100.0; 
-    } catch (VariableDefinitionException e) {
-      System.out.println(e); 
+    double derivativeThreshold = 0.0001;
+
+    while (computeDerivativeAtAPoint(function, x) > derivativeThreshold) {
+      x += increment;
     }
 
-    return output; 
+    HashMap<String, Double> point = new HashMap<String, Double>(); 
+    point.put("x", x);
 
-  }
-
-  public static double computeNegativeInfinityLimit(Function function) { // end behavior
-
-    double estimator = -1.0 * (Math.pow(10, 5)); 
-    HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
-    myPoint.put("x", estimator); 
-    double output = 0.0; 
-
-    try {
-      output = function.compute(myPoint); 
-      output = Math.round(output * 100.0) / 100.0; 
-    } catch (VariableDefinitionException e) {
-      System.out.println(e); 
-    }
-
-    return output; 
-
+    return function.compute(point);
   }
 	
 }
