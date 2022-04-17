@@ -1,14 +1,8 @@
 
 public class Algebra {
 
-  private double round(double val, int decimalPoints) {
-    double factor = Math.pow(10, decimalPoints);
-    val = val * factor;
-    double rounded = (double)(val - (int) val > 0.5 ? (int)val + 1 : (int)val);
-    return rounded / factor;
-  }
-
-  public static double computeZeros(Function function, double lowerLimit, double upperLimit) throws InvalidInputsException {
+  // Bisection zeros algorithm
+  public static double bisectionZeros(Function function, double lowerLimit, double upperLimit) throws InvalidInputsException {
 
     // make sure that signs of the function at the lowerLimit and the upperLimit are opposite
     double lowerBound = lowerLimit;
@@ -47,5 +41,14 @@ public class Algebra {
     return Math.round((center * 100000000)) / 100000000.0;
 
   }
+
+  // Newton's method for bisections
+  public static double computeZeros(Function function, double point) {
+
+
+
+    return 0.0;
+  }
+
 
 }
