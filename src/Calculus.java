@@ -25,6 +25,18 @@ public class Calculus {
 		return sum;  	
 
 	}
+
+  public static String computeImproperIntegral(Function function, String lowBound, String highBound) {
+
+    if (lowBound.equals("-infty")) {
+      return computeDefiniteIntegral(function, -10000.0, Double.parseDouble(highBound)) + ""; 
+    } else if (highBound.equals("+infty")) {
+      return computeDefiniteIntegral(function, Double.parseDouble(lowBound), 10000.0) + ""; 
+    }
+
+    return ""; 
+
+  }
 	
 	public static double computeDerivativeAtAPoint(Function function, double inputValue) {
 		
