@@ -66,39 +66,45 @@ public class Calculus {
 
   }
 
-  public static double computeFinitePiecewiseLimit(point) {
-left(point)
-right(point)
+  public static double computeLeftSideLimit(Function function, double point) {
+
+
 
   }
 
-  public static double computeFiniteLimit(Function function, double point) { // STILL A WIP 
+  public static double computeRightSideLimit(Function function, double point) {
 
-    HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
-    myPoint.put("x", point); 
-    double output = 0.0; 
-    Double undefinedCheck = (3.0) / (0 * 2); 
-    double increment = 0.0000001; 
-    ArrayList<Double> leftPointChecker = new ArrayList<Double>(); 
-    ArrayList<Double> rightPointChecker = new ArrayList<Double>(); 
 
-    try { 
-      if ((Double.isNaN(function.compute(myPoint))) || (function.compute(myPoint) == undefinedCheck)) {
-
-        // evaluating left & right side limits to check equality 
-
-		
-
-      } else {
-        output = function.compute(myPoint); 
-      }
-    } catch (VariableDefinitionException e) {
-      System.out.println(e); 
-    }
-
-    return output; 
 
   }
+
+  // public static double computeFiniteLimit(Function function, double point) { // STILL A WIP 
+
+  //   HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
+  //   myPoint.put("x", point); 
+  //   double output = 0.0; 
+  //   Double undefinedCheck = (3.0) / (0 * 2); 
+  //   double increment = 0.0000001; 
+  //   ArrayList<Double> leftPointChecker = new ArrayList<Double>(); 
+  //   ArrayList<Double> rightPointChecker = new ArrayList<Double>(); 
+
+  //   try { 
+  //     if ((Double.isNaN(function.compute(myPoint))) || (function.compute(myPoint) == undefinedCheck)) {
+
+  //       // evaluating left & right side limits to check equality 
+
+
+
+  //     } else {
+  //       output = function.compute(myPoint); 
+  //     }
+  //   } catch (VariableDefinitionException e) {
+  //     System.out.println(e); 
+  //   }
+
+  //   return output; 
+
+  // }
 
   public static double computeEndBehavior(Function function, boolean positiveInfinity) throws VariableDefinitionException{
 
