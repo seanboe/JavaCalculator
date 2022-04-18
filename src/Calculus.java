@@ -66,15 +66,69 @@ public class Calculus {
 
   }
 
-  public static double computeLeftSideLimit(Function function, double point) {
+  public static String computeDefiniteLimit(Function function, double point) {
+    if (computeLeftSideLimit(function, point).equals(computeRightSideLimit(function, point)))
+      return computeLeftSideLimit(function, point) + ""; 
+    return "limit does not exist"; 
+  }
 
+  public static String computeLeftSideLimit(Function function, double point) {
 
+    double undefinedCheck = (3.0) / (0 * 2); 
+    HashMap<String, Double> pointInFunction = new HashMap<String, Double>(); 
+    pointInFunction.put("x", point); 
+
+    try {
+      if ((function.compute(pointInFunction) == undefinedCheck) || (Double.isNaN(function.compute(pointInFunction)))) {
+        double xTracker = point - 1; 
+        
+        while (xTracker < point) {
+          if (computeDerivativeAtAPoint(function, xTracker) > 100) 
+            return "+∞"; 
+          if ((computeDerivativeAtAPoint(function, xTracker)) < -100) 
+            return "-∞"; 
+          
+          xTracker += 0.0000001; 
+        }
+
+      } else {
+        return function.compute(pointInFunction) + ""; 
+      }
+    } catch (VariableDefinitionException e) {
+      System.out.println(e); 
+    }
+
+    return ""; 
 
   }
 
-  public static double computeRightSideLimit(Function function, double point) {
+  public static String computeRightSideLimit(Function function, double point) {
 
+    double undefinedCheck = (3.0) / (0 * 2); 
+    HashMap<String, Double> pointInFunction = new HashMap<String, Double>(); 
+    pointInFunction.put("x", point); 
 
+    try {
+      if ((function.compute(pointInFunction) == undefinedCheck) || (Double.isNaN(function.compute(pointInFunction)))) {
+        double xTracker = point + 1; 
+        
+        while (xTracker > point) {
+          if (computeDerivativeAtAPoint(function, xTracker) > 100) 
+            return "+∞"; 
+          if ((computeDerivativeAtAPoint(function, xTracker)) < -100) 
+            return "-∞"; 
+          
+          xTracker -= 0.0000001; 
+        }
+
+      } else {
+        return function.compute(pointInFunction) + ""; 
+      }
+    } catch (VariableDefinitionException e) {
+      System.out.println(e); 
+    }
+
+    return ""; 
 
   }
 
