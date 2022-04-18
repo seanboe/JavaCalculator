@@ -66,6 +66,12 @@ public class Calculus {
 
   }
 
+  public static double computeFinitePiecewiseLimit(point) {
+left(point)
+right(point)
+
+  }
+
   public static double computeFiniteLimit(Function function, double point) { // STILL A WIP 
 
     HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
@@ -81,17 +87,7 @@ public class Calculus {
 
         // evaluating left & right side limits to check equality 
 
-        for (int i = 1; i < 5; i++) {
-          HashMap<String, Double> tempPoint = new HashMap<String, Double>(); 
-          tempPoint.put("x", point - (i * increment));
-          leftPointChecker.add(function.compute(tempPoint)); 
-        } // now, left function points are put into leftPointChecker 
-
-        for (int i = 1; i < 5; i++) {
-          HashMap<String, Double> tempPoint = new HashMap<String, Double>(); 
-          tempPoint.put("x", point + (i * increment));
-          rightPointChecker.add(function.compute(tempPoint)); 
-        }
+		
 
       } else {
         output = function.compute(myPoint); 
