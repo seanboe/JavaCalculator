@@ -5,28 +5,23 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		
-		// HashMap<String, Function> functions = new HashMap<String, Function>();
-		
-		
-		Function num1 = new Function(5);
 
+    Function x = new Function("x"); 
+    Function numerator = new Function(1); 
+    Function function = new Function(numerator, x, "/"); 
 
-		Function num2 = new Function("x");
-
-		Function function = new Function(num1, num2, "*");
-
-    System.out.println(Calculus.computeSum(function, 0, 10));
+    HashMap<String, Double> thePoint = new HashMap<String, Double>(); 
+    thePoint.put("x", 10.0); 
 
     try {
-      System.out.println(function.compute());
-    } catch(VariableDefinitionException e) {
-      System.out.println(e);
-    }
-		
-    System.out.println(Calculus.computeDefiniteIntegral(function, 0, 10));
-		
+	  Calculus calcObj = new Calculus(); 
+		System.out.println(calcObj.computeLeftSideLimit(function, 0.0)); 
+    	System.out.println(function.compute(thePoint));
+    } catch (VariableDefinitionException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } 
+
 	}
 	
 	
