@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Calculus {
 	
@@ -65,15 +66,33 @@ public class Calculus {
 
   }
 
-  public static double computeFiniteLimit(Function function, double point) {
+  public static double computeFiniteLimit(Function function, double point) { // STILL A WIP 
 
     HashMap<String, Double> myPoint = new HashMap<String, Double>(); 
     myPoint.put("x", point); 
     double output = 0.0; 
+    Double undefinedCheck = (3.0) / (0 * 2); 
+    double increment = 0.0000001; 
+    ArrayList<Double> leftPointChecker = new ArrayList<Double>(); 
+    ArrayList<Double> rightPointChecker = new ArrayList<Double>(); 
 
-    try {
-      if (Double.isNaN(function.compute(myPoint))) {
-        // NEED TO ADD LOGIC 
+    try { 
+      if ((Double.isNaN(function.compute(myPoint))) || (function.compute(myPoint) == undefinedCheck)) {
+
+        // evaluating left & right side limits to check equality 
+
+        for (int i = 1; i < 5; i++) {
+          HashMap<String, Double> tempPoint = new HashMap<String, Double>(); 
+          tempPoint.put("x", point - (i * increment));
+          leftPointChecker.add(function.compute(tempPoint)); 
+        } // now, left function points are put into leftPointChecker 
+
+        for (int i = 1; i < 5; i++) {
+          HashMap<String, Double> tempPoint = new HashMap<String, Double>(); 
+          tempPoint.put("x", point + (i * increment));
+          rightPointChecker.add(function.compute(tempPoint)); 
+        }
+
       } else {
         output = function.compute(myPoint); 
       }
@@ -85,7 +104,7 @@ public class Calculus {
 
   }
 
-  public static double computeInfiniteLimit(Function function, boolean positiveInfinity) throws VariableDefinitionException{
+  public static double computeEndBehavior(Function function, boolean positiveInfinity) throws VariableDefinitionException{
 
     double increment = Math.pow(10, 3) * (positiveInfinity ? 1.0 : -1.0);
     double x = increment;
