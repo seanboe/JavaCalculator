@@ -49,10 +49,20 @@ public class Main {
 
 
     try {
-      System.out.println(Algebra.computeZeros(g, -10, 10));
+      System.out.println(Algebra.bisectionZeros(g, -10, 10));
     } catch (InvalidInputsException h) {
       // TODO Auto-generated catch block
       h.printStackTrace();
+    }
+
+    Function q = new Function("x");
+    Function w = new Function(2);
+    Function func = new Function(q, w, "^");
+
+    try {
+      System.out.println(Algebra.computeZeros(func, 2));
+    } catch (Exception asdf) {
+      asdf.printStackTrace();
     }
 		
 	}
