@@ -1,6 +1,8 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.crypto.spec.GCMParameterSpec;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -10,22 +12,58 @@ public class Main {
 		// HashMap<String, Function> functions = new HashMap<String, Function>();
 		
 		
-		Function num1 = new Function(5);
+		// Function num1 = new Function(5);
+    // try{System.out.println(num1.compute());}catch(VariableDefinitionException e){};
+    // // System.exit(1);
 
 
-		Function num2 = new Function("x");
+		// Function num2 = new Function("x");
+    // try{System.out.println(num2.compute());}catch(VariableDefinitionException e){System.out.println(e);};
+    // // System.exit(-1);
 
-		Function function = new Function(num1, num2, "*");
+		// Function.setVariable("x", 7);
 
-    System.out.println(Calculus.computeSum(function, 0, 10));
+		// Function actual = new Function(num1, num2, "*");
+
+    // try {
+    //   System.out.println(actual.compute());
+    // } catch(VariableDefinitionException e) {
+    //   System.out.println(e);
+    // }
+		
+    // System.out.println(Calculus.computeDefiniteIntegral(actual, 0, 10));
+
+//////////
+
+    // Function num1 = new Function("x");
+    // Function num2 = new Function(2);
+    // Function func = new Function(num1, num2, "^");
+
+    Function a = new Function("x");
+    Function b = new Function(3);
+    Function c = new Function(a, b, "^");
+    Function d = new Function(10);
+    Function e = new Function(c, d, "-");
+    Function f = new Function(3);
+    Function g = new Function(e, f, "^");
+
 
     try {
-      System.out.println(function.compute());
-    } catch(VariableDefinitionException e) {
-      System.out.println(e);
+      System.out.println(Algebra.bisectionZeros(g, -10, 10));
+    } catch (InvalidInputsException h) {
+      // TODO Auto-generated catch block
+      h.printStackTrace();
     }
-		
-    System.out.println(Calculus.computeDefiniteIntegral(function, 0, 10));
+
+    Function q = new Function("x");
+    Function w = new Function(2);
+    Function func = new Function(q, w, "^");
+
+    try {
+      System.out.println(Algebra.computeZeros(func, 2));
+    } catch (Exception asdf) {
+      asdf.printStackTrace();
+    }
 		
 	}
 	
