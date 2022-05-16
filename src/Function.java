@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.ArrayList;
 
 /*
  * The Function class defines all individual function operations, like +,-,*,/ and more.
@@ -15,6 +14,7 @@ public class Function {
 	static HashMap<String, Double> variables = new HashMap<String, Double>();
 	final static String[] singleOperators = {"sin", "cos", "tan", "arcsin", "arccos", "arctan", "abs"};
 	final static String[] dualOperators = {"+", "-", "*", "/", "^", "log"};
+	
 	
   // This hashmap stores previous x values and their respective y values
   HashMap<String, HashMap<Double, Double>> varPastValues = new HashMap<String, HashMap<Double, Double>>();

@@ -6,30 +6,32 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		Parserx p = new Parserx();
+		p.parse("x^2+3x+5");
 		
-		HashMap<String, Function> functions = new HashMap<String, Function>();
+	// 	HashMap<String, Function> functions = new HashMap<String, Function>();
 		
 		
-		Function num1 = new Function(5);
-    try{System.out.println(num1.compute());}catch(VariableDefinitionException e){};
-    // System.exit(1);
+	// 	Function num1 = new Function(5);
+    // try{System.out.println(num1.compute());}catch(VariableDefinitionException e){};
+    // // System.exit(1);
 
 
-		Function num2 = new Function("x");
-    try{System.out.println(num2.compute());}catch(VariableDefinitionException e){System.out.println(e);};
-    // System.exit(-1);
+	// 	Function num2 = new Function("x");
+    // try{System.out.println(num2.compute());}catch(VariableDefinitionException e){System.out.println(e);};
+    // // System.exit(-1);
 
-		Function.setVariable("x", 7);
+	// 	Function.setVariable("x", 7);
 
-		Function actual = new Function(num1, num2, "*");
+	// 	Function actual = new Function(num1, num2, "*");
 
-    try {
-      System.out.println(actual.compute());
-    } catch(VariableDefinitionException e) {
-      System.out.println(e);
-    }
+    // try {
+    //   System.out.println(actual.compute());
+    // } catch(VariableDefinitionException e) {
+    //   System.out.println(e);
+    // }
 		
-    System.out.println(Calculus.computeDefiniteIntegral(actual, 0, 10));
+    // System.out.println(Calculus.computeDefiniteIntegral(actual, 0, 10));
 		
 	}
 	
