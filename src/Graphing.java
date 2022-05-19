@@ -2,18 +2,24 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.HashMap;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Graphing extends JPanel {
+public class Graphing extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
 	private final int frameWidth = 700;
 	private final int frameHeight = 700; 
 
-  private final int ORIGIN_X = frameWidth / 2;
-  private final int ORIGIN_Y = frameHeight / 2;
+  private int ORIGIN_X = frameWidth / 2;
+  private int ORIGIN_Y = frameHeight / 2;
 
   private int screenPanOffsetX = 0;
   private int screenPanOffsetY = 0;
@@ -45,7 +51,7 @@ public class Graphing extends JPanel {
     double pointY = ORIGIN_Y; 
 
     // POINT SHOULD BE CIRCLE AND HAVE DIAMETER OF 2 
-    // GRAPH IS TO THE RIGHT OF THE Y-AXIS (AS OF NOW) 
+
     while (pointX < frameWidth) {
       HashMap<String, Double> point = new HashMap<String, Double>(); 
       point.put("x", pointX - frameWidth / 2); 
@@ -78,6 +84,77 @@ public class Graphing extends JPanel {
 
     Graphing graph = new Graphing(); 
 
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+		if (arg0.getKeyCode() == 39) { // MOVING RIGHT 
+			ORIGIN_X -= 5; 
+			repaint(); 
+		} else if (arg0.getKeyCode() == 37) { // MOVING LEFT 
+			ORIGIN_X += 5; 
+			repaint(); 
+		}
+		
+		if (arg0.getKeyCode() == 38) { // MOVING UP 
+			ORIGIN_Y -= 5; 
+			repaint(); 
+		} else if (arg0.getKeyCode() == 40) { // MOVING DOWN 
+			ORIGIN_Y += 5; 
+			repaint(); 
+		}
+
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
