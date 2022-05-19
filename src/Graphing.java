@@ -2,12 +2,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.nio.file.FileSystemAlreadyExistsException;
 import java.util.HashMap;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Graphing extends JPanel {
+public class Graphing extends JPanel implements KeyListener, ActionListener {
 	
 	private final int FRAME_WIDTH = 700;
 	private final int FRAME_HEIGHT = 700; 
@@ -37,13 +43,20 @@ public class Graphing extends JPanel {
 
   public void paint(Graphics g) {
 
-    final double stepSize = 1;
-
     g.setColor(Color.white);
     g.fillRect(0, 0, FRAME_WIDTH, FRAME_WIDTH);
-    paintAxis(g, true, true);
+    g.setColor(Color.orange);
+    paintAxis(g, true);
 
     g.setColor(Color.black);
+
+    graph(g);
+
+  }
+
+  public void graph(Graphics g) {
+
+    final double stepSize = 1;
 
     double prevX = 0;
     double prevY = functionExample(prevX);
@@ -59,30 +72,55 @@ public class Graphing extends JPanel {
       prevX = coordX;
       prevY = computation;
     }
+
   }
 
-  public void paintAxis(Graphics g, boolean gridLines, boolean dashed) {
+  public void paintAxis(Graphics g, boolean dashed) {
 
-    // x axis
-    g.setColor(Color.orange);
-
+    // y-axis
     for (int y = 0; y < FRAME_HEIGHT; y++) {
-      if (y % 15 == 0) {
-        for (int x = 0; x < FRAME_WIDTH; x++) {
-          if (x % 4 == 0 && dashed)
-            g.drawOval(x, y, 1, 1);
-        }
+      if (y % 5 == 0 && dashed)
+        continue;
+      g.drawOval(HALF_WIDTH, y, 1, 1);
+    }
+
+    // x-axis
+    for (int x = 0; x < FRAME_WIDTH; x++) {
+      if (x % 5 == 0 && dashed)
+        continue;
+      g.drawOval(x, HALF_HEIGHT, 1, 1);
       }
-      if (!gridLines)
-        break;
-    }
-
-    for (int y = 0; y < FRAME_HEIGHT; y++) {
-      if (y % 4 == 0 && dashed)
-        g.drawOval(HALF_WIDTH, y, 1, 1);
-    }
-
   }
+
+
+  // public void paintAxis(Graphics g, boolean gridLines, boolean dashed) {
+
+  //   // x axis
+  //   g.setColor(Color.orange);
+
+  //   for (int y = 0; y < FRAME_HEIGHT; y++) {
+  //     if (y % 15 == 0) {
+  //       for (int x = 0; x < FRAME_WIDTH; x++) {
+  //         if (x % 4 == 0 && dashed)
+  //           g.drawOval(x, y, 1, 1);
+  //       }
+  //     }
+  //     if (!gridLines)
+  //       break;
+  //   }
+
+  //   for (int y = 0; y < FRAME_HEIGHT; y++) {
+  //     if (y % 4 == 0 && dashed)
+  //       g.drawOval(HALF_WIDTH, y, 1, 1);
+  //   }
+
+  // }
+
+  // public void paintGridlines(Graphics g, boolean dashed) {
+    
+
+
+  // }
 
 
 
@@ -133,5 +171,25 @@ public class Graphing extends JPanel {
     Graphing graph = new Graphing(); 
 
 	}
+
+  @Override
+  public void keyPressed(KeyEvent arg0) {
+
+  }
+
+  @Override
+  public void actionPerformed(ActionEvent arg0) {
+
+  }
+
+  @Override
+  public void keyReleased(KeyEvent arg0) {
+
+  }
+
+  @Override
+  public void keyTyped(KeyEvent arg0) {
+    
+  }
 
 }
