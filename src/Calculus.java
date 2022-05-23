@@ -97,7 +97,7 @@ public class Calculus {
           return "+∞"; 
         if (computeDerivativeAtAPoint(function, xTracker) < 100)
           return "-∞"; 
-        xTracker += 0.0000001; 
+        xTracker += 0.0000001;  
       }
 
       HashMap<String, Double> res = new HashMap<String, Double>(); 
