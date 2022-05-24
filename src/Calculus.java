@@ -3,6 +3,13 @@ import java.util.ArrayList;
 
 public class Calculus {
 	
+  /**
+   * Returns the approximate area under the curve between 2 x-values, when given a function. 
+   * @param function , the function of interest (must be a <code>Function</code> object). 
+   * @param lowBound , the low bound x-value for the definite integral. 
+   * @param highBound , the high bound x-value for the definite integral. 
+   * @return the area under the curve between <strong>lowBound</strong> and <strong>highBound</strong>, with respect to <strong>function</strong>. 
+   */
 	public static double computeDefiniteIntegral(Function function, double lowBound, double highBound) {
 				
 		double sum = 0.0;
