@@ -1,0 +1,4 @@
+dark blue 23, 35, 51
+light blue 71, 120, 197
+pale blue: 120, 168, 252
+paler blue: 84, 127, 206
