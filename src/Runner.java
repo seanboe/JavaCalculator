@@ -5,7 +5,7 @@ public class Runner {
         Function variable = new Function("x"); 
         Function actualFunction = new Function(variable, "^"); 
 
-        System.out.println(Calculus.computeLeftSideLimit(actualFunction, 3.0)); 
+        System.out.println(Calculus.computeLeftSideLimitNOUNDEFINEDCHECK(actualFunction, 3.0)); 
 
 
     }
