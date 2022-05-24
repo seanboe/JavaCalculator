@@ -45,6 +45,12 @@ public class Calculus {
 
   }
 	
+  /**
+   * Returns the derivative of a function at a specific x-value. 
+   * @param function , the function of interest (must be a <strong>Function</strong> object). 
+   * @param inputValue , the x-value where the derivative is to be computed. 
+   * @return , the slope of <strong>function</strong> at <strong>inputValue</strong>. 
+   */
 	public static double computeDerivativeAtAPoint(Function function, double inputValue) {
 		
     double solution = 0.0;
