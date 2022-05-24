@@ -1,9 +1,8 @@
 import java.util.HashMap;
-import java.util.ArrayList;
 
 public class Calculus {
 	
-	public static double computeDefiniteIntegral(Function function, double lowBound, double highBound) {
+	public static double computeDefiniteIntegral(Function function, double lowBound, double highBound) throws ArithmeticException, OperatorOnlyException {
 				
 		double sum = 0.0;
 		
@@ -26,7 +25,7 @@ public class Calculus {
 
 	}
 
-  public static String computeImproperIntegral(Function function, String lowBound, String highBound) {
+  public static String computeImproperIntegral(Function function, String lowBound, String highBound) throws NumberFormatException, ArithmeticException, OperatorOnlyException {
 
     if (lowBound.equals("-infty")) {
       return computeDefiniteIntegral(function, -10000.0, Double.parseDouble(highBound)) + ""; 
@@ -38,7 +37,7 @@ public class Calculus {
 
   }
 	
-	public static double computeDerivativeAtAPoint(Function function, double inputValue) {
+	public static double computeDerivativeAtAPoint(Function function, double inputValue) throws ArithmeticException, OperatorOnlyException {
 		
     double solution = 0.0;
 
@@ -60,7 +59,7 @@ public class Calculus {
 		
 	}
 
-  public static double computeSum(Function function, int lowerBound, int upperBound) {
+  public static double computeSum(Function function, int lowerBound, int upperBound) throws ArithmeticException, OperatorOnlyException {
 
     double sum = 0.0;
 
@@ -78,19 +77,18 @@ public class Calculus {
 
   }
 
-  public static String computeDefiniteLimit(Function function, double point) {
+  public static String computeDefiniteLimit(Function function, double point) throws ArithmeticException, VariableDefinitionException, OperatorOnlyException {
     if (computeLeftSideLimit(function, point).equals(computeRightSideLimit(function, point)))
       return computeLeftSideLimit(function, point) + ""; 
     return "limit does not exist"; 
   }
 
-  public static String computeLeftSideLimit(Function function, double point) {
+  public static String computeLeftSideLimit(Function function, double point) throws VariableDefinitionException, ArithmeticException, OperatorOnlyException {
 
     double undefinedCheck = (3.0) / (0 * 2); 
     HashMap<String, Double> pointInFunction = new HashMap<String, Double>(); 
     pointInFunction.put("x", point); 
 
-    try {
       if ((function.compute(pointInFunction) == undefinedCheck) || (Double.isNaN(function.compute(pointInFunction)))) {
         double xTracker = point - 1; 
         
@@ -106,15 +104,13 @@ public class Calculus {
       } else {
         return function.compute(pointInFunction) + ""; 
       }
-    } catch (VariableDefinitionException e) {
-      System.out.println(e); 
-    }
+
 
     return ""; 
 
   }
 
-  public static String computeRightSideLimit(Function function, double point) {
+  public static String computeRightSideLimit(Function function, double point) throws ArithmeticException, OperatorOnlyException {
 
     double undefinedCheck = (3.0) / (0 * 2); 
     HashMap<String, Double> pointInFunction = new HashMap<String, Double>(); 
@@ -144,7 +140,7 @@ public class Calculus {
 
   }
 
-  public static double computeEndBehavior(Function function, boolean positiveInfinity) throws VariableDefinitionException{
+  public static double computeEndBehavior(Function function, boolean positiveInfinity) throws VariableDefinitionException, ArithmeticException, OperatorOnlyException{
 
     double increment = Math.pow(10, 3) * (positiveInfinity ? 1.0 : -1.0);
     double x = increment;

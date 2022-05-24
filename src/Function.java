@@ -24,6 +24,9 @@ public class Function {
 	
 	private String variable;
 	private boolean isVariable;
+
+  private String operator;
+  private boolean isOperatorOnly = false;
 	
 	private Function a;
 	private Function b;
@@ -38,20 +41,45 @@ public class Function {
 		this.variable = variable;
 		isVariable = true;
 	}
+
+  public Function(String operator, boolean isOperator) {
+    this.operator = operator;
+    this.isOperatorOnly = true;
+  }
 	
-	public Function(Function a, String operation) {
+	public Function(Function a, Function operation) {
 		this.a = a;
-		this.operation = operation;
+		try {
+      this.operation = operation.getOperator();
+    } catch (OperatorOnlyException e) {
+      System.out.println("Function operation is not an operator only");
+    }
 	}
 	
-	public Function(Function a, Function b, String operation) {
+	public Function(Function a, Function b, Function operation) {
 		this.a = a;
 		this.b = b;
-		this.operation = operation;
+      try {
+        this.operation = operation.getOperator();
+      } catch (OperatorOnlyException e) {
+        System.out.println("Function operation is not an operator only");
+      }
 	}
 	
   public static void setVariable(String var, double value) {
     variables.put(var, value);
+  }
+
+  public String getOperator() throws OperatorOnlyException{
+    if (isOperatorOnly)
+      return operator;
+    else {
+      throw new OperatorOnlyException();
+    }
+  }
+
+  public boolean isOperator() {
+    return isOperatorOnly;
   }
 
   @SafeVarargs
@@ -63,7 +91,7 @@ public class Function {
     }
 	}
 	
-	public double compute() throws VariableDefinitionException {
+	public double compute() throws VariableDefinitionException, ArithmeticException, OperatorOnlyException {
 
 		if (isNumber) {
 			return number;
@@ -76,6 +104,9 @@ public class Function {
 				throw new VariableDefinitionException();
 			}
 		}
+    else if (isOperatorOnly) {
+      throw new OperatorOnlyException();
+    }
 		
 		double solution = 0;
 		
@@ -90,7 +121,11 @@ public class Function {
 			solution = this.a.compute() * this.b.compute();
       break;
 		case "/":
-			solution = this.a.compute() / this.b.compute();
+      if (this.b.compute() == 0) {
+        throw new ArithmeticException(); 
+      } else {
+			  solution = this.a.compute() / this.b.compute();
+      }
       break;
 		case "^":
 			solution = Math.pow(a.compute(), b.compute());
@@ -126,7 +161,7 @@ public class Function {
 	}
 
   // defaults to setting the variable x to the value
-  public double compute(double val) {
+  public double compute(double val) throws ArithmeticException, OperatorOnlyException {
     setVariable("x", val);
     double solution = 0.0;
     try {
@@ -138,7 +173,7 @@ public class Function {
   }
 
   @SafeVarargs
-	public final double compute(HashMap<String, Double>...functionVars) throws VariableDefinitionException {
+	public final double compute(HashMap<String, Double>...functionVars) throws VariableDefinitionException, ArithmeticException, OperatorOnlyException {
 
     for (int x = 0; x < functionVars.length; x++) {
 
@@ -180,5 +215,13 @@ public class Function {
 
     return solution;
   }
-	
+
+  public static boolean validMultiComputeOperation(String operation) {
+    return operation.equals("+") || operation.equals("-") || operation.equals("*") || operation.equals("/") || operation.equals("^") || operation.equals("log");
+  }
+
+  public static boolean validSingleComputeOperation(String operation) {
+    return operation.equals("sin") || operation.equals("cos") || operation.equals("tan") || operation.equals("asin") || operation.equals("acos") || operation.equals("atan");
+  }
+
 }

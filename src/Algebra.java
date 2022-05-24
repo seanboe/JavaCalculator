@@ -1,7 +1,7 @@
 public class Algebra {
 
   // Bisection zeros algorithm
-  public static double bisectionZeros(Function function, double lowerLimit, double upperLimit) throws InvalidInputsException {
+  public static double bisectionZeros(Function function, double lowerLimit, double upperLimit) throws InvalidInputsException, ArithmeticException, OperatorOnlyException {
 
     // make sure that signs of the function at the lowerLimit and the upperLimit are opposite
     double lowerBound = lowerLimit;
@@ -42,7 +42,7 @@ public class Algebra {
   }
 
   // Newton's method for bisections - point must be within 50 coordinate spaces
-  public static double computeZeros(Function function, double point) throws InvalidInputsException {
+  public static double computeZeros(Function function, double point) throws InvalidInputsException, ArithmeticException, OperatorOnlyException {
 
     double threshold = 0.001;
     System.out.println(threshold);
@@ -55,11 +55,14 @@ public class Algebra {
       // create a linear tangent line
       Function a = new Function("x");
       Function b = new Function(posX);
-      Function c = new Function(a, b, "-");
+      Function k = new Function("-", true);
+      Function c = new Function(a, b, k);
       Function d = new Function(slope);
-      Function e = new Function(d, c, "*");
+      Function y = new Function("*", true);
+      Function e = new Function(d, c, y);
       Function f = new Function(function.compute(posX));
-      Function tangent = new Function(e, f, "+");
+      Function l = new Function("+", true);
+      Function tangent = new Function(e, f, l);
 
 
 
