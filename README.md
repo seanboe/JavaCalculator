@@ -6,6 +6,7 @@ This is our Java calculator which includes the following functionalities:
 - derivative at a point
 - definite & improper integrals
 - graphing
+- series 
 - statistics functions (significance tests, linear regression, etc.) 
 - and other various calculations... 
 
