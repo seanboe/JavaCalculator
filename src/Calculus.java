@@ -73,6 +73,13 @@ public class Calculus {
 		
 	}
 
+  /**
+   * Returns the definite sum (series) of a function from a low bound x-value to a high-bound x-value. 
+   * @param function , the function of interest (must be a <code>Function</code> object). 
+   * @param lowerBound , the low bound x-value of the sum. 
+   * @param upperBound , the high bound x-value of the sum. 
+   * @return the series of <strong>function</strong>, with respect to <strong>lowerBound</strong> and <strong>upperBound</strong>. 
+   */
   public static double computeSum(Function function, int lowerBound, int upperBound) {
 
     double sum = 0.0;
@@ -183,6 +190,13 @@ public class Calculus {
 
   }
 
+  /**
+   * Returns the end behavior of a function (the y-value of the asymptote), when the x-direction of the limit is specified. 
+   * @param function , the function of interest (must be a <strong>Function</strong> object). 
+   * @param positiveInfinity , a <code>boolean</code> that is <code>true</code> when x-values approach positive infinity and <code>false</code> when x-values approach negative infinity. 
+   * @return the y-value of the asymptote, with respect to the value of <strong>positiveInfinity</strong>. 
+   * @throws VariableDefinitionException
+   */
   public static double computeEndBehavior(Function function, boolean positiveInfinity) throws VariableDefinitionException{
 
     double increment = Math.pow(10, 3) * (positiveInfinity ? 1.0 : -1.0);
