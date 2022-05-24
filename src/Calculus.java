@@ -33,6 +33,13 @@ public class Calculus {
 
 	}
 
+  /**
+   * Returns the total area under a function or the area under a curve from a constant to +∞ or from -∞ to a constant, depending on the specification. 
+   * @param function , the function of interest (must be a <code>Function</code> object). 
+   * @param lowBound , the low bound of the integral. It is a <code>String</code> (must be either "-infty" or a real number in <code>String</code> format). 
+   * @param highBound , the high bound of the integral. It is a <code>String</code> (must be either "+infty" or a real number in <code>String</code> format). 
+   * @return the area under <strong>function</strong>, with respect to <strong>lowBound</strong> and <strong>highBound</strong>. 
+   */
   public static String computeImproperIntegral(Function function, String lowBound, String highBound) {
 
     if (lowBound.equals("-infty")) {
