@@ -72,6 +72,7 @@ public class Calculus {
 
 		try {
 			solution = (function.compute(temp2) - function.compute(temp1)) / (0.000000000000001); 
+      return solution; 
 		} catch (VariableDefinitionException e) {
 			System.out.println(e); 
 		}
@@ -105,98 +106,6 @@ public class Calculus {
 
   }
 
-  public static String computeDefiniteLimit(Function function, double point) {
-    if (computeLeftSideLimit(function, point).equals(computeRightSideLimit(function, point)))
-      return computeLeftSideLimit(function, point) + ""; 
-    return "limit does not exist"; 
-  }
-
-  public static String computeLeftSideLimitNOUNDEFINEDCHECK(Function function, double xVal) {
-
-    HashMap<String, Double> point = new HashMap<String, Double>(); 
-    point.put("x", xVal); 
-    double xTracker = xVal - 1; 
-
-    try {
-
-      while (xTracker < xVal) {
-        if (computeDerivativeAtAPoint(function, xTracker) > 100)
-          return "+∞"; 
-        if (computeDerivativeAtAPoint(function, xTracker) < 100)
-          return "-∞"; 
-        xTracker += 0.0000001;  
-      }
-
-      HashMap<String, Double> res = new HashMap<String, Double>(); 
-      res.put("x", xTracker); 
-      return function.compute(res) + ""; 
-
-    } catch (VariableDefinitionException e) {
-      System.out.println(e); 
-    }
-
-    return ""; 
-
-  }
-
-  public static String computeLeftSideLimit(Function function, double point) {
-    double undefinedCheck = (3.0) / (0 * 2); 
-    HashMap<String, Double> pointInFunction = new HashMap<String, Double>(); 
-    pointInFunction.put("x", point); 
-    double xTracker = point-1; 
-    try {
-      
-      if ((function.compute(pointInFunction) == undefinedCheck) || (Double.isNaN(function.compute(pointInFunction)))) {
-        xTracker = point - 1; 
-        
-        while (xTracker < point) {
-          if (computeDerivativeAtAPoint(function, xTracker) > 100) 
-            return "+∞"; 
-          if ((computeDerivativeAtAPoint(function, xTracker)) < -100) 
-            return "-∞"; 
-          
-          xTracker += 0.0000001; 
-        }
-
-      } else {
-        return function.compute(pointInFunction) + ""; 
-      }
-    } catch (VariableDefinitionException e) {
-      System.out.println(e); 
-    }
-    return ""; 
-  }
-
-  public static String computeRightSideLimit(Function function, double point) {
-
-    double undefinedCheck = (3.0) / (0 * 2); 
-    HashMap<String, Double> pointInFunction = new HashMap<String, Double>(); 
-    pointInFunction.put("x", point); 
-
-    try {
-      if ((function.compute(pointInFunction) == undefinedCheck) || (Double.isNaN(function.compute(pointInFunction)))) {
-        double xTracker = point + 1; 
-        
-        while (xTracker > point) {
-          if (computeDerivativeAtAPoint(function, xTracker) > 100) 
-            return "+∞"; 
-          if ((computeDerivativeAtAPoint(function, xTracker)) < -100) 
-            return "-∞"; 
-          
-          xTracker -= 0.0000001; 
-        }
-
-      } else {
-        return function.compute(pointInFunction) + ""; 
-      }
-    } catch (VariableDefinitionException e) {
-      System.out.println(e); 
-    }
-
-    return ""; 
-
-  }
-
   /**
    * Returns the end behavior of a function (the y-value of the asymptote), when the x-direction of the limit is specified. 
    * @param function , the function of interest (must be a <strong>Function</strong> object). 
@@ -220,8 +129,5 @@ public class Calculus {
 
     return function.compute(point);
   }
-
-
-
-	
+  
 }
