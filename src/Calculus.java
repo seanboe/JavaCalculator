@@ -130,4 +130,4 @@ public class Calculus {
     return function.compute(point);
   }
   
-}
+} 
