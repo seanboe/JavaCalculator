@@ -974,7 +974,13 @@ public class GUIv3 extends javax.swing.JFrame {
 
     private void integratebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
+        Function a = new Function("x");
+        Function b = new Function(3);
+        Function c = new Function(a, b, "^");
 
+        try {
+            double input = Double.valueOf(deriveinputfield.getText());
+        }
     }                                               
 
     /**
