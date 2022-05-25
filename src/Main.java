@@ -37,10 +37,30 @@ public class Main {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-		
+
+    Stack<Function> blaze = stringRPNToStack("x 2 ^ ");
+    System.out.println(blaze.size());
+
+    try {
+      crunchRPNStack(blaze);
+    } catch (OperatorOnlyException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    try {
+      System.out.println(blaze.pop().compute(5));
+    } catch (ArithmeticException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (OperatorOnlyException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+
 	}
 
-  // Double check if there is a space after the input string
   public static Stack<Function> stringRPNToStack(String rpnInput) {
     Stack<Function> output = new Stack<Function>();
 
@@ -48,20 +68,27 @@ public class Main {
       rpnInput += " ";
     }
 
-    int curr = 0;
+    System.out.println(rpnInput + ";");
+
     while (rpnInput.indexOf(" ") >= 0) {
-      String section = rpnInput.substring(curr, rpnInput.indexOf(" "));
+      String section = rpnInput.substring(0, rpnInput.indexOf(" "));
+
+      System.out.println(section);
 
       if (Character.isDigit(section.charAt(0))) {
+        System.out.println("number");
         output.push(new Function(Double.parseDouble(section)));
       }
       else if (Character.isAlphabetic(section.charAt(0))) {
-        output.push(new Function(section.charAt(0)));
+        System.out.println("letter");
+        output.push(new Function(section.charAt(0) + ""));
       }
       else if (Function.validMultiComputeOperation(section) || Function.validSingleComputeOperation(section)) {
+        System.out.println("operation");
         output.push(new Function(section, true));
       }
-      curr = rpnInput.indexOf(" ") + 1;
+      rpnInput = rpnInput.substring(rpnInput.indexOf(" ") + 1);
+      System.out.println("New input: " + rpnInput);
     }
 
     return output;
@@ -112,8 +139,6 @@ public class Main {
     }
 
   }
-
-
 
 
 
