@@ -968,6 +968,42 @@ public class GUIv3 extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
+        computeinputlabel.setVisible(false);
+        computeinputfield.setVisible(false);
+        computeoutputlabel.setVisible(false);
+        computeoutputvaluelabel.setVisible(false);
+        computebutton.setVisible(false);
+        deriveinputlabel.setVisible(false);
+        deriveinputfield.setVisible(false);
+        deriveoutputlabel.setVisible(false);
+        deriveoutputvaluelabel.setVisible(false);
+        derivebutton.setVisible(false);
+        integralsymbollabel.setVisible(false);
+        integrallowerboundlabel.setVisible(false);
+        integralupperboundlabel.setVisible(false);
+        integratebutton.setVisible(false);
+        integraloutputlabel.setVisible(false);
+        statsinputdatalabel.setVisible(false);
+        statsinputdatalabel1.setVisible(false);
+        statsinputdatalabel2.setVisible(false);
+        statsinputlabelfield.setVisible(false);
+        statsinputlabelfield1.setVisible(false);
+        statsinputlabelfield2.setVisible(false);
+        computeSebutton.setVisible(false);
+        computesumofresidualssquaredbutton.setVisible(false);
+        computeresidualvaluesbutton.setVisible(false);
+        computeypredictedvaluesbutton.setVisible(false);
+        computelsrloutputbutton.setVisible(false);
+        displaylsrlequationbutton.setVisible(false);
+        computeabutton.setVisible(false);
+        computebbutton.setVisible(false);
+        computerbutton.setVisible(false);
+        computersquaredvaluebutton.setVisible(false);
+        computezprobmidpointriemann.setVisible(false);
+        computezmeanstesthasgreaterthanvalue.setVisible(false);
+        computezmeanshaslessthanvaluebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
 
         pack();
     }// </editor-fold>                        
@@ -1009,6 +1045,7 @@ public class GUIv3 extends javax.swing.JFrame {
         computezmeanstesthasgreaterthanvalue.setVisible(false);
         computezmeanshaslessthanvaluebutton.setVisible(false);
         computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
 
         setColor(sidetab1);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
@@ -1066,6 +1103,8 @@ public class GUIv3 extends javax.swing.JFrame {
         computezmeanstesthasgreaterthanvalue.setVisible(false);
         computezmeanshaslessthanvaluebutton.setVisible(false);
         computeSebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
         setColor(sidetab2);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator2.setOpaque(true);
@@ -1121,6 +1160,8 @@ public class GUIv3 extends javax.swing.JFrame {
         computezmeanstesthasgreaterthanvalue.setVisible(false);
         computezmeanshaslessthanvaluebutton.setVisible(false);
         computeSebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
         setColor(sidetab3);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator3.setOpaque(true);
@@ -1176,6 +1217,8 @@ public class GUIv3 extends javax.swing.JFrame {
         computezmeanstesthasgreaterthanvalue.setVisible(false);
         computezmeanshaslessthanvaluebutton.setVisible(false);
         computeSebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
         setColor(sidetab5);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator4.setOpaque(true);
@@ -1231,6 +1274,8 @@ public class GUIv3 extends javax.swing.JFrame {
         computezmeanstesthasgreaterthanvalue.setVisible(false);
         computezmeanshaslessthanvaluebutton.setVisible(false);
         computeSebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
         setColor(sidetab7);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator5.setOpaque(true);
@@ -1286,6 +1331,9 @@ public class GUIv3 extends javax.swing.JFrame {
         computezmeanstesthasgreaterthanvalue.setVisible(true);
         computezmeanshaslessthanvaluebutton.setVisible(true);
         computeSebutton.setVisible(true);
+        computeSebutton12.setVisible(true);
+        statsoutputlabel.setVisible(true);
+        
         setColor(sidetab8);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator6.setOpaque(true);
