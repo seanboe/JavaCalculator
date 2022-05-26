@@ -1,10 +1,10 @@
 import java.util.Stack;
 import java.util.ArrayList;
 
-public class Parserx {
+public class InfixParser {
     
 
-    public Parserx() {}
+    public InfixParser() {}
 
     public static int getPrecedence(String s) {
         char ch = s.charAt(0);
@@ -30,28 +30,27 @@ public class Parserx {
         for (int i = 0; i<infix.length(); i++) {
             String token = infix.substring(i, i+1);
             if (Character.isDigit(token.charAt(0)) || token.equals("x")) {
-                rpn = rpn + token;
+                rpn += (token + " ");
             } else if (token.equals("(")) {
                 stack.push("(");
             } else if (operators.contains(token)) {
                 while (!stack.isEmpty() && getPrecedence(token)<=getPrecedence(stack.peek()) && hasLeftAssociativity(token)) {
-                    rpn+=stack.pop();
+                    rpn += (stack.pop() + " ");
                 }
                 stack.push(token);
             } else if (token.equals(")")) {
                 while (!stack.isEmpty() && !stack.peek().equals("(")) {
-                    rpn+=stack.pop();
+                    rpn += (stack.pop() + " ");
                 }
             } 
 
         }
         while(!stack.isEmpty()) {
             if (stack.peek().equals("(") || stack.peek().equals(")")) {
-                System.out.println("bracket");
                 stack.pop();
                 continue;
             }
-            rpn+=stack.pop();
+            rpn += (stack.pop() + " ");
         }
         return rpn;
       }

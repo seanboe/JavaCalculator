@@ -45,12 +45,14 @@ public class Main {
 
 
 
-    String input = Parserx.parse("x^2");
+    String input = InfixParser.parse("x^2");
 
-    Stack<Function> blaze = Parserx.stringRPNToStack(input);
+    System.out.println(input);
+
+    Stack<Function> blaze = InfixParser.stringRPNToStack(input);
 
     try {
-      Parserx.crunchRPNStack(blaze);
+      InfixParser.crunchRPNStack(blaze);
     } catch (OperatorOnlyException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
