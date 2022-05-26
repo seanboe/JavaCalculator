@@ -9,8 +9,10 @@ public class Calculus {
    * @param lowBound , the low bound x-value for the definite integral. 
    * @param highBound , the high bound x-value for the definite integral. 
    * @return the area under the curve between <strong>lowBound</strong> and <strong>highBound</strong>, with respect to <strong>function</strong>. 
+   * @throws OperatorOnlyException
+   * @throws ArithmeticException
    */
-	public static double computeDefiniteIntegral(Function function, double lowBound, double highBound) {
+	public static double computeDefiniteIntegral(Function function, double lowBound, double highBound) throws ArithmeticException, OperatorOnlyException {
 				
 		double sum = 0.0;
 		
@@ -39,8 +41,11 @@ public class Calculus {
    * @param lowBound , the low bound of the integral. It is a <code>String</code> (must be either "-infty" or a real number in <code>String</code> format). 
    * @param highBound , the high bound of the integral. It is a <code>String</code> (must be either "+infty" or a real number in <code>String</code> format). 
    * @return the area under <strong>function</strong>, with respect to <strong>lowBound</strong> and <strong>highBound</strong>. 
+   * @throws OperatorOnlyException
+   * @throws ArithmeticException
+   * @throws NumberFormatException
    */
-  public static String computeImproperIntegral(Function function, String lowBound, String highBound) {
+  public static String computeImproperIntegral(Function function, String lowBound, String highBound) throws NumberFormatException, ArithmeticException, OperatorOnlyException {
 
     if (lowBound.equals("-infty")) {
       return computeDefiniteIntegral(function, -10000.0, Double.parseDouble(highBound)) + ""; 
@@ -57,8 +62,10 @@ public class Calculus {
    * @param function , the function of interest (must be a <strong>Function</strong> object). 
    * @param inputValue , the x-value where the derivative is to be computed. 
    * @return , the slope of <strong>function</strong> at <strong>inputValue</strong>. 
+   * @throws OperatorOnlyException
+   * @throws ArithmeticException
    */
-	public static double computeDerivativeAtAPoint(Function function, double inputValue) {
+	public static double computeDerivativeAtAPoint(Function function, double inputValue) throws ArithmeticException, OperatorOnlyException {
 		
     double solution = 0.0;
 
@@ -87,8 +94,10 @@ public class Calculus {
    * @param lowerBound , the low bound x-value of the sum. 
    * @param upperBound , the high bound x-value of the sum. 
    * @return the series of <strong>function</strong>, with respect to <strong>lowerBound</strong> and <strong>upperBound</strong>. 
+   * @throws OperatorOnlyException
+   * @throws ArithmeticException
    */
-  public static double computeSum(Function function, int lowerBound, int upperBound) {
+  public static double computeSum(Function function, int lowerBound, int upperBound) throws ArithmeticException, OperatorOnlyException {
 
     double sum = 0.0;
 
@@ -112,8 +121,10 @@ public class Calculus {
    * @param positiveInfinity , a <code>boolean</code> that is <code>true</code> when x-values approach positive infinity and <code>false</code> when x-values approach negative infinity. 
    * @return the y-value of the asymptote, with respect to the value of <strong>positiveInfinity</strong>. 
    * @throws VariableDefinitionException
+   * @throws OperatorOnlyException
+   * @throws ArithmeticException
    */
-  public static double computeEndBehavior(Function function, boolean positiveInfinity) throws VariableDefinitionException{
+  public static double computeEndBehavior(Function function, boolean positiveInfinity) throws VariableDefinitionException, ArithmeticException, OperatorOnlyException{
 
     double increment = Math.pow(10, 3) * (positiveInfinity ? 1.0 : -1.0);
     double x = increment;
