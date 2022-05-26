@@ -82,13 +82,13 @@ public class InfixParser {
         String section = rpnInput.substring(0, rpnInput.indexOf(" "));
   
         if (Character.isDigit(section.charAt(0))) {
-          output.push(new Function(Double.parseDouble(section)));
+          output.add(new Function(Double.parseDouble(section)));
         }
         else if (Character.isAlphabetic(section.charAt(0))) {
-          output.push(new Function(section.charAt(0) + ""));
+          output.add(new Function(section.charAt(0) + ""));
         }
         else if (Function.validMultiComputeOperation(section) || Function.validSingleComputeOperation(section)) {
-          output.push(new Function(section, true));
+          output.add(new Function(section, true));
         }
         rpnInput = rpnInput.substring(rpnInput.indexOf(" ") + 1);
       }
@@ -96,27 +96,40 @@ public class InfixParser {
       return output;
     }
 
+    public static int crunchRPNStack(Stack<Function> stack) throws OperatorOnlyException {
 
-    public static void crunchRPNStack(Stack<Function> stack) throws OperatorOnlyException {
-      Function last = stack.pop();
-      
-      if (!last.isOperator())
-        return;
-  
-      if (Function.validMultiComputeOperation(last.getOperator()) && (stack.size() >= 2)) {
+      int counter = 0;
+
+      while (stack.size() > 1) {          
+
+        int originalSize = stack.size();
+
+        Function last = stack.pop();
         Function secondLast = stack.pop();
-        Function thirdLast = stack.pop();
-  
-        stack.push(new Function(thirdLast, secondLast, last));
+
+        if (secondLast.isOperator()) {
+          stack.push(new Function(last, secondLast));
+        }
+        else if (originalSize >= 3) {
+          Function thirdLast = stack.pop();
+          if (thirdLast.isOperator()) {
+            stack.push(new Function(last, secondLast, thirdLast));
+          }
+        }
+
+        counter++;
       }
-      else if (Function.validSingleComputeOperation(last.getOperator()) && (stack.size() >= 1)) {
-  
-        Function secondLast = stack.pop();
-  
-        stack.push(new Function(secondLast, last));
-      }
-  
+
+      return counter;
+
     }
+
+    // private static String infixCleaner(String input) {
+
+    // }
     
 
+
+
 }
+

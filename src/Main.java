@@ -45,11 +45,11 @@ public class Main {
 
 
 
-    String input = InfixParser.parse("x^2");
-
-    System.out.println(input);
+    String input = InfixParser.parse("x^2+2");
 
     Stack<Function> blaze = InfixParser.stringRPNToStack(input);
+
+    blaze = reverseStack(blaze);
 
     try {
       InfixParser.crunchRPNStack(blaze);
@@ -70,5 +70,18 @@ public class Main {
 
 	}
 			
+
+  public static Stack<Function> reverseStack(Stack<Function> stack) {
+    Stack<Function> output = new Stack<Function>();
+
+    // Stack<Function> tempStack = (Stack<Function>)output.clone();
+
+    while (stack.size() > 0) {
+      // Function temp = tempStack.pop();
+      Function temp = stack.pop();
+      output.push(temp);
+    }
+    return output;
+  }
 
 }
