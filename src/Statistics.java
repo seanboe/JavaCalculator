@@ -1,5 +1,6 @@
 public class Statistics {
 
+	// HELPER METHOD 
     /**
 	 * Returns the mean (average) of a <code>double</code> array, in a <code>double</code> format. 
 	 * @param inputData , a <code>double</code> array. 
@@ -16,6 +17,7 @@ public class Statistics {
 
 	}
 
+	// HELPER METHOD 
     /**
 	 * Returns the variance of a <code>double</code> array, in a <code>double</code> format. 
 	 * @param inputData , a <code>double</code> array. 
@@ -32,6 +34,7 @@ public class Statistics {
 
 	}
 
+	// HELPER METHOD 
 	/**
 	 * Returns the standard deviation of a <code>double</code> array, in a <code>double</code> format. 
 	 * @param inputData , a <code>double</code> array. 
@@ -42,6 +45,8 @@ public class Statistics {
 		return Math.sqrt(computeVariance(inputData));
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
     /**
 	 * Returns the standard error (Se) of the residuals, in a <code>double</code> format. 
 	 * <p>
@@ -56,6 +61,8 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
 	/**
 	 * Returns the sum of the residuals squared of the residuals, in a <code>double</code> format. 
 	 * <p>
@@ -78,6 +85,8 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
 	/**
 	 * Returns a <code>double</code> array containing the residual values. 
 	 * <p>
@@ -98,6 +107,8 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
 	/**
 	 * Returns a <code>double</code> array containing the predicted y-values (ŷ). 
 	 * <p>
@@ -118,6 +129,8 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
 	/**
 	 * Returns a <code>double</code> which represents the predicted y-value (ŷ) when an x-value is inputted into the least-squares regression line (LSRL). 
 	 * <p>
@@ -133,6 +146,8 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
 	/**
 	 * Returns the least-squares regression line (LSRL) equation, in a <code>String</code> format. 
 	 * <p>
@@ -157,6 +172,8 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
 	/**
 	 * Returns the y-intercept of the least-squares regression line (LSRL) equation, in a <code>double</code> format. 
 	 * <p>
@@ -171,6 +188,8 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
 	/**
 	 * Returns the slope of the least-squares regression line (LSRL) equation, in a <code>double</code> format. 
 	 * <p>
@@ -189,6 +208,8 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
 	/**
 	 * Returns the correlation coefficient (r-value) of the relationship between the independent and dependent variables, in a <code>double</code> format. 
 	 * <p>
@@ -216,6 +237,8 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD - LINEAR REGRESSION 
+	// TO BE PRINTED WITH THE OTHER LINEAR REGRESSION USER CALLED METHODS 
 	/**
 	 * Returns the r^2-value of the relationship between the independent and dependent variables, in a <code>double</code> format. 
 	 * <p>
@@ -233,6 +256,7 @@ public class Statistics {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // everything below this is part of significance test functions 
 
+	// HELPER METHOD 
     /**
 	 * Returns the output (in a <code>double</code> format) of the probability density function (for normal distributions). 
 	 * <p>
@@ -240,7 +264,7 @@ public class Statistics {
 	 * @param inputZ , the input value
 	 * @return the normal probability density function's output when <strong>inputZ</strong> is the input. 
 	 */
-	public static double NormalPDF(double inputZ) {
+	private static double NormalPDF(double inputZ) {
 
 		double constant = (1) / (Math.sqrt(2 * Math.PI));
 		double exponent = (Math.pow(inputZ, 2.0)) / (-2);
@@ -249,6 +273,7 @@ public class Statistics {
 
 	}
 
+	// HELPER METHOD AND A USER CALLED METHOD 
     /**
 	 * Returns the probability between two z-scores for the probability density function (for normal distributions) using a midpoint Riemann sum. 
 	 * <p>
@@ -274,6 +299,7 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD 
     /**
 	 * Returns the final decision (a <code>String</code>) of the significance test for means, utilizing the z-distribution. 
 	 * <p>
@@ -309,6 +335,7 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD 
     /**
 	 * Returns the final decision (a <code>String</code>) of the significance test for means, utilizing the z-distribution. 
 	 * <p>
@@ -344,6 +371,7 @@ public class Statistics {
 
 	}
 
+	// USER CALLED METHOD 
 	/**
 	 * Returns the final decision (a <code>String</code>) of the significance test for means, utilizing the z-distribution. 
 	 * <p>
