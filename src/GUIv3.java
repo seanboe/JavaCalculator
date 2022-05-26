@@ -1010,6 +1010,8 @@ public class GUIv3 extends javax.swing.JFrame {
 
         Stack<Function> blaze = InfixParser.stringRPNToStack(rpn);
 
+        blaze = Main.reverseStack(blaze);
+
         try {
             InfixParser.crunchRPNStack(blaze);
         } catch (OperatorOnlyException e) {
@@ -1019,8 +1021,6 @@ public class GUIv3 extends javax.swing.JFrame {
 
 
         f = blaze.pop();
-
-        System.out.println(f.toString());
 
     }                                                  
 
