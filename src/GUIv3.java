@@ -1016,6 +1016,7 @@ public class GUIv3 extends javax.swing.JFrame {
     private void equationinputfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
         //Convert input equation to function(and rpn)
+        
     }                                                  
 
     /**

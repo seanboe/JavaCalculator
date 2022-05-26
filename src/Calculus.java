@@ -72,10 +72,7 @@ public class Calculus {
 
 		try {
 			solution = (function.compute(temp2) - function.compute(temp1)) / (0.000000000000001); 
-<<<<<<< HEAD
-=======
       return solution; 
->>>>>>> dd94b90011f4998b5f124d47e094aa591f7fd16f
 		} catch (VariableDefinitionException e) {
 			System.out.println(e); 
 		}
