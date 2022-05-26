@@ -82,9 +82,10 @@ public class Calculus {
       return solution; 
 		} catch (VariableDefinitionException e) {
 			System.out.println(e); 
+      return solution; 
 		}
 		
-		return solution; 
+		//return solution; 
 		
 	}
 
