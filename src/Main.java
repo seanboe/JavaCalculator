@@ -38,8 +38,15 @@ public class Main {
       e.printStackTrace();
     }
 
+
+
+
+
+
+
+
+
     Stack<Function> blaze = stringRPNToStack("x 2 ^ ");
-    System.out.println(blaze.size());
 
     try {
       crunchRPNStack(blaze);
@@ -68,27 +75,19 @@ public class Main {
       rpnInput += " ";
     }
 
-    System.out.println(rpnInput + ";");
-
     while (rpnInput.indexOf(" ") >= 0) {
       String section = rpnInput.substring(0, rpnInput.indexOf(" "));
 
-      System.out.println(section);
-
       if (Character.isDigit(section.charAt(0))) {
-        System.out.println("number");
         output.push(new Function(Double.parseDouble(section)));
       }
       else if (Character.isAlphabetic(section.charAt(0))) {
-        System.out.println("letter");
         output.push(new Function(section.charAt(0) + ""));
       }
       else if (Function.validMultiComputeOperation(section) || Function.validSingleComputeOperation(section)) {
-        System.out.println("operation");
         output.push(new Function(section, true));
       }
       rpnInput = rpnInput.substring(rpnInput.indexOf(" ") + 1);
-      System.out.println("New input: " + rpnInput);
     }
 
     return output;
@@ -122,16 +121,12 @@ public class Main {
       return;
 
     if (Function.validMultiComputeOperation(last.getOperator()) && (stack.size() >= 2)) {
-      System.out.println("adjflksjf");
-
-
       Function secondLast = stack.pop();
       Function thirdLast = stack.pop();
 
       stack.push(new Function(thirdLast, secondLast, last));
     }
     else if (Function.validSingleComputeOperation(last.getOperator()) && (stack.size() >= 1)) {
-      System.out.println("lsdkfsdkjf");
 
       Function secondLast = stack.pop();
 
