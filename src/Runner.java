@@ -1,7 +1,15 @@
 public class Runner {
 
-    // private Function a;
-    // Function function = new Function(a, "^"); 
-    // Calculus.computeLeftSideLimit(function, 1.0); 
+    public static void main(String[] args) {
+
+        Function variable = new Function("x"); 
+        Function actualFunction = new Function(variable, "^"); 
+
+        System.out.println(Calculus.computeDerivativeAtAPoint(actualFunction, 3.0)); 
+
+
+    }
+
+
     
 }

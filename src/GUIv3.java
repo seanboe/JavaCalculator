@@ -52,6 +52,10 @@ public class GUIv3 extends javax.swing.JFrame {
         palebluebar = new javax.swing.JPanel();
         jcaslabel = new javax.swing.JLabel();
         palerbluebar = new javax.swing.JPanel();
+        yourequationlabel = new javax.swing.JLabel();
+        rpnlabel = new javax.swing.JLabel();
+        equationinputfield = new javax.swing.JTextField();
+        rpnequationoutputlabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptiontextfield = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
@@ -426,15 +430,53 @@ public class GUIv3 extends javax.swing.JFrame {
 
         palerbluebar.setBackground(new java.awt.Color(84, 127, 206));
 
+        yourequationlabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        yourequationlabel.setForeground(java.awt.Color.white);
+        yourequationlabel.setText("Enter Your Equation:");
+
+        rpnlabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rpnlabel.setForeground(java.awt.Color.white);
+        rpnlabel.setText("Reverse Polish Notation:");
+
+        equationinputfield.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        equationinputfield.setText("x^2+1");
+        equationinputfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                equationinputfieldActionPerformed(evt);
+            }
+        });
+
+        rpnequationoutputlabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rpnequationoutputlabel.setForeground(java.awt.Color.white);
+        rpnequationoutputlabel.setText("x 2 ^ 1 +");
+
         javax.swing.GroupLayout palerbluebarLayout = new javax.swing.GroupLayout(palerbluebar);
         palerbluebar.setLayout(palerbluebarLayout);
         palerbluebarLayout.setHorizontalGroup(
             palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(palerbluebarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(rpnlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(yourequationlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(equationinputfield)
+                    .addComponent(rpnequationoutputlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         palerbluebarLayout.setVerticalGroup(
             palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 162, Short.MAX_VALUE)
+            .addGroup(palerbluebarLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yourequationlabel)
+                    .addComponent(equationinputfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rpnlabel)
+                    .addComponent(rpnequationoutputlabel))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         descriptiontextfield.setBackground(new java.awt.Color(71, 120, 197));
@@ -685,27 +727,11 @@ public class GUIv3 extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        descriptiontextfield.setEditable(false);
-        computeinputlabel.setVisible(false);
-        computeinputfield.setVisible(false);
-        computeoutputlabel.setVisible(false);
-        computeoutputvaluelabel.setVisible(false);
-        computebutton.setVisible(false);
-        deriveinputlabel.setVisible(false);
-        deriveinputfield.setVisible(false);
-        deriveoutputlabel.setVisible(false);
-        deriveoutputvaluelabel.setVisible(false);
-        derivebutton.setVisible(false);
-        integralsymbollabel.setVisible(false);
-        integrallowerboundlabel.setVisible(false);
-        integralupperboundlabel.setVisible(false);
-        integratebutton.setVisible(false);
-        integraloutputlabel.setVisible(false);
         pack();
     }// </editor-fold>                        
 
     private void sidetab1MousePressed(java.awt.event.MouseEvent evt) {                                      
-        // TODO add your handling code here:
+                // TODO add your handling code here:
         computeinputlabel.setVisible(false);
         computeinputfield.setVisible(false);
         computeoutputlabel.setVisible(false);
@@ -775,7 +801,7 @@ public class GUIv3 extends javax.swing.JFrame {
     }                                     
 
     private void sidetab3MousePressed(java.awt.event.MouseEvent evt) {                                      
-        // TODO add your handling code here:
+         // TODO add your handling code here:
          computeinputlabel.setVisible(false);
          computeinputfield.setVisible(false);
          computeoutputlabel.setVisible(false);
@@ -810,7 +836,7 @@ public class GUIv3 extends javax.swing.JFrame {
     }                                     
 
     private void sidetab5MousePressed(java.awt.event.MouseEvent evt) {                                      
-         // TODO add your handling code here:
+          // TODO add your handling code here:
          computeinputlabel.setVisible(false);
          computeinputfield.setVisible(false);
          computeoutputlabel.setVisible(false);
@@ -973,15 +999,24 @@ public class GUIv3 extends javax.swing.JFrame {
     }                                                       
 
     private void integratebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         Function a = new Function("x");
         Function b = new Function(3);
         Function c = new Function(a, b, "^");
 
         try {
-            double input = Double.valueOf(deriveinputfield.getText());
+            double lowerBound = Double.valueOf(integrallowerboundlabel.getText());
+            double upperBound = Double.valueOf(integralupperboundlabel.getText());
+            integraloutputlabel.setText(Double.toString(Calculus.computeDefiniteIntegral(c, lowerBound, upperBound)));
+        } catch (Exception df) {
+            integraloutputlabel.setText("error");
         }
     }                                               
+
+    private void equationinputfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+        // TODO add your handling code here:
+        //Convert input equation to function(and rpn)
+    }                                                  
 
     /**
      * @param args the command line arguments
@@ -1052,6 +1087,7 @@ public class GUIv3 extends javax.swing.JFrame {
     private javax.swing.JLabel deriveoutputlabel;
     private javax.swing.JLabel deriveoutputvaluelabel;
     private javax.swing.JTextArea descriptiontextfield;
+    private javax.swing.JTextField equationinputfield;
     private javax.swing.JLabel homelabel;
     private javax.swing.JPanel indicator1;
     private javax.swing.JPanel indicator2;
@@ -1073,6 +1109,8 @@ public class GUIv3 extends javax.swing.JFrame {
     private javax.swing.JPanel middlebluesection;
     private javax.swing.JPanel palebluebar;
     private javax.swing.JPanel palerbluebar;
+    private javax.swing.JLabel rpnequationoutputlabel;
+    private javax.swing.JLabel rpnlabel;
     private javax.swing.JPanel sidetab1;
     private javax.swing.JPanel sidetab2;
     private javax.swing.JPanel sidetab3;
@@ -1080,5 +1118,6 @@ public class GUIv3 extends javax.swing.JFrame {
     private javax.swing.JPanel sidetab7;
     private javax.swing.JPanel sidetab8;
     private javax.swing.JPanel topbluebar;
+    private javax.swing.JLabel yourequationlabel;
     // End of variables declaration                   
 }

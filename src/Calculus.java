@@ -3,6 +3,13 @@ import java.util.ArrayList;
 
 public class Calculus {
 	
+  /**
+   * Returns the approximate area under the curve between 2 x-values, when given a function. 
+   * @param function , the function of interest (must be a <code>Function</code> object). 
+   * @param lowBound , the low bound x-value for the definite integral. 
+   * @param highBound , the high bound x-value for the definite integral. 
+   * @return the area under the curve between <strong>lowBound</strong> and <strong>highBound</strong>, with respect to <strong>function</strong>. 
+   */
 	public static double computeDefiniteIntegral(Function function, double lowBound, double highBound) {
 				
 		double sum = 0.0;
@@ -26,6 +33,13 @@ public class Calculus {
 
 	}
 
+  /**
+   * Returns the total area under a function or the area under a curve from a constant to +∞ or from -∞ to a constant, depending on the specification. 
+   * @param function , the function of interest (must be a <code>Function</code> object). 
+   * @param lowBound , the low bound of the integral. It is a <code>String</code> (must be either "-infty" or a real number in <code>String</code> format). 
+   * @param highBound , the high bound of the integral. It is a <code>String</code> (must be either "+infty" or a real number in <code>String</code> format). 
+   * @return the area under <strong>function</strong>, with respect to <strong>lowBound</strong> and <strong>highBound</strong>. 
+   */
   public static String computeImproperIntegral(Function function, String lowBound, String highBound) {
 
     if (lowBound.equals("-infty")) {
@@ -38,6 +52,12 @@ public class Calculus {
 
   }
 	
+  /**
+   * Returns the derivative of a function at a specific x-value. 
+   * @param function , the function of interest (must be a <strong>Function</strong> object). 
+   * @param inputValue , the x-value where the derivative is to be computed. 
+   * @return , the slope of <strong>function</strong> at <strong>inputValue</strong>. 
+   */
 	public static double computeDerivativeAtAPoint(Function function, double inputValue) {
 		
     double solution = 0.0;
@@ -52,7 +72,10 @@ public class Calculus {
 
 		try {
 			solution = (function.compute(temp2) - function.compute(temp1)) / (0.000000000000001); 
-      return solution;
+<<<<<<< HEAD
+=======
+      return solution; 
+>>>>>>> dd94b90011f4998b5f124d47e094aa591f7fd16f
 		} catch (VariableDefinitionException e) {
 			System.out.println(e); 
 		}
@@ -61,6 +84,13 @@ public class Calculus {
 		
 	}
 
+  /**
+   * Returns the definite sum (series) of a function from a low bound x-value to a high-bound x-value. 
+   * @param function , the function of interest (must be a <code>Function</code> object). 
+   * @param lowerBound , the low bound x-value of the sum. 
+   * @param upperBound , the high bound x-value of the sum. 
+   * @return the series of <strong>function</strong>, with respect to <strong>lowerBound</strong> and <strong>upperBound</strong>. 
+   */
   public static double computeSum(Function function, int lowerBound, int upperBound) {
 
     double sum = 0.0;
@@ -79,72 +109,13 @@ public class Calculus {
 
   }
 
-  public static String computeDefiniteLimit(Function function, double point) {
-    if (computeLeftSideLimit(function, point).equals(computeRightSideLimit(function, point)))
-      return computeLeftSideLimit(function, point) + ""; 
-    return "limit does not exist"; 
-  }
-
-  public static String computeLeftSideLimit(Function function, double point) {
-
-    double undefinedCheck = (3.0) / (0 * 2); 
-    HashMap<String, Double> pointInFunction = new HashMap<String, Double>(); 
-    pointInFunction.put("x", point); 
-
-    try {
-      if ((function.compute(pointInFunction) == undefinedCheck) || (Double.isNaN(function.compute(pointInFunction)))) {
-        double xTracker = point - 1; 
-        
-        while (xTracker < point) {
-          if (computeDerivativeAtAPoint(function, xTracker) > 100) 
-            return "+∞"; 
-          if ((computeDerivativeAtAPoint(function, xTracker)) < -100) 
-            return "-∞"; 
-          
-          xTracker += 0.0000001; 
-        }
-
-      } else {
-        return function.compute(pointInFunction) + ""; 
-      }
-    } catch (VariableDefinitionException e) {
-      System.out.println(e); 
-    }
-
-    return ""; 
-
-  }
-
-  public static String computeRightSideLimit(Function function, double point) {
-
-    double undefinedCheck = (3.0) / (0 * 2); 
-    HashMap<String, Double> pointInFunction = new HashMap<String, Double>(); 
-    pointInFunction.put("x", point); 
-
-    try {
-      if ((function.compute(pointInFunction) == undefinedCheck) || (Double.isNaN(function.compute(pointInFunction)))) {
-        double xTracker = point + 1; 
-        
-        while (xTracker > point) {
-          if (computeDerivativeAtAPoint(function, xTracker) > 100) 
-            return "+∞"; 
-          if ((computeDerivativeAtAPoint(function, xTracker)) < -100) 
-            return "-∞"; 
-          
-          xTracker -= 0.0000001; 
-        }
-
-      } else {
-        return function.compute(pointInFunction) + ""; 
-      }
-    } catch (VariableDefinitionException e) {
-      System.out.println(e); 
-    }
-
-    return ""; 
-
-  }
-
+  /**
+   * Returns the end behavior of a function (the y-value of the asymptote), when the x-direction of the limit is specified. 
+   * @param function , the function of interest (must be a <strong>Function</strong> object). 
+   * @param positiveInfinity , a <code>boolean</code> that is <code>true</code> when x-values approach positive infinity and <code>false</code> when x-values approach negative infinity. 
+   * @return the y-value of the asymptote, with respect to the value of <strong>positiveInfinity</strong>. 
+   * @throws VariableDefinitionException
+   */
   public static double computeEndBehavior(Function function, boolean positiveInfinity) throws VariableDefinitionException{
 
     double increment = Math.pow(10, 3) * (positiveInfinity ? 1.0 : -1.0);
@@ -161,8 +132,6 @@ public class Calculus {
 
     return function.compute(point);
   }
-
-
-
-	
-}
+  
+}  
+ 
