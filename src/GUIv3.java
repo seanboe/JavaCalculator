@@ -877,7 +877,7 @@ public class GUIv3 extends javax.swing.JFrame {
        computeoutputlabel.setVisible(false);
        computeoutputvaluelabel.setVisible(false);
        computebutton.setVisible(false);
-               deriveinputlabel.setVisible(false);
+        deriveinputlabel.setVisible(false);
         deriveinputfield.setVisible(false);
         deriveoutputlabel.setVisible(false);
         deriveoutputvaluelabel.setVisible(false);
