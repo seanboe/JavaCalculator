@@ -48,3 +48,30 @@ $$
 
 ## Function Class 
 The <samp>Function</samp> class defines all functions used for computations and other mathematical methods in binary pairs. On input, all functions are simplified to multiple <samp>Function</samp> objects that contain each other so that large functions can be simplified into binomial or monomial expressions. This creates a virtually recursive system since each function can invoke the <samp>compute()</samp> method on its parameters, which will then compute there parameters, and so on and so forth. This means that all variables, numbers, operations, and functions are stored as <samp>Function</samp> objects, making parsing from Reverse Polish Notation to a <samp>Function</samp> object very easy. The <samp>Function</samp> class also remembers all computations that it performs, so if the <samp>Function</samp> is computed at a certain point, it will simply return the previously calculated value without recalculating the value in order to save time.
+
+## Graphing Class 
+The graphing algorithm graphs all points of a function, or multiple functions, on a coordinate plane. It uses a while loop that evaluates each function on a defined interval in order to produce the graph. All the points are then connected with small line segments since this allows the graph to be more smooth and accurate. The grapher also includes generation for the coordinate axis and even gridlines that can be spaced apart at set intervals. 
+
+## GUIv3 Class 
+NEEED TO ADDDD
+
+## InfixParser Class
+NEEED TO ADDDD
+
+## InvalidInputsException Class
+NEEED TO ADDDD
+
+## Main Class 
+NEEED TO ADDDD
+
+## OperatorOnlyException Class 
+NEEED TO ADDDD
+
+## Queue Class
+NEEED TO ADDDD
+
+## Statistics Class
+NEEED TO ADDDD
+
+## VariableDefinitionException Class 
+NEEED TO ADDDD 
