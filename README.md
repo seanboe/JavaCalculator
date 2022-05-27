@@ -43,7 +43,7 @@ The <samp>ArithmeticException</samp> defines an arithmetic exception that is thr
 The <samp>Calculus</samp> class contains code logic for computing definite & impropoer integrals, derivative at a point, series (with respect to sums), and end behavior of a function. The definite integral method uses a <samp>for</samp> loop to iterate over a certain interval on the x-axis, and utilizes many, many midpoint Riemann sums to provide an extremely accurate result (a variation of the formula is shown below). The improper integral method makes use of the derivative & definite integral calculator in order to approximate the integral of a function as x approaches -∞ or +∞. If the absolute value of the derivative is very close to 0 as $|x|$ becomes infinitely large, then we take the definite integral from the constant (in the argument) to a very large number, else, the improper integral is not possible. The derivative at a point method returns a highly accurate value, since it takes in account a very small change in y over a very small change in x, which represents the slope of the function at the particular x-value. The <samp>computeSum</samp> method returns a mathematical sum of the output values of a particular function between an interval of x-values, using a <samp>for</samp> loop. Finally, we have code for computing the end behavior of a function. How it works is that as the derivative of the function approaches 0 as x approaches +∞ or -∞, then the approximate y-value of the function is returned, else, the end behavior of the function cannot be determined, since the function does not have a horizontal asymptote. 
 
 $$
-A_{midpointRiemann} \approx \lim_{n\to\infty}{\sum_{i=1}^{n}}f(x_i)(\Delta x)
+A_{midpointRiemann} \approx \lim_{n\to\infty}{\sum_{i=1}^{n}}f(x_i^*)(\Delta x^*)
 $$
 
 ## Function Class 
@@ -53,19 +53,19 @@ The <samp>Function</samp> class defines all functions used for computations and 
 The graphing algorithm graphs all points of a function, or multiple functions, on a coordinate plane. It uses a while loop that evaluates each function on a defined interval in order to produce the graph. All the points are then connected with small line segments since this allows the graph to be more smooth and accurate. The grapher also includes generation for the coordinate axis and even gridlines that can be spaced apart at set intervals. 
 
 ## GUIv3 Class 
-NEEED TO ADDDD
+The <samp>GUIv3</samp> class is where is 
 
 ## InfixParser Class
 NEEED TO ADDDD
 
 ## InvalidInputsException Class
-NEEED TO ADDDD
+The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
 
 ## Main Class 
-NEEED TO ADDDD
+This is just a class we use to test certain methods, logic, etc. 
 
 ## OperatorOnlyException Class 
-NEEED TO ADDDD
+The <samp>OperatorOnlyException</samp> class defines 
 
 ## Queue Class
 NEEED TO ADDDD
