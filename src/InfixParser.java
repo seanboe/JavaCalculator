@@ -6,6 +6,7 @@ public class InfixParser {
 
     public InfixParser() {}
 
+    // This method returns the precedence (computational value by the order of operations) for each operator.
     public static int getPrecedence(String s) {
         char ch = s.charAt(0);
         if (ch == '+' || ch == '-')
@@ -18,6 +19,9 @@ public class InfixParser {
             return -1;
     }
 
+    // This method uses the shunting yard algorithm to parse infix expressions to rpn, which can more easily be 
+    // parsed into Function objects. The alrogithm works by grouping operational values / numbers together through 
+    // the use of a stack.
     public static String parse(String infix) {
         Stack<String> stack = new Stack<String>();
         ArrayList<String> operators = generateOperators();
@@ -55,6 +59,7 @@ public class InfixParser {
         return rpn;
       }
 
+    // Returns an ArrayList of all the operators that can be used in the algorithm for cleaner code
     public static ArrayList<String> generateOperators() {
         ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i<Function.dualOperators.length; i++) {
@@ -63,6 +68,7 @@ public class InfixParser {
         return list;
     }
 
+    // Returns whether an operator is associated to the mathematical character to the left of it.
     public static boolean hasLeftAssociativity(String ch) {
         if (ch.equals("+") || ch.equals("-") || ch.equals("/") || ch.equals("*") || ch.equals("^")) {
             return true;
@@ -71,6 +77,10 @@ public class InfixParser {
         }
     }
 
+    // This converts a string rpn input into a stack of variables, numbers, or operators for easier simplification to
+    // a Function object. It works by parsing around spaces, which sepearate the rpn input string, and determining
+    // what type of mathematical expression they are in order to convert them to Function objects individually (see
+    // the Function class for more detail on this).
     public static Stack<Function> stringRPNToStack(String rpnInput) {
       Stack<Function> output = new Stack<Function>();
   
@@ -96,6 +106,8 @@ public class InfixParser {
       return output;
     }
 
+    // This method simplifies everything on the rpn stack (as parsed by stringRPNToStack) into a single Function object 
+    // for simple computation.
     public static Stack<Function> reverseStack(Stack<Function> stack) {
       Stack<Function> output = new Stack<Function>();
   
@@ -136,13 +148,6 @@ public class InfixParser {
       return counter;
 
     }
-
-    // private static String infixCleaner(String input) {
-
-    // }
-    
-
-
 
 }
 
