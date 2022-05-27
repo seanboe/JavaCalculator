@@ -2,26 +2,28 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.nio.file.FileSystemAlreadyExistsException;
+import java.util.HashMap;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.HashMap;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Graphing extends JPanel implements ActionListener, MouseListener, KeyListener {
+public class Graphing extends JPanel implements KeyListener, ActionListener {
 	
-	private final int frameWidth = 700;
-	private final int frameHeight = 700; 
+	private final int FRAME_WIDTH = 700;
+	private final int FRAME_HEIGHT = 700; 
 
-  private int ORIGIN_X = frameWidth / 2;
-  private int ORIGIN_Y = frameHeight / 2;
+  private final int HALF_WIDTH = FRAME_WIDTH / 2;
+  private final int HALF_HEIGHT = FRAME_HEIGHT / 2;
 
+  // A pan to the right (screen moves left) is a negative pan offset, since the screen moves in the negative direction
   private int screenPanOffsetX = 0;
+  // A pan to the up (screen moves down) is a negative pan offset, since the screen moves in the negative direction
   private int screenPanOffsetY = 0;
   
   private Function function; 
@@ -29,7 +31,7 @@ public class Graphing extends JPanel implements ActionListener, MouseListener, K
 	public Graphing() {
 		// NEED TO INSTANTIATE THE MEMBER VARIABLE function 
 		JFrame f = new JFrame("Graphing");
-		f.setSize(new Dimension(frameWidth, frameHeight));
+		f.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
 		f.setBackground(Color.black); 
 		f.add(this);
 		f.setResizable(false);
@@ -38,44 +40,128 @@ public class Graphing extends JPanel implements ActionListener, MouseListener, K
 		f.setVisible(true);
 	}
 
-	public void paint(Graphics g) { // WITH RESPECT TO ORIGIN (AS OF NOW) 
-		
-		g.setColor(Color.black); 
-		g.fillRect(0, 0, frameWidth, frameHeight); 
+
+  public void paint(Graphics g) {
 
     g.setColor(Color.white);
-    
-///////////////////////////////////////////////////////////////////////////////////////////////////
-    // GRAPHING 
-    double pointX = 0;
-    double pointY = ORIGIN_Y; 
+    g.fillRect(0, 0, FRAME_WIDTH, FRAME_WIDTH);
+    g.setColor(Color.orange);
+    paintAxis(g, true);
 
-    // POINT SHOULD BE CIRCLE AND HAVE DIAMETER OF 2 
+    g.setColor(Color.black);
 
-    while (pointX < frameWidth) {
-      HashMap<String, Double> point = new HashMap<String, Double>(); 
-      point.put("x", pointX - frameWidth / 2); 
+    graph(g);
 
-      double computation = 0.0;
+  }
 
-        computation = functionExample(point);
-        System.out.println(computation);
+  public void graph(Graphics g) {
 
-      pointY = (frameHeight / 2) - computation;
+    final double stepSize = 1;
 
-      g.fillOval((int)Math.round(pointX), (int)Math.round(pointY), 2, 2); 
-      pointX++; 
+    double prevX = 0;
+    double prevY = functionExample(prevX);
+    for (double x = -HALF_WIDTH; x < HALF_WIDTH; x += stepSize) {
+      double computation = functionExample(x);
 
+      // scaling everything properly
+      double coordX = x + HALF_WIDTH;
+      computation = HALF_HEIGHT - computation;
+
+      // g.fillOval((int)(coordX), (int)(computation), 2, 2);
+      g.drawLine((int)prevX, (int)prevY, (int)coordX, (int)computation);
+      prevX = coordX;
+      prevY = computation;
     }
-    
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
+  }
+
+  public void paintAxis(Graphics g, boolean dashed) {
+
+    // y-axis
+    for (int y = 0; y < FRAME_HEIGHT; y++) {
+      if (y % 5 == 0 && dashed)
+        continue;
+      g.drawOval(HALF_WIDTH, y, 1, 1);
+    }
+
+    // x-axis
+    for (int x = 0; x < FRAME_WIDTH; x++) {
+      if (x % 5 == 0 && dashed)
+        continue;
+      g.drawOval(x, HALF_HEIGHT, 1, 1);
+      }
+  }
+
+
+  // public void paintAxis(Graphics g, boolean gridLines, boolean dashed) {
+
+  //   // x axis
+  //   g.setColor(Color.orange);
+
+  //   for (int y = 0; y < FRAME_HEIGHT; y++) {
+  //     if (y % 15 == 0) {
+  //       for (int x = 0; x < FRAME_WIDTH; x++) {
+  //         if (x % 4 == 0 && dashed)
+  //           g.drawOval(x, y, 1, 1);
+  //       }
+  //     }
+  //     if (!gridLines)
+  //       break;
+  //   }
+
+  //   for (int y = 0; y < FRAME_HEIGHT; y++) {
+  //     if (y % 4 == 0 && dashed)
+  //       g.drawOval(HALF_WIDTH, y, 1, 1);
+  //   }
+
+  // }
+
+  // public void paintGridlines(Graphics g, boolean dashed) {
     
+
+
+  // }
+
+
+
+
+	// public void paint(Graphics g) { // WITH RESPECT TO ORIGIN (AS OF NOW) 
 		
-	}
+	// 	g.setColor(Color.black); 
+	// 	g.fillRect(0, 0, frameWidth, frameHeight); 
 
-  public double functionExample(HashMap<String, Double> point) {
-     return Math.pow(point.get("x"), 1);
+  //   g.setColor(Color.white);
+    
+// ///////////////////////////////////////////////////////////////////////////////////////////////////
+//     // GRAPHING 
+//     double pointX = 0;
+//     double pointY = ORIGIN_Y; 
+
+//     // POINT SHOULD BE CIRCLE AND HAVE DIAMETER OF 2 
+
+//     while (pointX < frameWidth) {
+//       HashMap<String, Double> point = new HashMap<String, Double>(); 
+//       point.put("x", pointX - frameWidth / 2); 
+
+//       double computation = 0.0;
+
+//         computation = functionExample(point);
+//         System.out.println(computation);
+
+//       pointY = (frameHeight / 2) - computation;
+
+//       g.fillOval((int)Math.round(pointX), (int)Math.round(pointY), 2, 2); 
+//       pointX++; 
+
+//     }
+    
+// ///////////////////////////////////////////////////////////////////////////////////////////////////
+		
+// 	}
+
+  public double functionExample(double x) {
+    return x * Math.pow(Math.sin(x / 10), 3);
+
     //return Math.log(point.get("x"));
     //return Math.pow(point.get("x"), 3); 
   }
@@ -86,75 +172,24 @@ public class Graphing extends JPanel implements ActionListener, MouseListener, K
 
 	}
 
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  @Override
+  public void keyPressed(KeyEvent arg0) {
 
-	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-		if (arg0.getKeyCode() == 39) { // MOVING RIGHT 
-			ORIGIN_X -= 5; 
-			repaint(); 
-		} else if (arg0.getKeyCode() == 37) { // MOVING LEFT 
-			ORIGIN_X += 5; 
-			repaint(); 
-		}
-		
-		if (arg0.getKeyCode() == 38) { // MOVING UP 
-			ORIGIN_Y -= 5; 
-			repaint(); 
-		} else if (arg0.getKeyCode() == 40) { // MOVING DOWN 
-			ORIGIN_Y += 5; 
-			repaint(); 
-		}
+  }
 
-		
-	}
+  @Override
+  public void actionPerformed(ActionEvent arg0) {
 
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  }
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  @Override
+  public void keyReleased(KeyEvent arg0) {
 
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  }
 
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  @Override
+  public void keyTyped(KeyEvent arg0) {
+    
+  }
 
 }
