@@ -15,6 +15,24 @@ public class GUIv3 extends javax.swing.JFrame {
      * Creates new form GUIv3
      */
     public GUIv3() {
+        String infix = "x^2+1";
+
+        String rpn = InfixParser.parse(infix);
+
+        Stack<Function> blaze = InfixParser.stringRPNToStack(rpn);
+
+        blaze = InfixParser.reverseStack(blaze);
+
+        try {
+            InfixParser.crunchRPNStack(blaze);
+        } catch (OperatorOnlyException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+        f = blaze.pop();
+
         initComponents();
     }
 
@@ -1277,6 +1295,9 @@ public class GUIv3 extends javax.swing.JFrame {
         computeSebutton.setVisible(false);
         computeSebutton12.setVisible(false);
         statsoutputlabel.setVisible(false);
+
+        Graphing graphing = new Graphing(f);
+
         setColor(sidetab7);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator5.setOpaque(true);

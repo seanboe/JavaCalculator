@@ -9,14 +9,15 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
+import java.util.Stack;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Graphing extends JPanel implements ActionListener, MouseListener, KeyListener {
-	
-	private final int frameWidth = 700;
-	private final int frameHeight = 700; 
+	//[1067, 531]
+	private final int frameWidth = 1067;
+	private final int frameHeight = 531; 
 
   private int ORIGIN_X = frameWidth / 2;
   private int ORIGIN_Y = frameHeight / 2;
@@ -26,9 +27,10 @@ public class Graphing extends JPanel implements ActionListener, MouseListener, K
   
   private Function function; 
 	
-	public Graphing() {
+	public Graphing(Function fx) {
 		// NEED TO INSTANTIATE THE MEMBER VARIABLE function 
 		JFrame f = new JFrame("Graphing");
+		function = fx;
 		f.setSize(new Dimension(frameWidth, frameHeight));
 		f.setBackground(Color.black); 
 		f.add(this);
@@ -58,7 +60,15 @@ public class Graphing extends JPanel implements ActionListener, MouseListener, K
 
       double computation = 0.0;
 
-        computation = functionExample(point);
+        try {
+			computation = function.compute(pointX);
+		} catch (ArithmeticException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (OperatorOnlyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         System.out.println(computation);
 
       pointY = (frameHeight / 2) - computation;
@@ -82,7 +92,27 @@ public class Graphing extends JPanel implements ActionListener, MouseListener, K
 
 	public static void main(String[] args) {
 
-    Graphing graph = new Graphing(); 
+		String infix = "x^2+1";
+
+        String rpn = InfixParser.parse(infix);
+
+        Stack<Function> blaze = InfixParser.stringRPNToStack(rpn);
+
+        blaze = InfixParser.reverseStack(blaze);
+
+        try {
+            InfixParser.crunchRPNStack(blaze);
+        } catch (OperatorOnlyException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+        Function f = blaze.pop();
+
+        System.out.println(f.toString());
+
+    	Graphing graph = new Graphing(f); 
 
 	}
 
