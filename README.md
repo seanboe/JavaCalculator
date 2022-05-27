@@ -55,7 +55,9 @@ The graphing algorithm graphs all points of a function, or multiple functions, o
 The <samp>GUIv3</samp> class contains code for generating the entire UI, sometimes using Netbeans and Visual Studio Code. The UI is developed using Java Swing, a desktop application library. All the code to integrate the backend with the frontend was made possible by <samp>java.awt.event.MouseEvent evt</samp> to detect mouse input. By writing listeners on all the buttons, we were able to detect and use input from the frontend. We developed 3 versions of the UI before arriving at our final version.
 
 ## InfixParser Class
-NEEED TO ADDDD
+The InfixParser class contains methods for parsing infix expressions like (x^2+1) into Reverse Polish notation. Reverse Polish
+notation is easier for our algorithms to process, so it is imperative that we correctly convert infix expressions. It needs to 
+respect the order of operations.
 
 ## Main Class 
 This is just a class we use to test certain methods, logic, etc. 
