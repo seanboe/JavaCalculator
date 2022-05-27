@@ -66,7 +66,7 @@ The <samp>GUIv3</samp> class contains code for generating the entire UI, sometim
 NEEED TO ADDDD
 
 ## Statistics Class
-The <samp>Statistics</samp> class is essentially split into 2 parts, linear regression significance tests. For the linear regression, TODOOOOOOOOO
+The <samp>Statistics</samp> class is essentially split into 2 parts, linear regression significance tests. The linear regression part of the class contains code logic for certain statistics and equations, such as the least-squares regression line (LSRL), the correlation coefficient $(r)$, standard error of the residuals $(S_e)$, etc. The significance tests' section comprises of 3 significance tests for means (when the population standard deviation is known). Based on the statistics that the user inputs, these tests tell the user whether to either reject the null hypothesis $H_0$ or fail to reject the null hypothesis. 
 
 ## VariableDefinitionException Class 
 The <samp>VariableDefinitionException</samp> class defines a specific error that will be thrown when a particular variable is not defined. This exception is heavily used in the <samp>Calculus</samp> class. 
