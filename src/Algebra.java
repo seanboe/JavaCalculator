@@ -45,7 +45,7 @@ public class Algebra {
   // of a function at a certain point nearby the root and then uses linear tangent lines to get closer to the root. It 
   // makes use of the bisection zeroes algorithm to find the root of the linear tangent line (since all linear functions)
   // cross the x-axis completely.
-  public static double computeZeros(Function function, double point) throws InvalidInputsException, ArithmeticException, OperatorOnlyException {
+  public static double computeZeros(Function function, double point) throws InvalidInputsException, ArithmeticException, OperatorOnlyException, VariableDefinitionException {
 
     double threshold = 0.001;
     double posX = point;

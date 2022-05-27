@@ -65,11 +65,11 @@ public class Calculus {
    * @throws OperatorOnlyException
    * @throws ArithmeticException
    */
-	public static double computeDerivativeAtAPoint(Function function, double inputValue) throws ArithmeticException, OperatorOnlyException {
+	public static double computeDerivativeAtAPoint(Function function, double inputValue) throws ArithmeticException, OperatorOnlyException, VariableDefinitionException {
 		
     double solution = 0.0;
 
-    final double offset = 0.000000000000001;
+    final double offset = 0.00000000001;
 
     HashMap<String, Double> temp1 = new HashMap<String, Double>(); 
     temp1.put("x", inputValue); 
@@ -77,13 +77,8 @@ public class Calculus {
     HashMap<String, Double> temp2 = new HashMap<String, Double>(); 
     temp2.put("x", inputValue + offset); 
 
-		try {
-			solution = (function.compute(temp2) - function.compute(temp1)) / (0.000000000000001); 
-      return solution; 
-		} catch (VariableDefinitionException e) {
-			System.out.println(e); 
-      return solution; 
-		}
+		solution = (function.compute(inputValue + offset) - function.compute(inputValue)) / (offset); 
+    return solution;
 		
 		//return solution; 
 		
