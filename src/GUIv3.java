@@ -1443,6 +1443,7 @@ public class GUIv3 extends javax.swing.JFrame {
         try {
             double lowerBound = Double.valueOf(integrallowerboundlabel.getText());
             double upperBound = Double.valueOf(integralupperboundlabel.getText());
+
             integraloutputlabel.setText(Double.toString(Calculus.computeDefiniteIntegral(f, lowerBound, upperBound)));
         } catch (Exception df) {
             integraloutputlabel.setText("error");
