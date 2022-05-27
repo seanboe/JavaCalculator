@@ -57,19 +57,13 @@ The <samp>GUIv3</samp> class contains code for generating the entire UI, sometim
 ## InfixParser Class
 NEEED TO ADDDD
 
-## Main Class 
-This is just a class we use to test certain methods, logic, etc. 
-
-
 ## Statistics Class
-The <samp>Statistics</samp> class is essentially split into 2 parts, linear regression significance tests. For the linear regression, 
+The <samp>Statistics</samp> class is essentially split into 2 parts, linear regression significance tests. For the linear regression, TODOOOOOOOOO
 
 ## VariableDefinitionException Class 
 NEEED TO ADDDD 
 
-
 ## Exception classes
-
 These classes define exceptions for invalid mathematical calculations or anything that makes function computation incorrect.
 
 ### ArithmeticException
