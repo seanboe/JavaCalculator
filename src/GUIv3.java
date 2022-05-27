@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import java.util.Stack;
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  *
  * @author bc
@@ -24,7 +25,7 @@ public class GUIv3 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+        
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         darkleftbar = new javax.swing.JPanel();
@@ -74,6 +75,27 @@ public class GUIv3 extends javax.swing.JFrame {
         integralupperboundlabel = new javax.swing.JTextField();
         integratebutton = new javax.swing.JButton();
         integraloutputlabel = new javax.swing.JLabel();
+        statsinputlabelfield = new javax.swing.JTextField();
+        statsinputdatalabel = new javax.swing.JLabel();
+        computeSebutton = new javax.swing.JButton();
+        statsinputdatalabel1 = new javax.swing.JLabel();
+        statsinputlabelfield1 = new javax.swing.JTextField();
+        computesumofresidualssquaredbutton = new javax.swing.JButton();
+        statsinputdatalabel2 = new javax.swing.JLabel();
+        statsinputlabelfield2 = new javax.swing.JTextField();
+        computeresidualvaluesbutton = new javax.swing.JButton();
+        computeypredictedvaluesbutton = new javax.swing.JButton();
+        computelsrloutputbutton = new javax.swing.JButton();
+        displaylsrlequationbutton = new javax.swing.JButton();
+        computeabutton = new javax.swing.JButton();
+        computebbutton = new javax.swing.JButton();
+        computerbutton = new javax.swing.JButton();
+        computersquaredvaluebutton = new javax.swing.JButton();
+        computezprobmidpointriemann = new javax.swing.JButton();
+        computezmeanstesthasgreaterthanvalue = new javax.swing.JButton();
+        computezmeanshaslessthanvaluebutton = new javax.swing.JButton();
+        computeSebutton12 = new javax.swing.JButton();
+        statsoutputlabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -410,7 +432,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
         jcaslabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jcaslabel.setForeground(java.awt.Color.white);
-        jcaslabel.setText("JCAS - Computer Algebra with 1990s software");
+        jcaslabel.setText("JACAS - Computer Algebra with 1990s software");
 
         javax.swing.GroupLayout palebluebarLayout = new javax.swing.GroupLayout(palebluebar);
         palebluebar.setLayout(palebluebarLayout);
@@ -484,7 +506,7 @@ public class GUIv3 extends javax.swing.JFrame {
         descriptiontextfield.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         descriptiontextfield.setForeground(java.awt.Color.white);
         descriptiontextfield.setRows(5);
-        descriptiontextfield.setText("JCAS is the Q4 Project AP Computer\nScience project by Siddarth Calidas, \nSean Boerhout and Vignesh Nydhruva.");
+        descriptiontextfield.setText("JACAS is the Q4 Project AP Computer\nScience project by Siddarth Calidas, \nSean Boerhout and Vignesh Nydhruva.");
         descriptiontextfield.setBorder(null);
         jScrollPane1.setViewportView(descriptiontextfield);
 
@@ -598,6 +620,141 @@ public class GUIv3 extends javax.swing.JFrame {
         integraloutputlabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         integraloutputlabel.setText("69");
 
+        statsinputlabelfield.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        statsinputlabelfield.setText("1, 2, 3, 4");
+
+        statsinputdatalabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        statsinputdatalabel.setText("Input data row 1:");
+
+        computeSebutton.setText("computeSe");
+        computeSebutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computeSebuttonMousePressed(evt);
+            }
+        });
+
+        statsinputdatalabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        statsinputdatalabel1.setText("Input data row 3");
+
+        statsinputlabelfield1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        statsinputlabelfield1.setText("1, 2, 3, 4");
+        statsinputlabelfield1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statsinputlabelfield1ActionPerformed(evt);
+            }
+        });
+
+        computesumofresidualssquaredbutton.setText("computeSumOfResidualsSquared");
+        computesumofresidualssquaredbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computesumofresidualssquaredbuttonMousePressed(evt);
+            }
+        });
+
+        statsinputdatalabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        statsinputdatalabel2.setText("Input data row 2");
+
+        statsinputlabelfield2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        statsinputlabelfield2.setText("1, 2, 3, 4");
+        statsinputlabelfield2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statsinputlabelfield2ActionPerformed(evt);
+            }
+        });
+
+        computeresidualvaluesbutton.setText("computeResidualValues");
+        computeresidualvaluesbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computeresidualvaluesbuttonMousePressed(evt);
+            }
+        });
+
+        computeypredictedvaluesbutton.setText("computeYPredictedValues");
+        computeypredictedvaluesbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computeypredictedvaluesbuttonMousePressed(evt);
+            }
+        });
+
+        computelsrloutputbutton.setText("computeLSRLOutput");
+        computelsrloutputbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computelsrloutputbuttonMousePressed(evt);
+            }
+        });
+
+        displaylsrlequationbutton.setText("displayLSRLEquation");
+
+        computeabutton.setText("computeA");
+        computeabutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computeabuttonMousePressed(evt);
+            }
+        });
+
+        computebbutton.setText("computeB");
+        computebbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computebbuttonMousePressed(evt);
+            }
+        });
+
+        computerbutton.setText("computeR");
+        computerbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computerbuttonMousePressed(evt);
+            }
+        });
+
+        computersquaredvaluebutton.setText("computersquaredvalue");
+        computersquaredvaluebutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computersquaredvaluebuttonMousePressed(evt);
+            }
+        });
+
+        computezprobmidpointriemann.setText("computezprobmidpointriemann ");
+        computezprobmidpointriemann.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computezprobmidpointriemannMousePressed(evt);
+            }
+        });
+
+        computezmeanstesthasgreaterthanvalue.setText("computezmeanstesthasgreaterthanvalue ");
+        computezmeanstesthasgreaterthanvalue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computezmeanstesthasgreaterthanvalueMousePressed(evt);
+            }
+        });
+
+        computezmeanshaslessthanvaluebutton.setText("computezmeanshaslessthanvalue ");
+        computezmeanshaslessthanvaluebutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computezmeanshaslessthanvaluebuttonMousePressed(evt);
+            }
+        });
+        computezmeanshaslessthanvaluebutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                computezmeanshaslessthanvaluebuttonActionPerformed(evt);
+            }
+        });
+
+        computeSebutton12.setText("computezmeanstesthasnotequaltovalue ");
+        computeSebutton12.setToolTipText("");
+        computeSebutton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                computeSebutton12MousePressed(evt);
+            }
+        });
+        computeSebutton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                computeSebutton12ActionPerformed(evt);
+            }
+        });
+
+        statsoutputlabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        statsoutputlabel.setText("420");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -606,43 +763,96 @@ public class GUIv3 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(integrallowerboundlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(356, 356, 356)
-                        .addComponent(integratebutton))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(computeinputlabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(computeinputfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(computeoutputlabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(computeoutputvaluelabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(computebutton))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deriveoutputlabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(deriveinputlabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(deriveinputfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(derivebutton))
+                                .addComponent(integrallowerboundlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(356, 356, 356)
+                                .addComponent(integratebutton))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(deriveoutputvaluelabel))))
+                                .addGap(21, 21, 21)
+                                .addComponent(integralupperboundlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(540, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(integralupperboundlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(integralsymbollabel)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(deriveoutputlabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(deriveinputlabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(deriveinputfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(derivebutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(statsinputdatalabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(deriveoutputvaluelabel))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(integralsymbollabel)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(computeinputlabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(computeinputfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(computeoutputlabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(computeoutputvaluelabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(computebutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(statsinputdatalabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(statsinputdatalabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(integraloutputlabel)))
-                .addContainerGap(448, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(statsinputlabelfield, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(statsinputlabelfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(computeSebutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(computesumofresidualssquaredbutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(computeresidualvaluesbutton))
+                                    .addComponent(statsinputlabelfield2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(computeypredictedvaluesbutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(computelsrloutputbutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(displaylsrlequationbutton))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(computeabutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(computebbutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(computerbutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(computersquaredvaluebutton))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(computezprobmidpointriemann)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(computezmeanstesthasgreaterthanvalue))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(computezmeanshaslessthanvaluebutton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(computeSebutton12))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(integraloutputlabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(statsoutputlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -651,36 +861,68 @@ public class GUIv3 extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(computeinputlabel)
                     .addComponent(computeinputfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(computebutton))
+                    .addComponent(computebutton)
+                    .addComponent(statsinputlabelfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(statsinputdatalabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(computeoutputlabel)
-                    .addComponent(computeoutputvaluelabel))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(computeoutputlabel)
+                        .addComponent(computeoutputvaluelabel))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(statsinputdatalabel2)
+                        .addComponent(statsinputlabelfield2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(deriveinputlabel)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(deriveinputfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(derivebutton)))
+                        .addComponent(derivebutton)
+                        .addComponent(statsinputdatalabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(statsinputlabelfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deriveoutputlabel)
-                    .addComponent(deriveoutputvaluelabel))
-                .addGap(45, 45, 45)
-                .addComponent(integralupperboundlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(deriveoutputlabel)
+                        .addComponent(deriveoutputvaluelabel))
+                    .addComponent(computeSebutton)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(computesumofresidualssquaredbutton)
+                        .addComponent(computeresidualvaluesbutton)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(computeypredictedvaluesbutton)
+                    .addComponent(computelsrloutputbutton)
+                    .addComponent(displaylsrlequationbutton))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(integralupperboundlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(computeabutton)
+                        .addComponent(computebbutton)
+                        .addComponent(computerbutton)
+                        .addComponent(computersquaredvaluebutton)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(computezprobmidpointriemann)
+                            .addComponent(computezmeanstesthasgreaterthanvalue))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(computezmeanshaslessthanvaluebutton)
+                            .addComponent(computeSebutton12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(integraloutputlabel)
+                            .addComponent(statsoutputlabel))
+                        .addGap(150, 150, 150))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(integralsymbollabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(integrallowerboundlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(integratebutton))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(integraloutputlabel)
-                        .addGap(150, 150, 150))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -698,7 +940,7 @@ public class GUIv3 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(middlebluesection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 10, Short.MAX_VALUE)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(topbluebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -726,12 +968,6 @@ public class GUIv3 extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
-
-        pack();
-    }// </editor-fold>                        
-
-    private void sidetab1MousePressed(java.awt.event.MouseEvent evt) {                                      
-                // TODO add your handling code here:
         computeinputlabel.setVisible(false);
         computeinputfield.setVisible(false);
         computeoutputlabel.setVisible(false);
@@ -747,6 +983,70 @@ public class GUIv3 extends javax.swing.JFrame {
         integralupperboundlabel.setVisible(false);
         integratebutton.setVisible(false);
         integraloutputlabel.setVisible(false);
+        statsinputdatalabel.setVisible(false);
+        statsinputdatalabel1.setVisible(false);
+        statsinputdatalabel2.setVisible(false);
+        statsinputlabelfield.setVisible(false);
+        statsinputlabelfield1.setVisible(false);
+        statsinputlabelfield2.setVisible(false);
+        computeSebutton.setVisible(false);
+        computesumofresidualssquaredbutton.setVisible(false);
+        computeresidualvaluesbutton.setVisible(false);
+        computeypredictedvaluesbutton.setVisible(false);
+        computelsrloutputbutton.setVisible(false);
+        displaylsrlequationbutton.setVisible(false);
+        computeabutton.setVisible(false);
+        computebbutton.setVisible(false);
+        computerbutton.setVisible(false);
+        computersquaredvaluebutton.setVisible(false);
+        computezprobmidpointriemann.setVisible(false);
+        computezmeanstesthasgreaterthanvalue.setVisible(false);
+        computezmeanshaslessthanvaluebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
+
+        pack();
+    }// </editor-fold>                        
+
+    private void sidetab1MousePressed(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        computeinputlabel.setVisible(false);
+        computeinputfield.setVisible(false);
+        computeoutputlabel.setVisible(false);
+        computeoutputvaluelabel.setVisible(false);
+        computebutton.setVisible(false);
+        deriveinputlabel.setVisible(false);
+        deriveinputfield.setVisible(false);
+        deriveoutputlabel.setVisible(false);
+        deriveoutputvaluelabel.setVisible(false);
+        derivebutton.setVisible(false);
+        integralsymbollabel.setVisible(false);
+        integrallowerboundlabel.setVisible(false);
+        integralupperboundlabel.setVisible(false);
+        integratebutton.setVisible(false);
+        integraloutputlabel.setVisible(false);
+        statsinputdatalabel.setVisible(false);
+        statsinputdatalabel1.setVisible(false);
+        statsinputdatalabel2.setVisible(false);
+        statsinputlabelfield.setVisible(false);
+        statsinputlabelfield1.setVisible(false);
+        statsinputlabelfield2.setVisible(false);
+        computeSebutton.setVisible(false);
+        computesumofresidualssquaredbutton.setVisible(false);
+        computeresidualvaluesbutton.setVisible(false);
+        computeypredictedvaluesbutton.setVisible(false);
+        computelsrloutputbutton.setVisible(false);
+        displaylsrlequationbutton.setVisible(false);
+        computeabutton.setVisible(false);
+        computebbutton.setVisible(false);
+        computerbutton.setVisible(false);
+        computersquaredvaluebutton.setVisible(false);
+        computezprobmidpointriemann.setVisible(false);
+        computezmeanstesthasgreaterthanvalue.setVisible(false);
+        computezmeanshaslessthanvaluebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
+
         setColor(sidetab1);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator1.setOpaque(true);
@@ -767,6 +1067,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
     private void sidetab2MousePressed(java.awt.event.MouseEvent evt) {                                      
        // TODO add your handling code here:
+        // TODO add your handling code here:
         computeinputlabel.setVisible(true);
         computeinputfield.setVisible(true);
         computeoutputlabel.setVisible(true);
@@ -782,6 +1083,28 @@ public class GUIv3 extends javax.swing.JFrame {
         integralupperboundlabel.setVisible(false);
         integratebutton.setVisible(false);
         integraloutputlabel.setVisible(false);
+        statsinputdatalabel.setVisible(false);
+        statsinputdatalabel1.setVisible(false);
+        statsinputdatalabel2.setVisible(false);
+        statsinputlabelfield.setVisible(false);
+        statsinputlabelfield1.setVisible(false);
+        statsinputlabelfield2.setVisible(false);
+        computeSebutton.setVisible(false);
+        computesumofresidualssquaredbutton.setVisible(false);
+        computeresidualvaluesbutton.setVisible(false);
+        computeypredictedvaluesbutton.setVisible(false);
+        computelsrloutputbutton.setVisible(false);
+        displaylsrlequationbutton.setVisible(false);
+        computeabutton.setVisible(false);
+        computebbutton.setVisible(false);
+        computerbutton.setVisible(false);
+        computersquaredvaluebutton.setVisible(false);
+        computezprobmidpointriemann.setVisible(false);
+        computezmeanstesthasgreaterthanvalue.setVisible(false);
+        computezmeanshaslessthanvaluebutton.setVisible(false);
+        computeSebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
         setColor(sidetab2);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator2.setOpaque(true);
@@ -817,6 +1140,28 @@ public class GUIv3 extends javax.swing.JFrame {
         integralupperboundlabel.setVisible(false);
         integratebutton.setVisible(false);
         integraloutputlabel.setVisible(false);
+        statsinputdatalabel.setVisible(false);
+        statsinputdatalabel1.setVisible(false);
+        statsinputdatalabel2.setVisible(false);
+        statsinputlabelfield.setVisible(false);
+        statsinputlabelfield1.setVisible(false);
+        statsinputlabelfield2.setVisible(false);
+        computeSebutton.setVisible(false);
+        computesumofresidualssquaredbutton.setVisible(false);
+        computeresidualvaluesbutton.setVisible(false);
+        computeypredictedvaluesbutton.setVisible(false);
+        computelsrloutputbutton.setVisible(false);
+        displaylsrlequationbutton.setVisible(false);
+        computeabutton.setVisible(false);
+        computebbutton.setVisible(false);
+        computerbutton.setVisible(false);
+        computersquaredvaluebutton.setVisible(false);
+        computezprobmidpointriemann.setVisible(false);
+        computezmeanstesthasgreaterthanvalue.setVisible(false);
+        computezmeanshaslessthanvaluebutton.setVisible(false);
+        computeSebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
         setColor(sidetab3);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator3.setOpaque(true);
@@ -852,6 +1197,28 @@ public class GUIv3 extends javax.swing.JFrame {
         integralupperboundlabel.setVisible(true);
         integratebutton.setVisible(true);
         integraloutputlabel.setVisible(true);
+        statsinputdatalabel.setVisible(false);
+        statsinputdatalabel1.setVisible(false);
+        statsinputdatalabel2.setVisible(false);
+        statsinputlabelfield.setVisible(false);
+        statsinputlabelfield1.setVisible(false);
+        statsinputlabelfield2.setVisible(false);
+        computeSebutton.setVisible(false);
+        computesumofresidualssquaredbutton.setVisible(false);
+        computeresidualvaluesbutton.setVisible(false);
+        computeypredictedvaluesbutton.setVisible(false);
+        computelsrloutputbutton.setVisible(false);
+        displaylsrlequationbutton.setVisible(false);
+        computeabutton.setVisible(false);
+        computebbutton.setVisible(false);
+        computerbutton.setVisible(false);
+        computersquaredvaluebutton.setVisible(false);
+        computezprobmidpointriemann.setVisible(false);
+        computezmeanstesthasgreaterthanvalue.setVisible(false);
+        computezmeanshaslessthanvaluebutton.setVisible(false);
+        computeSebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
         setColor(sidetab5);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator4.setOpaque(true);
@@ -887,6 +1254,28 @@ public class GUIv3 extends javax.swing.JFrame {
         integralupperboundlabel.setVisible(false);
         integratebutton.setVisible(false);
         integraloutputlabel.setVisible(false);
+        statsinputdatalabel.setVisible(false);
+        statsinputdatalabel1.setVisible(false);
+        statsinputdatalabel2.setVisible(false);
+        statsinputlabelfield.setVisible(false);
+        statsinputlabelfield1.setVisible(false);
+        statsinputlabelfield2.setVisible(false);
+        computeSebutton.setVisible(false);
+        computesumofresidualssquaredbutton.setVisible(false);
+        computeresidualvaluesbutton.setVisible(false);
+        computeypredictedvaluesbutton.setVisible(false);
+        computelsrloutputbutton.setVisible(false);
+        displaylsrlequationbutton.setVisible(false);
+        computeabutton.setVisible(false);
+        computebbutton.setVisible(false);
+        computerbutton.setVisible(false);
+        computersquaredvaluebutton.setVisible(false);
+        computezprobmidpointriemann.setVisible(false);
+        computezmeanstesthasgreaterthanvalue.setVisible(false);
+        computezmeanshaslessthanvaluebutton.setVisible(false);
+        computeSebutton.setVisible(false);
+        computeSebutton12.setVisible(false);
+        statsoutputlabel.setVisible(false);
         setColor(sidetab7);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator5.setOpaque(true);
@@ -922,6 +1311,29 @@ public class GUIv3 extends javax.swing.JFrame {
         integralupperboundlabel.setVisible(false);
         integratebutton.setVisible(false);
         integraloutputlabel.setVisible(false);
+        statsinputdatalabel.setVisible(true);
+        statsinputdatalabel1.setVisible(true);
+        statsinputdatalabel2.setVisible(true);
+        statsinputlabelfield.setVisible(true);
+        statsinputlabelfield1.setVisible(true);
+        statsinputlabelfield2.setVisible(true);
+        computeSebutton.setVisible(true);
+        computesumofresidualssquaredbutton.setVisible(true);
+        computeresidualvaluesbutton.setVisible(true);
+        computeypredictedvaluesbutton.setVisible(true);
+        computelsrloutputbutton.setVisible(true);
+        displaylsrlequationbutton.setVisible(true);
+        computeabutton.setVisible(true);
+        computebbutton.setVisible(true);
+        computerbutton.setVisible(true);
+        computersquaredvaluebutton.setVisible(true);
+        computezprobmidpointriemann.setVisible(true);
+        computezmeanstesthasgreaterthanvalue.setVisible(true);
+        computezmeanshaslessthanvaluebutton.setVisible(true);
+        computeSebutton.setVisible(true);
+        computeSebutton12.setVisible(true);
+        statsoutputlabel.setVisible(true);
+        
         setColor(sidetab8);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator6.setOpaque(true);
@@ -950,14 +1362,6 @@ public class GUIv3 extends javax.swing.JFrame {
 
     private void computebuttonMousePressed(java.awt.event.MouseEvent evt) {                                           
         // TODO add your handling code here:
-
-        try {
-            double input = Double.valueOf(computeinputfield.getText());
-            computeoutputvaluelabel.setText(Double.toString(f.compute(input)));
-        } catch (Exception df) {
-            df.printStackTrace();
-            computeoutputvaluelabel.setText("Error: Invalid input");
-        }
     }                                          
 
     private void deriveinputfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                 
@@ -966,13 +1370,6 @@ public class GUIv3 extends javax.swing.JFrame {
 
     private void derivebuttonMousePressed(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
-
-        try {
-            double input = Double.valueOf(deriveinputfield.getText());
-            deriveoutputvaluelabel.setText(Double.toString(Calculus.computeDerivativeAtAPoint(f, input)));
-        } catch (Exception df) {
-            deriveoutputvaluelabel.setText("Error: Invalid input");
-        }
     }                                         
 
     private void derivebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -989,40 +1386,468 @@ public class GUIv3 extends javax.swing.JFrame {
 
     private void integratebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                                
          // TODO add your handling code here:
-
-        try {
-            double lowerBound = Double.valueOf(integrallowerboundlabel.getText());
-            double upperBound = Double.valueOf(integralupperboundlabel.getText());
-            integraloutputlabel.setText(Double.toString(Calculus.computeDefiniteIntegral(f, lowerBound, upperBound)));
-        } catch (Exception df) {
-            integraloutputlabel.setText("error");
-        }
+       
     }                                               
 
     private void equationinputfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
-        //Convert input equation to function(and rpn)
-        String infix = equationinputfield.getText();
+    }                                                  
 
-        String rpn = InfixParser.parse(infix);
+    private void statsinputlabelfield1ActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        // TODO add your handling code here:
+    }                                                     
 
-        rpnequationoutputlabel.setText(rpn);
+    private void statsinputlabelfield2ActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        // TODO add your handling code here:
+    }                                                     
 
-        Stack<Function> blaze = InfixParser.stringRPNToStack(rpn);
+    private void computezmeanshaslessthanvaluebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                                                    
+        // TODO add your handling code here:
+    }                                                                   
 
-        blaze = Main.reverseStack(blaze);
+    private void computeSebutton12ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        // TODO add your handling code here:
+    }                                                 
 
-        try {
-            InfixParser.crunchRPNStack(blaze);
-        } catch (OperatorOnlyException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+    private void computeSebuttonMousePressed(java.awt.event.MouseEvent evt) {                                             
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+        String data2 = statsinputlabelfield2.getText() + ", 0";
+
+        System.out.println(data2);
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList<Double> array2 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
         }
 
+        lastindex = 0;
+        while (data2.indexOf(",")>=0) {
+          lastindex = data2.indexOf(",");
+          String number = data2.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array2.add(d);
+    
+          data2 = data2.substring(lastindex+1);
+        }
 
-        f = blaze.pop();
+        double[] arr1 = list_to_arr(array1);
+        double[] arr2 = list_to_arr(array2);
 
-    }                                                  
+        statsoutputlabel.setText(Double.toString(Statistics.computeSe(arr1, arr2)));
+        
+
+    }                                            
+
+    private void computesumofresidualssquaredbuttonMousePressed(java.awt.event.MouseEvent evt) {                                                                
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+        String data2 = statsinputlabelfield2.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList<Double> array2 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        lastindex = 0;
+        while (data2.indexOf(",")>=0) {
+          lastindex = data2.indexOf(",");
+          String number = data2.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array2.add(d);
+    
+          data2 = data2.substring(lastindex+1);
+        }
+
+        double[] arr1 = list_to_arr(array1);
+        double[] arr2 = list_to_arr(array2);
+
+        statsoutputlabel.setText(Double.toString(Statistics.computeSumOfResidualsSquared(arr1, arr2)));
+    }                                                               
+
+    private void computeresidualvaluesbuttonMousePressed(java.awt.event.MouseEvent evt) {                                                         
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+        String data2 = statsinputlabelfield2.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList<Double> array2 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        lastindex = 0;
+        while (data2.indexOf(",")>=0) {
+          lastindex = data2.indexOf(",");
+          String number = data2.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array2.add(d);
+    
+          data2 = data2.substring(lastindex+1);
+        }
+
+        double[] arr1 = list_to_arr(array1);
+        double[] arr2 = list_to_arr(array2);
+
+        statsoutputlabel.setText(Arrays.toString(Statistics.computeResidualValues(arr1, arr2)));
+    }                                                        
+
+    private void computeypredictedvaluesbuttonMousePressed(java.awt.event.MouseEvent evt) {                                                           
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+        String data2 = statsinputlabelfield2.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList<Double> array2 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        lastindex = 0;
+        while (data2.indexOf(",")>=0) {
+          lastindex = data2.indexOf(",");
+          String number = data2.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array2.add(d);
+    
+          data2 = data2.substring(lastindex+1);
+        }
+
+        double[] arr1 = list_to_arr(array1);
+        double[] arr2 = list_to_arr(array2);
+
+        statsoutputlabel.setText(Arrays.toString(Statistics.computeYPredictedValues(arr1, arr2)));
+    }                                                          
+
+    private void computelsrloutputbuttonMousePressed(java.awt.event.MouseEvent evt) {                                                     
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+        String data2 = statsinputlabelfield2.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList<Double> array2 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        lastindex = 0;
+        while (data2.indexOf(",")>=0) {
+          lastindex = data2.indexOf(",");
+          String number = data2.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array2.add(d);
+    
+          data2 = data2.substring(lastindex+1);
+        }
+
+        double[] arr1 = list_to_arr(array1);
+        double[] arr2 = list_to_arr(array2);
+
+        double num = Double.valueOf(statsinputlabelfield1.getText());
+
+        statsoutputlabel.setText(Double.toString(Statistics.computeLSRLOutput(arr1, arr2, num)));
+    }                                                    
+
+    private void computeabuttonMousePressed(java.awt.event.MouseEvent evt) {                                            
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+        String data2 = statsinputlabelfield2.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList<Double> array2 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        lastindex = 0;
+        while (data2.indexOf(",")>=0) {
+          lastindex = data2.indexOf(",");
+          String number = data2.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array2.add(d);
+    
+          data2 = data2.substring(lastindex+1);
+        }
+
+        double[] arr1 = list_to_arr(array1);
+        double[] arr2 = list_to_arr(array2);
+
+        statsoutputlabel.setText(Double.toString(Statistics.computeA(arr1, arr2)));
+    }                                           
+
+    private void computebbuttonMousePressed(java.awt.event.MouseEvent evt) {                                            
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+        String data2 = statsinputlabelfield2.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList<Double> array2 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        lastindex = 0;
+        while (data2.indexOf(",")>=0) {
+          lastindex = data2.indexOf(",");
+          String number = data2.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array2.add(d);
+    
+          data2 = data2.substring(lastindex+1);
+        }
+
+        double[] arr1 = list_to_arr(array1);
+        double[] arr2 = list_to_arr(array2);
+
+        statsoutputlabel.setText(Double.toString(Statistics.computeB(arr1, arr2)));
+    }                                           
+
+    private void computerbuttonMousePressed(java.awt.event.MouseEvent evt) {                                            
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+        String data2 = statsinputlabelfield2.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList<Double> array2 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        lastindex = 0;
+        while (data2.indexOf(",")>=0) {
+          lastindex = data2.indexOf(",");
+          String number = data2.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array2.add(d);
+    
+          data2 = data2.substring(lastindex+1);
+        }
+
+        double[] arr1 = list_to_arr(array1);
+        double[] arr2 = list_to_arr(array2);
+
+        statsoutputlabel.setText(Double.toString(Statistics.computeR(arr1, arr2)));
+    }                                           
+
+    private void computersquaredvaluebuttonMousePressed(java.awt.event.MouseEvent evt) {                                                        
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+        String data2 = statsinputlabelfield2.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList<Double> array2 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        lastindex = 0;
+        while (data2.indexOf(",")>=0) {
+          lastindex = data2.indexOf(",");
+          String number = data2.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array2.add(d);
+    
+          data2 = data2.substring(lastindex+1);
+        }
+
+        double[] arr1 = list_to_arr(array1);
+        double[] arr2 = list_to_arr(array2);
+
+        statsoutputlabel.setText(Double.toString(Statistics.computeRSquaredValue(arr1, arr2)));
+    }                                                       
+
+    private void computezprobmidpointriemannMousePressed(java.awt.event.MouseEvent evt) {                                                         
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText();
+        String data2 = statsinputlabelfield2.getText();
+
+
+        double arr1 = Double.valueOf(data1.trim());
+        double arr2 = Double.valueOf(data2.trim());
+
+        statsoutputlabel.setText(Double.toString(Statistics.computeZProbMidpointRiemann(arr1, arr2)));
+    }                                                        
+
+    private void computezmeanstesthasgreaterthanvalueMousePressed(java.awt.event.MouseEvent evt) {                                                                  
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        System.out.println("done with loop");
+        
+
+        statsoutputlabel.setText(Statistics.computeZMeansTestHaGreaterThanValue(array1.get(0), array1.get(1), array1.get(2), ((int)Math.round(array1.get(3))), array1.get(4)));
+    }                                                                 
+
+    private void computezmeanshaslessthanvaluebuttonMousePressed(java.awt.event.MouseEvent evt) {                                                                 
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        
+
+        statsoutputlabel.setText(Statistics.computeZMeansTestHaLessThanValue(array1.get(0), array1.get(1), array1.get(2), ((int)Math.round(array1.get(3))), array1.get(4)));
+    }                                                                
+
+    private void computeSebutton12MousePressed(java.awt.event.MouseEvent evt) {                                               
+        // TODO add your handling code here:
+        String data1 = statsinputlabelfield.getText() + ", 0";
+
+
+        ArrayList<Double> array1 = new ArrayList<Double>();
+
+        //1, 2, 3, 4
+        int lastindex = 0;
+        while (data1.indexOf(",")>=0) {
+          lastindex = data1.indexOf(",");
+          String number = data1.substring(0, lastindex);
+          
+          double d = Double.valueOf(number.trim());
+          array1.add(d);
+    
+          data1 = data1.substring(lastindex+1);
+        }
+
+        
+
+        statsoutputlabel.setText(Statistics.computeZMeansTestHaNotEqualToValue(array1.get(0), array1.get(1), array1.get(2), ((int)Math.round(array1.get(3))), array1.get(4)));
+    }       
+    
+    private double[] list_to_arr(ArrayList<Double> arr) {
+        double[] array = new double[arr.size()];
+        for (int i = 0; i<arr.size(); i++) {
+            array[i] = arr.get(i);
+        }
+        return array;
+    }
 
     /**
      * @param args the command line arguments
@@ -1076,6 +1901,10 @@ public class GUIv3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton computeSebutton;
+    private javax.swing.JButton computeSebutton12;
+    private javax.swing.JButton computeabutton;
+    private javax.swing.JButton computebbutton;
     private javax.swing.JButton computebutton;
     private javax.swing.JTextField computeinputfield;
     private javax.swing.JLabel computeinputlabel;
@@ -1084,8 +1913,17 @@ public class GUIv3 extends javax.swing.JFrame {
     private javax.swing.JLabel computelabel2;
     private javax.swing.JLabel computelabel3;
     private javax.swing.JLabel computelabel4;
+    private javax.swing.JButton computelsrloutputbutton;
     private javax.swing.JLabel computeoutputlabel;
     private javax.swing.JLabel computeoutputvaluelabel;
+    private javax.swing.JButton computerbutton;
+    private javax.swing.JButton computeresidualvaluesbutton;
+    private javax.swing.JButton computersquaredvaluebutton;
+    private javax.swing.JButton computesumofresidualssquaredbutton;
+    private javax.swing.JButton computeypredictedvaluesbutton;
+    private javax.swing.JButton computezmeanshaslessthanvaluebutton;
+    private javax.swing.JButton computezmeanstesthasgreaterthanvalue;
+    private javax.swing.JButton computezprobmidpointriemann;
     private javax.swing.JPanel darkleftbar;
     private javax.swing.JButton derivebutton;
     private javax.swing.JTextField deriveinputfield;
@@ -1093,6 +1931,7 @@ public class GUIv3 extends javax.swing.JFrame {
     private javax.swing.JLabel deriveoutputlabel;
     private javax.swing.JLabel deriveoutputvaluelabel;
     private javax.swing.JTextArea descriptiontextfield;
+    private javax.swing.JButton displaylsrlequationbutton;
     private javax.swing.JTextField equationinputfield;
     private javax.swing.JLabel homelabel;
     private javax.swing.JPanel indicator1;
@@ -1121,8 +1960,15 @@ public class GUIv3 extends javax.swing.JFrame {
     private javax.swing.JPanel sidetab2;
     private javax.swing.JPanel sidetab3;
     private javax.swing.JPanel sidetab5;
+    private javax.swing.JLabel statsoutputlabel;
     private javax.swing.JPanel sidetab7;
     private javax.swing.JPanel sidetab8;
+    private javax.swing.JLabel statsinputdatalabel;
+    private javax.swing.JLabel statsinputdatalabel1;
+    private javax.swing.JLabel statsinputdatalabel2;
+    private javax.swing.JTextField statsinputlabelfield;
+    private javax.swing.JTextField statsinputlabelfield1;
+    private javax.swing.JTextField statsinputlabelfield2;
     private javax.swing.JPanel topbluebar;
     private javax.swing.JLabel yourequationlabel;
     private Function f;
