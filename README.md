@@ -2,7 +2,6 @@
 
 This is our Java calculator which includes the following functionalities: 
 
-- limit calculator
 - derivative at a point
 - definite & improper integrals
 - graphing
@@ -55,7 +54,6 @@ The graphing algorithm graphs all points of a function, or multiple functions, o
 ## GUIv3 Class 
 The <samp>GUIv3</samp> class contains code for generating the entire UI, sometimes using Netbeans and Visual Studio Code. The UI is developed using Java Swing, a desktop application library. All the code to integrate the backend with the frontend was made possible by <samp>java.awt.event.MouseEvent evt</samp> to detect mouse input. By writing listeners on all the buttons, we were able to detect and use input from the frontend. We developed 3 versions of the UI before arriving at our final version.
 
-
 ## InfixParser Class
 NEEED TO ADDDD
 
@@ -66,7 +64,7 @@ The <samp>InvalidInputsException</samp> class defines a specific exception that 
 The <samp>OperatorOnlyException</samp> class defines a particular exception that is thrown when the <samp>Function</samp> is only an operator and nothing else. 
 
 ## Statistics Class
-The <samp>Statistics</samp> class is various statistical tools, such as linear regression, significance tests, etc. TODOOOOO
+The <samp>Statistics</samp> class is essentially split into 2 parts, linear regression significance tests. For the linear regression, 
 
 ## VariableDefinitionException Class 
 The <samp>VariableDefinitionException</samp> class defines a specific error that will be thrown when a particular variable is not defined, which is used primarily in the <samp>Calculus</samp> code logic. 
