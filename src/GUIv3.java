@@ -1398,7 +1398,7 @@ public class GUIv3 extends javax.swing.JFrame {
     private void computebuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
 
-        //Get input value from user
+        //Get input value from user and set output label to computed value
         try {
             double input = Double.valueOf(computeinputfield.getText());
             computeoutputvaluelabel.setText(Double.toString(f.compute(input)));
@@ -1415,6 +1415,7 @@ public class GUIv3 extends javax.swing.JFrame {
     private void derivebuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
 
+        //get input value from user and set output label to derivative at that input value
         try {
             double input = Double.valueOf(deriveinputfield.getText());
             deriveoutputvaluelabel.setText(Double.toString(Calculus.computeDerivativeAtAPoint(f, input)));
@@ -1438,6 +1439,7 @@ public class GUIv3 extends javax.swing.JFrame {
     private void integratebuttonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
+        //Get user input and integrate from lower to upper bound
         try {
             double lowerBound = Double.valueOf(integrallowerboundlabel.getText());
             double upperBound = Double.valueOf(integralupperboundlabel.getText());
@@ -1515,7 +1517,7 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > array1 = new ArrayList < Double > ();
         ArrayList < Double > array2 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1555,7 +1557,7 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > array1 = new ArrayList < Double > ();
         ArrayList < Double > array2 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1593,7 +1595,7 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > array1 = new ArrayList < Double > ();
         ArrayList < Double > array2 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1631,7 +1633,7 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > array1 = new ArrayList < Double > ();
         ArrayList < Double > array2 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1669,7 +1671,7 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > array1 = new ArrayList < Double > ();
         ArrayList < Double > array2 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1709,7 +1711,7 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > array1 = new ArrayList < Double > ();
         ArrayList < Double > array2 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1747,7 +1749,7 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > array1 = new ArrayList < Double > ();
         ArrayList < Double > array2 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1785,7 +1787,7 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > array1 = new ArrayList < Double > ();
         ArrayList < Double > array2 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1823,7 +1825,7 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > array1 = new ArrayList < Double > ();
         ArrayList < Double > array2 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1871,7 +1873,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
         ArrayList < Double > array1 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1896,7 +1898,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
         ArrayList < Double > array1 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
@@ -1920,7 +1922,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
         ArrayList < Double > array1 = new ArrayList < Double > ();
 
-        //1, 2, 3, 4
+       //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
