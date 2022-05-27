@@ -49,7 +49,7 @@ public class Main {
 
     Stack<Function> blaze = InfixParser.stringRPNToStack(input);
 
-    blaze = reverseStack(blaze);
+    blaze = InfixParser.reverseStack(blaze);
 
     try {
       InfixParser.crunchRPNStack(blaze);
@@ -71,17 +71,6 @@ public class Main {
 	}
 			
 
-  public static Stack<Function> reverseStack(Stack<Function> stack) {
-    Stack<Function> output = new Stack<Function>();
 
-    // Stack<Function> tempStack = (Stack<Function>)output.clone();
-
-    while (stack.size() > 0) {
-      // Function temp = tempStack.pop();
-      Function temp = stack.pop();
-      output.push(temp);
-    }
-    return output;
-  }
 
 }

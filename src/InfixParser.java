@@ -96,6 +96,19 @@ public class InfixParser {
       return output;
     }
 
+    public static Stack<Function> reverseStack(Stack<Function> stack) {
+      Stack<Function> output = new Stack<Function>();
+  
+      // Stack<Function> tempStack = (Stack<Function>)output.clone();
+  
+      while (stack.size() > 0) {
+        // Function temp = tempStack.pop();
+        Function temp = stack.pop();
+        output.push(temp);
+      }
+      return output;
+    }
+
     public static int crunchRPNStack(Stack<Function> stack) throws OperatorOnlyException {
 
       int counter = 0;

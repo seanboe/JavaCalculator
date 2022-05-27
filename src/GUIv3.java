@@ -4,6 +4,7 @@
  */
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Stack;
 /**
  *
  * @author bc
@@ -1361,7 +1362,15 @@ public class GUIv3 extends javax.swing.JFrame {
     }                                             
 
     private void computebuttonMousePressed(java.awt.event.MouseEvent evt) {                                           
-        // TODO add your handling code here:
+       // TODO add your handling code here:
+
+       try {
+        double input = Double.valueOf(computeinputfield.getText());
+        computeoutputvaluelabel.setText(Double.toString(f.compute(input)));
+    } catch (Exception df) {
+        df.printStackTrace();
+        computeoutputvaluelabel.setText("Error: Invalid input");
+    }
     }                                          
 
     private void deriveinputfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                 
@@ -1370,6 +1379,13 @@ public class GUIv3 extends javax.swing.JFrame {
 
     private void derivebuttonMousePressed(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
+
+        try {
+            double input = Double.valueOf(deriveinputfield.getText());
+            deriveoutputvaluelabel.setText(Double.toString(Calculus.computeDerivativeAtAPoint(f, input)));
+        } catch (Exception df) {
+            deriveoutputvaluelabel.setText("Error: Invalid input");
+        }
     }                                         
 
     private void derivebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -1386,11 +1402,41 @@ public class GUIv3 extends javax.swing.JFrame {
 
     private void integratebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                                
          // TODO add your handling code here:
+
+         try {
+            double lowerBound = Double.valueOf(integrallowerboundlabel.getText());
+            double upperBound = Double.valueOf(integralupperboundlabel.getText());
+            integraloutputlabel.setText(Double.toString(Calculus.computeDefiniteIntegral(f, lowerBound, upperBound)));
+        } catch (Exception df) {
+            integraloutputlabel.setText("error");
+        }
        
     }                                               
 
     private void equationinputfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
+        //Convert input equation to function(and rpn)
+        String infix = equationinputfield.getText();
+
+        String rpn = InfixParser.parse(infix);
+
+        rpnequationoutputlabel.setText(rpn);
+
+        Stack<Function> blaze = InfixParser.stringRPNToStack(rpn);
+
+        blaze = InfixParser.reverseStack(blaze);
+
+        try {
+            InfixParser.crunchRPNStack(blaze);
+        } catch (OperatorOnlyException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+        f = blaze.pop();
+
+        System.out.println(f.toString());
     }                                                  
 
     private void statsinputlabelfield1ActionPerformed(java.awt.event.ActionEvent evt) {                                                      
