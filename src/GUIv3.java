@@ -1483,6 +1483,13 @@ public class GUIv3 extends javax.swing.JFrame {
                 continue;
             }
         }
+        for (int i = -10001; i<=10000; i+=2) {
+            try {
+                zeros.add(Algebra.bisectionZeros(f, i, i+2));
+            } catch (Exception e) {
+                continue;
+            }
+        }
 
         if (zeros.size() > 0) {
             jLabel1.setText(zeros.toString());

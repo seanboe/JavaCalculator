@@ -1,4 +1,5 @@
 import java.util.Stack;
+import java.rmi.server.ExportException;
 import java.util.ArrayList;
 
 public class InfixParser {
@@ -28,13 +29,20 @@ public class InfixParser {
 
         String rpn = "";
 
-        //stack.push(")");
         infix = infix + ")";
 
         for (int i = 0; i<infix.length(); i++) {
             String token = infix.substring(i, i+1);
             if (Character.isDigit(token.charAt(0)) || token.equals("x")) {
-                rpn += (token + " ");
+                try {
+                  if (Character.isDigit(infix.substring(i+1, i+2).charAt(0))) {
+                    rpn += token;
+                  } else {
+                    rpn += (token + " ");
+                  }
+                } catch (Exception e) {
+                  rpn += (token + " ");
+                }
             } else if (token.equals("(")) {
                 stack.push("(");
             } else if (operators.contains(token)) {
