@@ -61,7 +61,7 @@ NEEED TO ADDDD
 The <samp>Statistics</samp> class is essentially split into 2 parts, linear regression significance tests. For the linear regression, TODOOOOOOOOO
 
 ## VariableDefinitionException Class 
-NEEED TO ADDDD 
+The <samp>VariableDefinitionException</samp> class defines a specific error that will be thrown when a particular variable is not defined. This exception is heavily used in the <samp>Calculus</samp> class. 
 
 ## Exception classes
 These classes define exceptions for invalid mathematical calculations or anything that makes function computation incorrect.
