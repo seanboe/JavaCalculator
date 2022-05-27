@@ -58,17 +58,9 @@ The <samp>GUIv3</samp> class is where is
 ## InfixParser Class
 NEEED TO ADDDD
 
-## InvalidInputsException Class
-The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
-
 ## Main Class 
 This is just a class we use to test certain methods, logic, etc. 
 
-## OperatorOnlyException Class 
-The <samp>OperatorOnlyException</samp> class defines 
-
-## Queue Class
-NEEED TO ADDDD
 
 ## Statistics Class
 NEEED TO ADDDD
@@ -79,5 +71,13 @@ NEEED TO ADDDD
 
 ## Exception classes
 
+These classes define exceptions for invalid mathematical calculations or anything that makes function computation incorrect.
+
 ### ArithmeticException
 The <samp>ArithmeticException</samp> defines an arithmetic exception that is thrown when an invalid mathematical operation is done. For instance, dividing by zero would result in an <samp>ArithmeticException</samp>. 
+
+### OperatorOnlyException Class 
+The <samp>OperatorOnlyException</samp> class defines 
+
+## InvalidInputsException Class
+The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
