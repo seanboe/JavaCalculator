@@ -19,7 +19,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
         String rpn = InfixParser.parse(infix);
 
-        Stack<Function> blaze = InfixParser.stringRPNToStack(rpn);
+        Stack < Function > blaze = InfixParser.stringRPNToStack(rpn);
 
         blaze = InfixParser.reverseStack(blaze);
 
@@ -44,7 +44,7 @@ public class GUIv3 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-        
+
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         darkleftbar = new javax.swing.JPanel();
@@ -76,6 +76,7 @@ public class GUIv3 extends javax.swing.JFrame {
         rpnlabel = new javax.swing.JLabel();
         equationinputfield = new javax.swing.JTextField();
         rpnequationoutputlabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptiontextfield = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
@@ -491,19 +492,26 @@ public class GUIv3 extends javax.swing.JFrame {
         rpnequationoutputlabel.setForeground(java.awt.Color.white);
         rpnequationoutputlabel.setText("x 2 ^ 1 +");
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.white);
+        jLabel1.setText("No zeros");
+
         javax.swing.GroupLayout palerbluebarLayout = new javax.swing.GroupLayout(palerbluebar);
         palerbluebar.setLayout(palerbluebarLayout);
         palerbluebarLayout.setHorizontalGroup(
             palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(palerbluebarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rpnlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(yourequationlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(equationinputfield)
-                    .addComponent(rpnequationoutputlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(palerbluebarLayout.createSequentialGroup()
+                        .addGroup(palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(rpnlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(yourequationlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(equationinputfield)
+                            .addComponent(rpnequationoutputlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         palerbluebarLayout.setVerticalGroup(
@@ -517,7 +525,9 @@ public class GUIv3 extends javax.swing.JFrame {
                 .addGroup(palerbluebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rpnlabel)
                     .addComponent(rpnequationoutputlabel))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         descriptiontextfield.setBackground(new java.awt.Color(71, 120, 197));
@@ -1025,9 +1035,9 @@ public class GUIv3 extends javax.swing.JFrame {
         statsoutputlabel.setVisible(false);
 
         pack();
-    }// </editor-fold>                        
+    } // </editor-fold>                        
 
-    private void sidetab1MousePressed(java.awt.event.MouseEvent evt) {                                      
+    private void sidetab1MousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         computeinputlabel.setVisible(false);
         computeinputfield.setVisible(false);
@@ -1080,12 +1090,12 @@ public class GUIv3 extends javax.swing.JFrame {
         jarray2[2] = indicator3;
         jarray2[3] = indicator4;
         jarray2[4] = indicator5;
-        
-        resetColor(jarray, jarray2);
-    }                                     
 
-    private void sidetab2MousePressed(java.awt.event.MouseEvent evt) {                                      
-       // TODO add your handling code here:
+        resetColor(jarray, jarray2);
+    }
+
+    private void sidetab2MousePressed(java.awt.event.MouseEvent evt) {
+        // TODO add your handling code here:
         // TODO add your handling code here:
         computeinputlabel.setVisible(true);
         computeinputfield.setVisible(true);
@@ -1138,17 +1148,17 @@ public class GUIv3 extends javax.swing.JFrame {
         jarray2[2] = indicator3;
         jarray2[3] = indicator4;
         jarray2[4] = indicator5;
-        
-        resetColor(jarray, jarray2);
-    }                                     
 
-    private void sidetab3MousePressed(java.awt.event.MouseEvent evt) {                                      
-         // TODO add your handling code here:
-         computeinputlabel.setVisible(false);
-         computeinputfield.setVisible(false);
-         computeoutputlabel.setVisible(false);
-         computeoutputvaluelabel.setVisible(false);
-         computebutton.setVisible(false);
+        resetColor(jarray, jarray2);
+    }
+
+    private void sidetab3MousePressed(java.awt.event.MouseEvent evt) {
+        // TODO add your handling code here:
+        computeinputlabel.setVisible(false);
+        computeinputfield.setVisible(false);
+        computeoutputlabel.setVisible(false);
+        computeoutputvaluelabel.setVisible(false);
+        computebutton.setVisible(false);
         deriveinputlabel.setVisible(true);
         deriveinputfield.setVisible(true);
         deriveoutputlabel.setVisible(true);
@@ -1195,17 +1205,17 @@ public class GUIv3 extends javax.swing.JFrame {
         jarray2[2] = indicator2;
         jarray2[3] = indicator4;
         jarray2[4] = indicator5;
-        
-        resetColor(jarray, jarray2);
-    }                                     
 
-    private void sidetab5MousePressed(java.awt.event.MouseEvent evt) {                                      
-          // TODO add your handling code here:
-         computeinputlabel.setVisible(false);
-         computeinputfield.setVisible(false);
-         computeoutputlabel.setVisible(false);
-         computeoutputvaluelabel.setVisible(false);
-         computebutton.setVisible(false);
+        resetColor(jarray, jarray2);
+    }
+
+    private void sidetab5MousePressed(java.awt.event.MouseEvent evt) {
+        // TODO add your handling code here:
+        computeinputlabel.setVisible(false);
+        computeinputfield.setVisible(false);
+        computeoutputlabel.setVisible(false);
+        computeoutputvaluelabel.setVisible(false);
+        computebutton.setVisible(false);
         deriveinputlabel.setVisible(false);
         deriveinputfield.setVisible(false);
         deriveoutputlabel.setVisible(false);
@@ -1252,17 +1262,17 @@ public class GUIv3 extends javax.swing.JFrame {
         jarray2[2] = indicator3;
         jarray2[3] = indicator5;
         jarray2[4] = indicator2;
-        
-        resetColor(jarray, jarray2);
-    }                                     
 
-    private void sidetab7MousePressed(java.awt.event.MouseEvent evt) {                                      
-      // TODO add your handling code here:
-       computeinputlabel.setVisible(false);
-       computeinputfield.setVisible(false);
-       computeoutputlabel.setVisible(false);
-       computeoutputvaluelabel.setVisible(false);
-       computebutton.setVisible(false);
+        resetColor(jarray, jarray2);
+    }
+
+    private void sidetab7MousePressed(java.awt.event.MouseEvent evt) {
+        // TODO add your handling code here:
+        computeinputlabel.setVisible(false);
+        computeinputfield.setVisible(false);
+        computeoutputlabel.setVisible(false);
+        computeoutputvaluelabel.setVisible(false);
+        computebutton.setVisible(false);
         deriveinputlabel.setVisible(false);
         deriveinputfield.setVisible(false);
         deriveoutputlabel.setVisible(false);
@@ -1312,17 +1322,17 @@ public class GUIv3 extends javax.swing.JFrame {
         jarray2[2] = indicator3;
         jarray2[3] = indicator4;
         jarray2[4] = indicator2;
-        
-        resetColor(jarray, jarray2);
-    }                                     
 
-    private void sidetab8MousePressed(java.awt.event.MouseEvent evt) {                                      
+        resetColor(jarray, jarray2);
+    }
+
+    private void sidetab8MousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         computeinputlabel.setVisible(false);
         computeinputfield.setVisible(false);
         computeoutputlabel.setVisible(false);
         computeoutputvaluelabel.setVisible(false);
-        computebutton.setVisible(false);        
+        computebutton.setVisible(false);
         deriveinputlabel.setVisible(false);
         deriveinputfield.setVisible(false);
         deriveoutputlabel.setVisible(false);
@@ -1355,7 +1365,7 @@ public class GUIv3 extends javax.swing.JFrame {
         computeSebutton.setVisible(true);
         computeSebutton12.setVisible(true);
         statsoutputlabel.setVisible(true);
-        
+
         setColor(sidetab8);
         javax.swing.JPanel[] jarray = new javax.swing.JPanel[5];
         indicator6.setOpaque(true);
@@ -1370,35 +1380,35 @@ public class GUIv3 extends javax.swing.JFrame {
         jarray2[2] = indicator3;
         jarray2[3] = indicator4;
         jarray2[4] = indicator5;
-        
+
         resetColor(jarray, jarray2);
-    }                                     
-
-    private void computeinputfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-        // TODO add your handling code here:
-    }                                                 
-
-    private void computebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }                                             
-
-    private void computebuttonMousePressed(java.awt.event.MouseEvent evt) {                                           
-       // TODO add your handling code here:
-
-       try {
-        double input = Double.valueOf(computeinputfield.getText());
-        computeoutputvaluelabel.setText(Double.toString(f.compute(input)));
-    } catch (Exception df) {
-        df.printStackTrace();
-        computeoutputvaluelabel.setText("Error: Invalid input");
     }
-    }                                          
 
-    private void deriveinputfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void computeinputfieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                                
+    }
 
-    private void derivebuttonMousePressed(java.awt.event.MouseEvent evt) {                                          
+    private void computebuttonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void computebuttonMousePressed(java.awt.event.MouseEvent evt) {
+        // TODO add your handling code here:
+
+        try {
+            double input = Double.valueOf(computeinputfield.getText());
+            computeoutputvaluelabel.setText(Double.toString(f.compute(input)));
+        } catch (Exception df) {
+            df.printStackTrace();
+            computeoutputvaluelabel.setText("Error: Invalid input");
+        }
+    }
+
+    private void deriveinputfieldActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void derivebuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
 
         try {
@@ -1407,34 +1417,34 @@ public class GUIv3 extends javax.swing.JFrame {
         } catch (Exception df) {
             deriveoutputvaluelabel.setText("Error: Invalid input");
         }
-    }                                         
+    }
 
-    private void derivebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void derivebuttonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                            
+    }
 
-    private void integrallowerboundlabelActionPerformed(java.awt.event.ActionEvent evt) {                                                        
+    private void integrallowerboundlabelActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                                       
+    }
 
-    private void integralupperboundlabelActionPerformed(java.awt.event.ActionEvent evt) {                                                        
+    private void integralupperboundlabelActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                                       
+    }
 
-    private void integratebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                                
-         // TODO add your handling code here:
+    private void integratebuttonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
 
-         try {
+        try {
             double lowerBound = Double.valueOf(integrallowerboundlabel.getText());
             double upperBound = Double.valueOf(integralupperboundlabel.getText());
             integraloutputlabel.setText(Double.toString(Calculus.computeDefiniteIntegral(f, lowerBound, upperBound)));
         } catch (Exception df) {
             integraloutputlabel.setText("error");
         }
-       
-    }                                               
 
-    private void equationinputfieldActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    }
+
+    private void equationinputfieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         //Convert input equation to function(and rpn)
         String infix = equationinputfield.getText();
@@ -1443,7 +1453,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
         rpnequationoutputlabel.setText(rpn);
 
-        Stack<Function> blaze = InfixParser.stringRPNToStack(rpn);
+        Stack < Function > blaze = InfixParser.stringRPNToStack(rpn);
 
         blaze = InfixParser.reverseStack(blaze);
 
@@ -1457,210 +1467,228 @@ public class GUIv3 extends javax.swing.JFrame {
 
         f = blaze.pop();
 
-        System.out.println(f.toString());
-    }                                                  
+        //Get an array of all the zeros
+        ArrayList < Double > zeros = new ArrayList < Double > ();
 
-    private void statsinputlabelfield1ActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        for (int i = -1000; i <= 1000; i += 50) {
+            try {
+                zeros.add(Algebra.computeZeros(f, i));
+                System.out.println(Algebra.computeZeros(f, i));
+            } catch (Exception e) {
+                continue;
+            }
+        }
+
+        if (zeros.size() > 0) {
+            jLabel1.setText(zeros.toString());
+        } else {
+            jLabel1.setText("This function has no zeros");
+        }
+
+
+    }
+
+    private void statsinputlabelfield1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                                     
+    }
 
-    private void statsinputlabelfield2ActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+    private void statsinputlabelfield2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                                     
+    }
 
-    private void computezmeanshaslessthanvaluebuttonActionPerformed(java.awt.event.ActionEvent evt) {                                                                    
+    private void computezmeanshaslessthanvaluebuttonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                                                   
+    }
 
-    private void computeSebutton12ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+    private void computeSebutton12ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                                 
+    }
 
-    private void computeSebuttonMousePressed(java.awt.event.MouseEvent evt) {                                             
+    private void computeSebuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
         String data2 = statsinputlabelfield2.getText() + ", 0";
 
         System.out.println(data2);
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
-        ArrayList<Double> array2 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
+        ArrayList < Double > array2 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         lastindex = 0;
-        while (data2.indexOf(",")>=0) {
-          lastindex = data2.indexOf(",");
-          String number = data2.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array2.add(d);
-    
-          data2 = data2.substring(lastindex+1);
+        while (data2.indexOf(",") >= 0) {
+            lastindex = data2.indexOf(",");
+            String number = data2.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array2.add(d);
+
+            data2 = data2.substring(lastindex + 1);
         }
 
         double[] arr1 = list_to_arr(array1);
         double[] arr2 = list_to_arr(array2);
 
         statsoutputlabel.setText(Double.toString(Statistics.computeSe(arr1, arr2)));
-        
 
-    }                                            
 
-    private void computesumofresidualssquaredbuttonMousePressed(java.awt.event.MouseEvent evt) {                                                                
+    }
+
+    private void computesumofresidualssquaredbuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
         String data2 = statsinputlabelfield2.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
-        ArrayList<Double> array2 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
+        ArrayList < Double > array2 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         lastindex = 0;
-        while (data2.indexOf(",")>=0) {
-          lastindex = data2.indexOf(",");
-          String number = data2.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array2.add(d);
-    
-          data2 = data2.substring(lastindex+1);
+        while (data2.indexOf(",") >= 0) {
+            lastindex = data2.indexOf(",");
+            String number = data2.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array2.add(d);
+
+            data2 = data2.substring(lastindex + 1);
         }
 
         double[] arr1 = list_to_arr(array1);
         double[] arr2 = list_to_arr(array2);
 
         statsoutputlabel.setText(Double.toString(Statistics.computeSumOfResidualsSquared(arr1, arr2)));
-    }                                                               
+    }
 
-    private void computeresidualvaluesbuttonMousePressed(java.awt.event.MouseEvent evt) {                                                         
+    private void computeresidualvaluesbuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
         String data2 = statsinputlabelfield2.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
-        ArrayList<Double> array2 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
+        ArrayList < Double > array2 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         lastindex = 0;
-        while (data2.indexOf(",")>=0) {
-          lastindex = data2.indexOf(",");
-          String number = data2.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array2.add(d);
-    
-          data2 = data2.substring(lastindex+1);
+        while (data2.indexOf(",") >= 0) {
+            lastindex = data2.indexOf(",");
+            String number = data2.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array2.add(d);
+
+            data2 = data2.substring(lastindex + 1);
         }
 
         double[] arr1 = list_to_arr(array1);
         double[] arr2 = list_to_arr(array2);
 
         statsoutputlabel.setText(Arrays.toString(Statistics.computeResidualValues(arr1, arr2)));
-    }                                                        
+    }
 
-    private void computeypredictedvaluesbuttonMousePressed(java.awt.event.MouseEvent evt) {                                                           
+    private void computeypredictedvaluesbuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
         String data2 = statsinputlabelfield2.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
-        ArrayList<Double> array2 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
+        ArrayList < Double > array2 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         lastindex = 0;
-        while (data2.indexOf(",")>=0) {
-          lastindex = data2.indexOf(",");
-          String number = data2.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array2.add(d);
-    
-          data2 = data2.substring(lastindex+1);
+        while (data2.indexOf(",") >= 0) {
+            lastindex = data2.indexOf(",");
+            String number = data2.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array2.add(d);
+
+            data2 = data2.substring(lastindex + 1);
         }
 
         double[] arr1 = list_to_arr(array1);
         double[] arr2 = list_to_arr(array2);
 
         statsoutputlabel.setText(Arrays.toString(Statistics.computeYPredictedValues(arr1, arr2)));
-    }                                                          
+    }
 
-    private void computelsrloutputbuttonMousePressed(java.awt.event.MouseEvent evt) {                                                     
+    private void computelsrloutputbuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
         String data2 = statsinputlabelfield2.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
-        ArrayList<Double> array2 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
+        ArrayList < Double > array2 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         lastindex = 0;
-        while (data2.indexOf(",")>=0) {
-          lastindex = data2.indexOf(",");
-          String number = data2.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array2.add(d);
-    
-          data2 = data2.substring(lastindex+1);
+        while (data2.indexOf(",") >= 0) {
+            lastindex = data2.indexOf(",");
+            String number = data2.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array2.add(d);
+
+            data2 = data2.substring(lastindex + 1);
         }
 
         double[] arr1 = list_to_arr(array1);
@@ -1669,161 +1697,161 @@ public class GUIv3 extends javax.swing.JFrame {
         double num = Double.valueOf(statsinputlabelfield1.getText());
 
         statsoutputlabel.setText(Double.toString(Statistics.computeLSRLOutput(arr1, arr2, num)));
-    }                                                    
+    }
 
-    private void computeabuttonMousePressed(java.awt.event.MouseEvent evt) {                                            
+    private void computeabuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
         String data2 = statsinputlabelfield2.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
-        ArrayList<Double> array2 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
+        ArrayList < Double > array2 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         lastindex = 0;
-        while (data2.indexOf(",")>=0) {
-          lastindex = data2.indexOf(",");
-          String number = data2.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array2.add(d);
-    
-          data2 = data2.substring(lastindex+1);
+        while (data2.indexOf(",") >= 0) {
+            lastindex = data2.indexOf(",");
+            String number = data2.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array2.add(d);
+
+            data2 = data2.substring(lastindex + 1);
         }
 
         double[] arr1 = list_to_arr(array1);
         double[] arr2 = list_to_arr(array2);
 
         statsoutputlabel.setText(Double.toString(Statistics.computeA(arr1, arr2)));
-    }                                           
+    }
 
-    private void computebbuttonMousePressed(java.awt.event.MouseEvent evt) {                                            
+    private void computebbuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
         String data2 = statsinputlabelfield2.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
-        ArrayList<Double> array2 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
+        ArrayList < Double > array2 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         lastindex = 0;
-        while (data2.indexOf(",")>=0) {
-          lastindex = data2.indexOf(",");
-          String number = data2.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array2.add(d);
-    
-          data2 = data2.substring(lastindex+1);
+        while (data2.indexOf(",") >= 0) {
+            lastindex = data2.indexOf(",");
+            String number = data2.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array2.add(d);
+
+            data2 = data2.substring(lastindex + 1);
         }
 
         double[] arr1 = list_to_arr(array1);
         double[] arr2 = list_to_arr(array2);
 
         statsoutputlabel.setText(Double.toString(Statistics.computeB(arr1, arr2)));
-    }                                           
+    }
 
-    private void computerbuttonMousePressed(java.awt.event.MouseEvent evt) {                                            
+    private void computerbuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
         String data2 = statsinputlabelfield2.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
-        ArrayList<Double> array2 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
+        ArrayList < Double > array2 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         lastindex = 0;
-        while (data2.indexOf(",")>=0) {
-          lastindex = data2.indexOf(",");
-          String number = data2.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array2.add(d);
-    
-          data2 = data2.substring(lastindex+1);
+        while (data2.indexOf(",") >= 0) {
+            lastindex = data2.indexOf(",");
+            String number = data2.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array2.add(d);
+
+            data2 = data2.substring(lastindex + 1);
         }
 
         double[] arr1 = list_to_arr(array1);
         double[] arr2 = list_to_arr(array2);
 
         statsoutputlabel.setText(Double.toString(Statistics.computeR(arr1, arr2)));
-    }                                           
+    }
 
-    private void computersquaredvaluebuttonMousePressed(java.awt.event.MouseEvent evt) {                                                        
+    private void computersquaredvaluebuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
         String data2 = statsinputlabelfield2.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
-        ArrayList<Double> array2 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
+        ArrayList < Double > array2 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         lastindex = 0;
-        while (data2.indexOf(",")>=0) {
-          lastindex = data2.indexOf(",");
-          String number = data2.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array2.add(d);
-    
-          data2 = data2.substring(lastindex+1);
+        while (data2.indexOf(",") >= 0) {
+            lastindex = data2.indexOf(",");
+            String number = data2.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array2.add(d);
+
+            data2 = data2.substring(lastindex + 1);
         }
 
         double[] arr1 = list_to_arr(array1);
         double[] arr2 = list_to_arr(array2);
 
         statsoutputlabel.setText(Double.toString(Statistics.computeRSquaredValue(arr1, arr2)));
-    }                                                       
+    }
 
-    private void computezprobmidpointriemannMousePressed(java.awt.event.MouseEvent evt) {                                                         
+    private void computezprobmidpointriemannMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText();
         String data2 = statsinputlabelfield2.getText();
@@ -1833,84 +1861,84 @@ public class GUIv3 extends javax.swing.JFrame {
         double arr2 = Double.valueOf(data2.trim());
 
         statsoutputlabel.setText(Double.toString(Statistics.computeZProbMidpointRiemann(arr1, arr2)));
-    }                                                        
+    }
 
-    private void computezmeanstesthasgreaterthanvalueMousePressed(java.awt.event.MouseEvent evt) {                                                                  
+    private void computezmeanstesthasgreaterthanvalueMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
         System.out.println("done with loop");
-        
 
-        statsoutputlabel.setText(Statistics.computeZMeansTestHaGreaterThanValue(array1.get(0), array1.get(1), array1.get(2), ((int)Math.round(array1.get(3))), array1.get(4)));
-    }                                                                 
 
-    private void computezmeanshaslessthanvaluebuttonMousePressed(java.awt.event.MouseEvent evt) {                                                                 
+        statsoutputlabel.setText(Statistics.computeZMeansTestHaGreaterThanValue(array1.get(0), array1.get(1), array1.get(2), ((int) Math.round(array1.get(3))), array1.get(4)));
+    }
+
+    private void computezmeanshaslessthanvaluebuttonMousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
-        
 
-        statsoutputlabel.setText(Statistics.computeZMeansTestHaLessThanValue(array1.get(0), array1.get(1), array1.get(2), ((int)Math.round(array1.get(3))), array1.get(4)));
-    }                                                                
 
-    private void computeSebutton12MousePressed(java.awt.event.MouseEvent evt) {                                               
+        statsoutputlabel.setText(Statistics.computeZMeansTestHaLessThanValue(array1.get(0), array1.get(1), array1.get(2), ((int) Math.round(array1.get(3))), array1.get(4)));
+    }
+
+    private void computeSebutton12MousePressed(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
         String data1 = statsinputlabelfield.getText() + ", 0";
 
 
-        ArrayList<Double> array1 = new ArrayList<Double>();
+        ArrayList < Double > array1 = new ArrayList < Double > ();
 
         //1, 2, 3, 4
         int lastindex = 0;
-        while (data1.indexOf(",")>=0) {
-          lastindex = data1.indexOf(",");
-          String number = data1.substring(0, lastindex);
-          
-          double d = Double.valueOf(number.trim());
-          array1.add(d);
-    
-          data1 = data1.substring(lastindex+1);
+        while (data1.indexOf(",") >= 0) {
+            lastindex = data1.indexOf(",");
+            String number = data1.substring(0, lastindex);
+
+            double d = Double.valueOf(number.trim());
+            array1.add(d);
+
+            data1 = data1.substring(lastindex + 1);
         }
 
-        
 
-        statsoutputlabel.setText(Statistics.computeZMeansTestHaNotEqualToValue(array1.get(0), array1.get(1), array1.get(2), ((int)Math.round(array1.get(3))), array1.get(4)));
-    }       
-    
-    private double[] list_to_arr(ArrayList<Double> arr) {
+
+        statsoutputlabel.setText(Statistics.computeZMeansTestHaNotEqualToValue(array1.get(0), array1.get(1), array1.get(2), ((int) Math.round(array1.get(3))), array1.get(4)));
+    }
+
+    private double[] list_to_arr(ArrayList < Double > arr) {
         double[] array = new double[arr.size()];
-        for (int i = 0; i<arr.size(); i++) {
+        for (int i = 0; i < arr.size(); i++) {
             array[i] = arr.get(i);
         }
         return array;
@@ -1926,7 +1954,7 @@ public class GUIv3 extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info: javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
@@ -1950,21 +1978,21 @@ public class GUIv3 extends javax.swing.JFrame {
             }
         });
     }
-    
+
     //Highlight active tab
     private void setColor(javax.swing.JPanel pane) {
         pane.setBackground(new java.awt.Color(41, 57, 80));
     }
-    
+
     //dehighlight unactive tabs
     private void resetColor(javax.swing.JPanel[] panes, javax.swing.JPanel[] indicators) {
-       for (int i = 0; i<panes.length; i++) {
+        for (int i = 0; i < panes.length; i++) {
             panes[i].setBackground(new java.awt.Color(23, 35, 51));
-       }
-       for (int i = 0; i<indicators.length; i++) {
+        }
+        for (int i = 0; i < indicators.length; i++) {
             indicators[i].setOpaque(false);
-       }
-       
+        }
+
     }
 
     // Variables declaration - do not modify                     
@@ -2039,5 +2067,6 @@ public class GUIv3 extends javax.swing.JFrame {
     private javax.swing.JPanel topbluebar;
     private javax.swing.JLabel yourequationlabel;
     private Function f;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration                   
 }
