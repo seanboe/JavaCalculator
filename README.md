@@ -1,12 +1,15 @@
 # JavaCalculator
 
-This is our Java calculator which includes the following functionalities: 
+🚀 JaCAS: A Java Computer Algebra System 🚀
+
+Functionality:
 
 - derivative at a point
 - definite & improper integrals
 - graphing
 - series 
 - statistics functions (significance tests, linear regression, etc.) 
+- root tests
 - and other various calculations... 
 
 Here are some screenshots of our UI for the calculator: 
@@ -32,13 +35,10 @@ Here are some screenshots of our UI for the calculator:
 
 <br>
 
-## Algebra Class 
+## Algebra Class 🚀
 The <samp>Algebra</samp> class contains code for computing the zeros of a function, using one of Newton's algorithms. Using our derivative logic from the <samp>Calculus</samp> class along with the bisection step, we can compute the zeros of a <samp>Function</samp> object. The bisection step helps us find the roots of a function within a certain region, whose result is incorporated into the actual root calculating method. 
 
-## ArithmeticException Class 
-The <samp>ArithmeticException</samp> defines an arithmetic exception that is thrown when an invalid mathematical operation is done. For instance, dividing by zero would result in an <samp>ArithmeticException</samp>. 
-
-## Calculus Class 
+## Calculus Class 🚀
 The <samp>Calculus</samp> class contains code logic for computing definite & impropoer integrals, derivative at a point, series (with respect to sums), and end behavior of a function. The definite integral method uses a <samp>for</samp> loop to iterate over a certain interval on the x-axis, and utilizes many, many midpoint Riemann sums to provide an extremely accurate result (a variation of the formula is shown below). The improper integral method makes use of the derivative & definite integral calculator in order to approximate the integral of a function as x approaches -∞ or +∞. If the absolute value of the derivative is very close to 0 as $|x|$ becomes infinitely large, then we take the definite integral from the constant (in the argument) to a very large number, else, the improper integral is not possible. The derivative at a point method returns a highly accurate value, since it takes in account a very small change in y over a very small change in x, which represents the slope of the function at the particular x-value. The <samp>computeSum</samp> method returns a mathematical sum of the output values of a particular function between an interval of x-values, using a <samp>for</samp> loop. Finally, we have code for computing the end behavior of a function. How it works is that as the derivative of the function approaches 0 as x approaches +∞ or -∞, then the approximate y-value of the function is returned, else, the end behavior of the function cannot be determined, since the function does not have a horizontal asymptote. 
 
 $$
@@ -57,14 +57,27 @@ The <samp>GUIv3</samp> class contains code for generating the entire UI, sometim
 ## InfixParser Class
 NEEED TO ADDDD
 
-## InvalidInputsException Class
-The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
+## Main Class 
+This is just a class we use to test certain methods, logic, etc. 
 
-## OperatorOnlyException Class 
-The <samp>OperatorOnlyException</samp> class defines a particular exception that is thrown when the <samp>Function</samp> is only an operator and nothing else. 
 
 ## Statistics Class
 The <samp>Statistics</samp> class is essentially split into 2 parts, linear regression significance tests. For the linear regression, 
 
 ## VariableDefinitionException Class 
-The <samp>VariableDefinitionException</samp> class defines a specific error that will be thrown when a particular variable is not defined, which is used primarily in the <samp>Calculus</samp> code logic. 
+NEEED TO ADDDD 
+
+
+## Exception classes
+
+These classes define exceptions for invalid mathematical calculations or anything that makes function computation incorrect.
+
+### ArithmeticException
+The <samp>ArithmeticException</samp> defines an arithmetic exception that is thrown when an invalid mathematical operation is done. For instance, dividing by zero would result in an <samp>ArithmeticException</samp>. 
+
+### OperatorOnlyException Class 
+The <samp>OperatorOnlyException</samp> class defines 
+
+## InvalidInputsException Class
+The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
+The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
