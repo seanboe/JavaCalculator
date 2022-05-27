@@ -61,17 +61,11 @@ NEEED TO ADDDD
 ## InvalidInputsException Class
 The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
 
-## Main Class 
-This is just a class we use to test certain methods, logic, etc. 
-
 ## OperatorOnlyException Class 
-The <samp>OperatorOnlyException</samp> class defines 
-
-## Queue Class
-NEEED TO ADDDD
+The <samp>OperatorOnlyException</samp> class defines a particular exception that is thrown when the <samp>Function</samp> is only an operator and nothing else. 
 
 ## Statistics Class
-NEEED TO ADDDD
+The <samp>Statistics</samp> class is various statistical tools, such as linear regression, significance tests, etc. TODOOOOO
 
 ## VariableDefinitionException Class 
-NEEED TO ADDDD 
+The <samp>VariableDefinitionException</samp> class defines a specific error that will be thrown when a particular variable is not defined, which is used primarily in the <samp>Calculus</samp> code logic. 
