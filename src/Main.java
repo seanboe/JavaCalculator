@@ -45,7 +45,7 @@ public class Main {
 
 
 
-    String input = InfixParser.parse("x^2+2");
+    String input = InfixParser.parse("x");
 
     Stack<Function> blaze = InfixParser.stringRPNToStack(input);
 
@@ -58,15 +58,20 @@ public class Main {
       e.printStackTrace();
     }
 
-    try {
-      System.out.println(blaze.pop().compute(5));
-    } catch (ArithmeticException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    } catch (OperatorOnlyException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+      Function f = blaze.pop();
+
+      try {
+        System.out.println(Algebra.bisectionZeros(f, -5, -1));
+      } catch (InvalidInputsException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (ArithmeticException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (OperatorOnlyException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
 
 	}
 			

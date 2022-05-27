@@ -1476,10 +1476,12 @@ public class GUIv3 extends javax.swing.JFrame {
         //Get an array of all the zeros
         ArrayList < Double > zeros = new ArrayList < Double > ();
 
-        try {
-            zeros.add(Algebra.computeZeros(f, 1));
-        } catch (Exception e) {
-
+        for (int i = -10000; i<=10000; i+=2) {
+            try {
+                zeros.add(Algebra.bisectionZeros(f, i, i+2));
+            } catch (Exception e) {
+                continue;
+            }
         }
 
         if (zeros.size() > 0) {
