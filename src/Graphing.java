@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.nio.file.FileSystemAlreadyExistsException;
 import java.util.HashMap;
-
+import java.util.Stack;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -28,9 +28,10 @@ public class Graphing extends JPanel implements KeyListener, ActionListener {
   
   private Function function; 
 	
-	public Graphing() {
+	public Graphing(Function fx) {
 		// NEED TO INSTANTIATE THE MEMBER VARIABLE function 
 		JFrame f = new JFrame("Graphing");
+		function = fx;
 		f.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
 		f.setBackground(Color.black); 
 		f.add(this);
@@ -60,18 +61,22 @@ public class Graphing extends JPanel implements KeyListener, ActionListener {
 
     double prevX = 0;
     double prevY = functionExample(prevX);
-    for (double x = -HALF_WIDTH; x < HALF_WIDTH; x += stepSize) {
-      double computation = functionExample(x);
-
-      // scaling everything properly
-      double coordX = x + HALF_WIDTH;
-      computation = HALF_HEIGHT - computation;
-
-      // g.fillOval((int)(coordX), (int)(computation), 2, 2);
-      g.drawLine((int)prevX, (int)prevY, (int)coordX, (int)computation);
-      prevX = coordX;
-      prevY = computation;
-    }
+    try {
+		for (double x = -HALF_WIDTH; x < HALF_WIDTH; x += stepSize) {
+			double computation = function.compute(x);
+	  
+			// scaling everything properly
+			double coordX = x + HALF_WIDTH;
+			computation = HALF_HEIGHT - computation;
+	  
+			// g.fillOval((int)(coordX), (int)(computation), 2, 2);
+			g.drawLine((int)prevX, (int)prevY, (int)coordX, (int)computation);
+			prevX = coordX;
+			prevY = computation;
+		  }
+	} catch (Exception e) {
+		//TODO: handle exception
+	}
 
   }
 
@@ -168,7 +173,26 @@ public class Graphing extends JPanel implements KeyListener, ActionListener {
 
 	public static void main(String[] args) {
 
-    Graphing graph = new Graphing(); 
+
+		String infix = "x^2+1";
+
+        String rpn = InfixParser.parse(infix);
+
+        Stack < Function > blaze = InfixParser.stringRPNToStack(rpn);
+
+        blaze = InfixParser.reverseStack(blaze);
+
+        try {
+            InfixParser.crunchRPNStack(blaze);
+        } catch (OperatorOnlyException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+        Function f = blaze.pop();
+
+    	Graphing graph = new Graphing(f); 
 
 	}
 
