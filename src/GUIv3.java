@@ -1454,7 +1454,18 @@ public class GUIv3 extends javax.swing.JFrame {
     private void equationinputfieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         //Convert input equation to function(and rpn)
+        boolean hasequals = false;
+
         String infix = equationinputfield.getText();
+
+        if (infix.indexOf("=")!=-1) {
+            //Subtract right side from left side
+            String rightside = infix.substring(infix.indexOf("=")+1);
+            String leftside = infix.substring(0, infix.indexOf("="));
+            infix = leftside + "- (" + rightside + ")";
+            System.out.println(infix);
+            hasequals = true;
+        }
 
         String rpn = InfixParser.parse(infix);
 
@@ -1492,8 +1503,21 @@ public class GUIv3 extends javax.swing.JFrame {
             }
         }
 
+        for (int i = 0; i<zeros.size()-1; i++) {
+            for (int j = i+1; j<zeros.size(); j++) {
+                if (zeros.get(i)==zeros.get(j)) {
+                    zeros.remove(j);
+                    j--;
+                }
+            }
+        }
+
         if (zeros.size() > 0) {
-            jLabel1.setText(zeros.toString());
+            if (hasequals) {
+                jLabel1.setText("Solutions:" + zeros.toString());
+            } else {
+                jLabel1.setText("Zeros" + zeros.toString());
+            }
         } else {
             jLabel1.setText("This function has no zeros");
         }
