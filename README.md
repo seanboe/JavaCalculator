@@ -44,7 +44,7 @@
 
 $$
 A_{midpointRiemann} \approx \lim_{n\to\infty}{\sum_{i=1}^{n}}f(x_i^*)(\Delta x^*)
-$$
+$$ 
 
 
 
