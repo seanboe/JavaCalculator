@@ -69,8 +69,7 @@ This is just a class we use to test certain methods, logic, etc.
 ## Statistics Class
 The <samp>Statistics</samp> class is essentially split into 2 parts, linear regression significance tests. For the linear regression, 
 
-## VariableDefinitionException Class 
-NEEED TO ADDDD 
+
 
 
 ## Exception classes 🚀
@@ -81,8 +80,11 @@ These classes define exceptions for invalid mathematical calculations or anythin
 The <samp>ArithmeticException</samp> defines an arithmetic exception that is thrown when an invalid mathematical operation is done. For instance, dividing by zero would result in an <samp>ArithmeticException</samp>. 
 
 ### OperatorOnlyException Class 
-The <samp>OperatorOnlyException</samp> class defines 
+The <samp>OperatorOnlyException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is only an operator and nothing else. 
 
-## InvalidInputsException Class 🚀
+### InvalidInputsException Class 
 The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
 The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
+
+### VariableDefinitionException Class 
+The <samp>VariableDefinitionException</samp> defines a specific exception that will be thrown when a variable is not defined. 
