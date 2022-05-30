@@ -1486,29 +1486,27 @@ public class GUIv3 extends javax.swing.JFrame {
         f = blaze.pop();
 
         //Get an array of all the zeros
+        ArrayList < Double > zeros1 = new ArrayList < Double > ();
         ArrayList < Double > zeros = new ArrayList < Double > ();
 
         for (int i = -10000; i<=10000; i+=2) {
             try {
-                zeros.add(Algebra.bisectionZeros(f, i, i+2));
+                zeros1.add(Algebra.bisectionZeros(f, i, i+2));
             } catch (Exception e) {
                 continue;
             }
         }
         for (int i = -10001; i<=10000; i+=2) {
             try {
-                zeros.add(Algebra.bisectionZeros(f, i, i+2));
+                zeros1.add(Algebra.bisectionZeros(f, i, i+2));
             } catch (Exception e) {
                 continue;
             }
         }
 
-        for (int i = 0; i<zeros.size()-1; i++) {
-            for (int j = i+1; j<zeros.size(); j++) {
-                if (zeros.get(i)==zeros.get(j)) {
-                    zeros.remove(j);
-                    j--;
-                }
+        for (int i = 0; i<zeros1.size(); i++) {
+            if (!zeros.contains(zeros1.get(i))) {
+                zeros.add(zeros1.get(i));
             }
         }
 
