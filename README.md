@@ -12,7 +12,7 @@ Functionality:
 - root tests
 - and other various calculations... 
 
-Here are some screenshots of our UI for the calculator: 
+Here are some screenshots 🚀 of our UI for the calculator: 
 
 <p align="center">
   <img src="images/ss1.png" width="570">
@@ -46,19 +46,19 @@ A_{midpointRiemann} \approx \lim_{n\to\infty}{\sum_{i=1}^{n}}f(x_i^*)(\Delta x^*
 $$
 
 ## Function Class 
-The <samp>Function</samp> class defines all functions used for computations and other mathematical methods in binary pairs. On input, all functions are simplified to multiple <samp>Function</samp> objects that contain each other so that large functions can be simplified into binomial or monomial expressions. This creates a virtually recursive system since each function can invoke the <samp>compute()</samp> method on its parameters, which will then compute there parameters, and so on and so forth. This means that all variables, numbers, operations, and functions are stored as <samp>Function</samp> objects, making parsing from Reverse Polish Notation to a <samp>Function</samp> object very easy. The <samp>Function</samp> class also remembers all computations that it performs, so if the <samp>Function</samp> is computed at a certain point, it will simply return the previously calculated value without recalculating the value in order to save time.
+🚀 The <samp>Function</samp> class defines all functions used for computations and other mathematical methods in binary pairs. On input, all functions are simplified to multiple <samp>Function</samp> objects that contain each other so that large functions can be simplified into binomial or monomial expressions. This creates a virtually recursive system since each function can invoke the <samp>compute()</samp> method on its parameters, which will then compute there parameters, and so on and so forth. This means that all variables, numbers, operations, and functions are stored as <samp>Function</samp> objects, making parsing from Reverse Polish Notation to a <samp>Function</samp> object very easy. The <samp>Function</samp> class also remembers all computations that it performs, so if the <samp>Function</samp> is computed at a certain point, it will simply return the previously calculated value without recalculating the value in order to save time. 🚀
 
-## Graphing Class 
-The graphing algorithm graphs all points of a function, or multiple functions, on a coordinate plane. It uses a while loop that evaluates each function on a defined interval in order to produce the graph. All the points are then connected with small line segments since this allows the graph to be more smooth and accurate. The grapher also includes generation for the coordinate axis and even gridlines that can be spaced apart at set intervals. 
+## Graphing Class 🚀
+🚀 The graphing algorithm graphs all points of a function, or multiple functions, on a coordinate plane. It uses a while loop that evaluates each function on a defined interval in order to produce the graph. All the points are then connected with small line segments since this allows the graph to be more smooth and accurate. The grapher also includes generation for the coordinate axis and even gridlines that can be spaced apart at set intervals. 🚀
 
 ## GUIv3 Class 
-The <samp>GUIv3</samp> class contains code for generating the entire UI, sometimes using Netbeans and Visual Studio Code. The UI is developed using Java Swing, a desktop application library. All the code to integrate the backend with the frontend was made possible by <samp>java.awt.event.MouseEvent evt</samp> to detect mouse input. By writing listeners on all the buttons, we were able to detect and use input from the frontend. We developed 3 versions of the UI before arriving at our final version.
+The <samp>GUIv3</samp> class contains code for generating the entire UI, sometimes using Netbeans and Visual Studio Code. The UI is developed using Java Swing, a desktop application library. 🚀 All the code to integrate the backend with the frontend was made possible by <samp>java.awt.event.MouseEvent evt</samp> to detect mouse input. By writing listeners on all the buttons, we were able to detect and use input from the frontend. We developed 3 versions of the UI before arriving at our final version.
 
 ## InfixParser Class
 The InfixParser class contains methods for parsing infix expressions like (x^2+1) into Reverse Polish notation. Reverse Polish
 notation is easier for our algorithms to process, so it is imperative that we correctly convert infix expressions. It needs to 
 respect the order of operations, so we resorted to an algorithm invented by Edsger Dijkstra to do just this: The
-shunting yard algorithm(named for its resemblance to a train shunting yard). The infixparser class has some helper methods
+shunting yard algorithm(named for its resemblance to a train shunting yard) 🚀. The infixparser class has some helper methods
 and one static method: parse(String infix). This method runs the shunting yard algorithm and returns the RPN version
 of the input string.
 
@@ -73,7 +73,7 @@ The <samp>Statistics</samp> class is essentially split into 2 parts, linear regr
 NEEED TO ADDDD 
 
 
-## Exception classes
+## Exception classes 🚀
 
 These classes define exceptions for invalid mathematical calculations or anything that makes function computation incorrect.
 
@@ -83,6 +83,6 @@ The <samp>ArithmeticException</samp> defines an arithmetic exception that is thr
 ### OperatorOnlyException Class 
 The <samp>OperatorOnlyException</samp> class defines 
 
-## InvalidInputsException Class
+## InvalidInputsException Class 🚀
 The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
 The <samp>InvalidInputsException</samp> class defines a specific exception that will be thrown, when a <samp>Function</samp> object is inputted incorrectly. 
