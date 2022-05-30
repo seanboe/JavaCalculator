@@ -35,27 +35,49 @@ public class Calculus {
 
 	}
 
-  /**
-   * Returns the total area under a function or the area under a curve from a constant to +∞ or from -∞ to a constant, depending on the specification. 
-   * @param function , the function of interest (must be a <code>Function</code> object). 
-   * @param lowBound , the low bound of the integral. It is a <code>String</code> (must be either "-infty" or a real number in <code>String</code> format). 
-   * @param highBound , the high bound of the integral. It is a <code>String</code> (must be either "+infty" or a real number in <code>String</code> format). 
-   * @return the area under <strong>function</strong>, with respect to <strong>lowBound</strong> and <strong>highBound</strong>. 
-   * @throws OperatorOnlyException
-   * @throws ArithmeticException
-   * @throws NumberFormatException
-   */
-  public static String computeImproperIntegral(Function function, String lowBound, String highBound) throws NumberFormatException, ArithmeticException, OperatorOnlyException {
+  // /**
+  //  * Returns the total area under a function or the area under a curve from a constant to +∞ or from -∞ to a constant, depending on the specification. 
+  //  * @param function , the function of interest (must be a <code>Function</code> object). 
+  //  * @param lowBound , the low bound of the integral. It is a <code>String</code> (must be either "-inf" or a real number in <code>String</code> format). 
+  //  * @param highBound , the high bound of the integral. It is a <code>String</code> (must be either "+inf" or a real number in <code>String</code> format). 
+  //  * @return the area under <strong>function</strong>, with respect to <strong>lowBound</strong> and <strong>highBound</strong>. 
+  //  * @throws OperatorOnlyException
+  //  * @throws ArithmeticException
+  //  * @throws NumberFormatException
+  //  * @throws VariableDefinitionException
+  //  */
+  // public static String computeImproperIntegral(Function function, double bound, String direction) throws NumberFormatException, ArithmeticException, OperatorOnlyException, VariableDefinitionException {
 
-    if (lowBound.equals("-infty")) {
-      return computeDefiniteIntegral(function, -10000.0, Double.parseDouble(highBound)) + ""; 
-    } else if (highBound.equals("+infty")) {
-      return computeDefiniteIntegral(function, Double.parseDouble(lowBound), 10000.0) + ""; 
-    }
+  //   final double offset = 1.0;
+  //   double output = 0;
 
-    return ""; 
+  //   double time = System.currentTimeMillis();
 
-  }
+  //   if (direction.equals("-")) {
+  //     for (double x = bound; x > -10000; x -= offset) {
+  //       System.out.println("neg");
+  //       if (Math.abs(computeDerivativeAtAPoint(function, x)) < 0.0000001) {
+  //         if (time - System.currentTimeMillis() > 5000) 
+  //           break;
+  //         return (output > 1000000 ? "undef" : output + "");
+  //       }
+  //       output += function.compute(x);
+  //     }
+  //   }
+  //   else if (direction.equals("+")) {
+  //     System.out.println("pos");
+  //     for (double x = bound; x < 10000; x += offset) {
+  //       if (Math.abs(computeDerivativeAtAPoint(function, x)) < 0.0000001) {
+  //         if (time - System.currentTimeMillis() > 5000) 
+  //           break;
+  //         return (output > 1000000 ? "undef" : output + " " + x);
+  //         }
+  //       output += function.compute(x);
+  //     }
+  //   }
+    
+  //   return "undef";
+  // }
 	
   /**
    * Returns the derivative of a function at a specific x-value. 
