@@ -108,8 +108,20 @@ public class InfixParser {
         infix = infix + ")";
 
         for (int i = 0; i<infix.length(); i++) {
+          try {
+            if (Character.isDigit(infix.substring(i, i+1).charAt(0)) && infix.substring(i+1, i+2).charAt(0)=='x') {
+              infix = infix.substring(0, i+1) + "*" + infix.substring(i+1);
+              continue;
+            }
+          } catch (Exception e) {
+            e.printStackTrace();
+          }
+        }
+
+        for (int i = 0; i<infix.length(); i++) {
             String token = infix.substring(i, i+1);
             if (Character.isDigit(token.charAt(0)) || token.equals("x")) {
+                
                 try {
                   if (Character.isDigit(infix.substring(i+1, i+2).charAt(0))) {
                     rpn += token;
