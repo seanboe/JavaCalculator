@@ -1,8 +1,4 @@
 import java.util.Stack;
-
-import javax.swing.text.AttributeSet.CharacterAttribute;
-
-import java.rmi.server.ExportException;
 import java.util.ArrayList;
 
 public class InfixParser {

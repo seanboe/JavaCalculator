@@ -4,7 +4,6 @@
  */
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Stack;
 /**
  *
  * @author bc
@@ -15,23 +14,23 @@ public class GUIv3 extends javax.swing.JFrame {
      * Creates new form GUIv3
      */
     public GUIv3() {
-        // String infix = "x^2+1";
+        String infix = "x^2+1";
 
-        // String rpn = InfixParser.parse(infix);
+        if (infix.indexOf("=")!=-1) {
+            //Subtract right side from left side
+            String rightside = infix.substring(infix.indexOf("=")+1);
+            String leftside = infix.substring(0, infix.indexOf("="));
+            infix = leftside + "- (" + rightside + ")";
+            System.out.println(infix);
+        }
 
-        // Stack < Function > blaze = InfixParser.stringRPNToStack(rpn);
+        String rpn = InfixParser.parse(infix);
 
-        // blaze = InfixParser.reverseStack(blaze);
+        ArrayList<Function> blaze = InfixParser.stringRPNtoList(rpn);
 
-        // try {
-        //     InfixParser.crunchRPNStack(blaze);
-        // } catch (OperatorOnlyException e) {
-        //     // TODO Auto-generated catch block
-        //     e.printStackTrace();
-        // }
+        //blaze = InfixParser.reverseStack(blaze);
 
-
-        // f = blaze.pop();
+        f = InfixParser.RPNCruncher(blaze);
 
         initComponents();
     }
