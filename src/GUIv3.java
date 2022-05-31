@@ -16,9 +16,9 @@ public class GUIv3 extends javax.swing.JFrame {
     public GUIv3() {
         String infix = "x^2+1";
 
-        if (infix.indexOf("=")!=-1) {
+        if (infix.indexOf("=") != -1) {
             //Subtract right side from left side
-            String rightside = infix.substring(infix.indexOf("=")+1);
+            String rightside = infix.substring(infix.indexOf("=") + 1);
             String leftside = infix.substring(0, infix.indexOf("="));
             infix = leftside + "- (" + rightside + ")";
             System.out.println(infix);
@@ -26,7 +26,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
         String rpn = InfixParser.parse(infix);
 
-        ArrayList<Function> blaze = InfixParser.stringRPNtoList(rpn);
+        ArrayList < Function > blaze = InfixParser.stringRPNtoList(rpn);
 
         //blaze = InfixParser.reverseStack(blaze);
 
@@ -38,7 +38,7 @@ public class GUIv3 extends javax.swing.JFrame {
     /**
      * Initialize components, set locations and colors, etc
      */
-    @SuppressWarnings("unchecked")                      
+    @SuppressWarnings("unchecked")
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -1457,9 +1457,9 @@ public class GUIv3 extends javax.swing.JFrame {
 
         String infix = equationinputfield.getText();
 
-        if (infix.indexOf("=")!=-1) {
+        if (infix.indexOf("=") != -1) {
             //Subtract right side from left side
-            String rightside = infix.substring(infix.indexOf("=")+1);
+            String rightside = infix.substring(infix.indexOf("=") + 1);
             String leftside = infix.substring(0, infix.indexOf("="));
             infix = leftside + "- (" + rightside + ")";
             System.out.println(infix);
@@ -1470,7 +1470,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
         rpnequationoutputlabel.setText(rpn);
 
-        ArrayList<Function> blaze = InfixParser.stringRPNtoList(rpn);
+        ArrayList < Function > blaze = InfixParser.stringRPNtoList(rpn);
 
         //blaze = InfixParser.reverseStack(blaze);
 
@@ -1483,22 +1483,22 @@ public class GUIv3 extends javax.swing.JFrame {
         ArrayList < Double > zeros1 = new ArrayList < Double > ();
         ArrayList < Double > zeros = new ArrayList < Double > ();
 
-        for (int i = -10000; i<=10000; i+=2) {
+        for (int i = -10000; i <= 10000; i += 2) {
             try {
-                zeros1.add(Algebra.bisectionZeros(f, i, i+2));
+                zeros1.add(Algebra.bisectionZeros(f, i, i + 2));
             } catch (Exception e) {
                 continue;
             }
         }
-        for (int i = -10001; i<=10000; i+=2) {
+        for (int i = -10001; i <= 10000; i += 2) {
             try {
-                zeros1.add(Algebra.bisectionZeros(f, i, i+2));
+                zeros1.add(Algebra.bisectionZeros(f, i, i + 2));
             } catch (Exception e) {
                 continue;
             }
         }
 
-        for (int i = 0; i<zeros1.size(); i++) {
+        for (int i = 0; i < zeros1.size(); i++) {
             if (!zeros.contains(zeros1.get(i))) {
                 zeros.add(zeros1.get(i));
             }
@@ -1948,7 +1948,7 @@ public class GUIv3 extends javax.swing.JFrame {
 
         ArrayList < Double > array1 = new ArrayList < Double > ();
 
-       //Make an array out of the comma separated input
+        //Make an array out of the comma separated input
         int lastindex = 0;
         while (data1.indexOf(",") >= 0) {
             lastindex = data1.indexOf(",");
