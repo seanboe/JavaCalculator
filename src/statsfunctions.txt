@@ -8,7 +8,11 @@ computeA - Arrays of equal length in input row 1 and 2.
 computeB - Arrays of equal length in input row 1 and 2.
 computeR - Arrays of equal length in input row 1 and 2.
 computeRsquaredvalue - Arrays of equal length in input row 1 and 2.
+
 computezprobmidpointriemann - Single doubles in input row 1 and 2
+(pass in 2 double arguments)
+
 computezmeanstesthasgreaterthanvalue - array of 5 doubles in row 1
 computezmeanshaslessthanvalue - array of 5 doubles in row 1
 computezmeanstesthasnotequaltovalue - array of 5 doubles in row 1
+(for each of the significance tests, pass in population mean (µ), population standard deviation (σ), sample mean, sample size, alpha (α), all in double format)
