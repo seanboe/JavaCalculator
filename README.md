@@ -106,7 +106,7 @@ of the input string.
 
 🚀 These classes define exceptions for invalid mathematical calculations or anything that makes function computation incorrect.
 
-### ArithmeticException
+### ArithmeticException Class 
 The <samp>ArithmeticException</samp> defines an arithmetic exception that is thrown when an invalid mathematical operation is done. For instance, dividing by zero would result in an <samp>ArithmeticException</samp>. 
 
 ### OperatorOnlyException Class 
