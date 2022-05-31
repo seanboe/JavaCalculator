@@ -31,7 +31,7 @@
 </p>
 <p align="center">
   <img src="images/ss6.png" width="570">
-</p>
+</p> 
 
 <br>
 
