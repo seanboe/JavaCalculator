@@ -1,4 +1,7 @@
 import java.util.Stack;
+
+import javax.swing.text.AttributeSet.CharacterAttribute;
+
 import java.rmi.server.ExportException;
 import java.util.ArrayList;
 
@@ -7,17 +10,90 @@ public class InfixParser {
 
     public InfixParser() {}
 
+    //Parse method with support for functions
+    public static String parsev2(String infix) {
+
+
+      Stack<Character> stack = new Stack<Character>();
+      ArrayList<Character> result = new ArrayList<Character>();
+
+      ArrayList<Character> tokens = arraytolist(infix.toCharArray());
+
+      //Main algorithm
+      for (char token : tokens) {
+
+        if (isNumber(token)) {
+          result.add(token);
+          continue;
+        }
+        if (isFunction(token)) {
+          stack.push(token);
+          continue;
+        }
+
+        if (token=='(') {
+          stack.push(token);
+          continue;
+        }
+
+        if (token==')') {
+          char current = stack.pop();
+          while (!(token==')')) {
+            if (!(token==',')) {
+              result.add(token);
+            }
+            current = stack.pop();
+          }
+          continue;
+        }
+
+        
+
+
+      }
+
+
+
+      
+
+      return "";
+    }
+
+    public static boolean isNumber(char token) {
+      return Character.isDigit(token);
+    }
+
+    public static boolean isFunction(char token) {
+      if (token=='s' || token=='c' || token=='t') {
+        return true;
+      }
+      return false;
+    }
+
+    public static ArrayList<Character> arraytolist(char[] array) {
+      ArrayList<Character> list = new ArrayList<Character>();
+
+      for (char c : array) {
+        list.add(c);
+      }
+
+      return list;
+    }
+
+
+
+
     // This method returns the precedence (computational value by the order of operations) for each operator.
     public static int getPrecedence(String s) {
-        char ch = s.charAt(0);
-        if (ch == '+' || ch == '-')
-            return 1;
-        else if (ch == '*' || ch == '/')
-            return 2;
-        else if (ch == '^')
-            return 3;
-        else
-            return -1;
+      char ch = s.charAt(0);
+      if (ch == '+' || ch == '-')
+          return 1;
+      else if (ch == '*' || ch == '/')
+          return 2;
+      else if (ch == '^')
+          return 3;
+      else
+          return -1;
     }
 
     // This method uses the shunting yard algorithm to parse infix expressions to rpn, which can more easily be 
