@@ -50,6 +50,10 @@ $$  -->
   <img src="images/latexrender.png" width="">
 </p> 
 
+<img src="https://render.githubusercontent.com/render/math?math={\color{white}8}">
+
+<img src="https://render.githubusercontent.com/render/math?math={\color{white}L = -\sum_{j}[T_{j}ln(O_{j})] \rightarrow \text{one-hot} \rightarrow -ln(O_{c}) + \frac{\lambda W_{ij}^{2}}{2}}">
+
 ## Function Class 🚀
 🚀 The <samp>Function</samp> class defines all functions used for computations and other mathematical methods in binary pairs. On input, all functions are simplified to multiple <samp>Function</samp> objects that contain each other so that large functions can be simplified into binomial or monomial expressions. This creates a virtually recursive system since each function can invoke the <samp>compute()</samp> method on its parameters, which will then compute there parameters, and so on and so forth. This means that all variables, numbers, operations, and functions are stored as <samp>Function</samp> objects, making parsing from Reverse Polish Notation to a <samp>Function</samp> object very easy. The <samp>Function</samp> class also remembers all computations that it performs, so if the <samp>Function</samp> is computed at a certain point, it will simply return the previously calculated value without recalculating the value in order to save time. 
 
