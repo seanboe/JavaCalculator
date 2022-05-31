@@ -89,16 +89,18 @@ public class InfixParser {
     // a Function object. It works by parsing around spaces, which sepearate the rpn input string, and determining
     // what type of mathematical expression they are in order to convert them to Function objects individually (see
     // the Function class for more detail on this).
-    public static Stack<Function> stringRPNToStack(String rpnInput) {
-      Stack<Function> output = new Stack<Function>();
-  
+   // Updated rpn parsing stuff - will update on tuesday in class
+    public static ArrayList<Function> stringRPNtoList(String rpnInput) {
+
+      ArrayList<Function> output = new ArrayList<Function>();
+    
       if (!rpnInput.substring(rpnInput.length() - 1, rpnInput.length()).equals(" ")) {
         rpnInput += " ";
       }
-  
+
       while (rpnInput.indexOf(" ") >= 0) {
         String section = rpnInput.substring(0, rpnInput.indexOf(" "));
-  
+
         if (Character.isDigit(section.charAt(0))) {
           output.add(new Function(Double.parseDouble(section)));
         }
@@ -110,51 +112,49 @@ public class InfixParser {
         }
         rpnInput = rpnInput.substring(rpnInput.indexOf(" ") + 1);
       }
-  
+
       return output;
+
     }
 
-    // This method simplifies everything on the rpn stack (as parsed by stringRPNToStack) into a single Function object 
-    // for simple computation.
-    public static Stack<Function> reverseStack(Stack<Function> stack) {
-      Stack<Function> output = new Stack<Function>();
+    public static Function RPNCruncher(ArrayList<Function> rpnList) {
+      Stack<Function> evalStack = new Stack<Function>();
   
-      // Stack<Function> tempStack = (Stack<Function>)output.clone();
+      int startSize = rpnList.size();
   
-      while (stack.size() > 0) {
-        // Function temp = tempStack.pop();
-        Function temp = stack.pop();
-        output.push(temp);
-      }
-      return output;
-    }
-
-    public static int crunchRPNStack(Stack<Function> stack) throws OperatorOnlyException {
-
-      int counter = 0;
-
-      while (stack.size() > 1) {          
-
-        int originalSize = stack.size();
-
-        Function last = stack.pop();
-        Function secondLast = stack.pop();
-
-        if (secondLast.isOperator()) {
-          stack.push(new Function(last, secondLast));
-        }
-        else if (originalSize >= 3) {
-          Function thirdLast = stack.pop();
-          if (thirdLast.isOperator()) {
-            stack.push(new Function(last, secondLast, thirdLast));
+      for (int x = 0; x < startSize; x++) {
+  
+        evalStack.push(rpnList.remove(0));
+  
+        int stackSize = evalStack.size();
+        if (stackSize >= 2) {
+  
+          Function last = evalStack.pop();
+  
+          if (!last.isOperator()) {
+            evalStack.push(last);
+            continue;
+          }
+  
+          Function secondLast = evalStack.pop();
+  
+          try {
+            if (Function.validSingleComputeOperation(last.getOperator())) {
+              evalStack.push(new Function(secondLast, last));
+            }
+            else if (Function.validMultiComputeOperation(last.getOperator()) && stackSize >= 3) {
+              Function thirdLast = evalStack.pop();
+              evalStack.push(new Function(thirdLast, secondLast, last));
+            }
+          } catch (OperatorOnlyException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
           }
         }
-
-        counter++;
       }
-
-      return counter;
-
+  
+      return evalStack.pop();
+  
     }
 
 }
