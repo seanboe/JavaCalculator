@@ -171,30 +171,30 @@ public class Graphing extends JPanel implements KeyListener, ActionListener {
     //return Math.pow(point.get("x"), 3); 
   }
 
-	public static void main(String[] args) {
+	// public static void main(String[] args) {
 
 
-		String infix = "x^2+1";
+	// 	String infix = "x^2+1";
 
-        String rpn = InfixParser.parse(infix);
+  //       String rpn = InfixParser.parse(infix);
 
-        Stack < Function > blaze = InfixParser.stringRPNToStack(rpn);
+  //       Stack < Function > blaze = InfixParser.stringRPNToStack(rpn);
 
-        blaze = InfixParser.reverseStack(blaze);
+  //       blaze = InfixParser.reverseStack(blaze);
 
-        try {
-            InfixParser.crunchRPNStack(blaze);
-        } catch (OperatorOnlyException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+  //       try {
+  //           InfixParser.crunchRPNStack(blaze);
+  //       } catch (OperatorOnlyException e) {
+  //           // TODO Auto-generated catch block
+  //           e.printStackTrace();
+  //       }
 
 
-        Function f = blaze.pop();
+  //       Function f = blaze.pop();
 
-    	Graphing graph = new Graphing(f); 
+  //   	Graphing graph = new Graphing(f); 
 
-	}
+	// }
 
   @Override
   public void keyPressed(KeyEvent arg0) {

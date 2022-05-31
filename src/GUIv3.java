@@ -15,23 +15,23 @@ public class GUIv3 extends javax.swing.JFrame {
      * Creates new form GUIv3
      */
     public GUIv3() {
-        String infix = "x^2+1";
+        // String infix = "x^2+1";
 
-        String rpn = InfixParser.parse(infix);
+        // String rpn = InfixParser.parse(infix);
 
-        Stack < Function > blaze = InfixParser.stringRPNToStack(rpn);
+        // Stack < Function > blaze = InfixParser.stringRPNToStack(rpn);
 
-        blaze = InfixParser.reverseStack(blaze);
+        // blaze = InfixParser.reverseStack(blaze);
 
-        try {
-            InfixParser.crunchRPNStack(blaze);
-        } catch (OperatorOnlyException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        // try {
+        //     InfixParser.crunchRPNStack(blaze);
+        // } catch (OperatorOnlyException e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
 
 
-        f = blaze.pop();
+        // f = blaze.pop();
 
         initComponents();
     }
@@ -1471,19 +1471,14 @@ public class GUIv3 extends javax.swing.JFrame {
 
         rpnequationoutputlabel.setText(rpn);
 
-        Stack < Function > blaze = InfixParser.stringRPNToStack(rpn);
+        ArrayList<Function> blaze = InfixParser.stringRPNtoList(rpn);
 
-        blaze = InfixParser.reverseStack(blaze);
+        //blaze = InfixParser.reverseStack(blaze);
 
-        try {
-            InfixParser.crunchRPNStack(blaze);
-        } catch (OperatorOnlyException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        f = InfixParser.RPNCruncher(blaze);
 
 
-        f = blaze.pop();
+        //f = blaze.pop();
 
         //Get an array of all the zeros
         ArrayList < Double > zeros1 = new ArrayList < Double > ();
