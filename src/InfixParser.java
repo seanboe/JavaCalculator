@@ -42,15 +42,7 @@ public class InfixParser {
                 }
                 continue;
             }
-
-
-
-
         }
-
-
-
-
 
         return "";
     }
@@ -233,9 +225,7 @@ public class InfixParser {
                 }
             }
         }
-
         return evalStack.pop();
-
     }
 
 }
